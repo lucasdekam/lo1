@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -57,6 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'porphyrins';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -346,7 +348,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -362,6 +366,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-functional-theory-for-molecules">Density functional theory for molecules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-geometry-optimization-of-ethanol">Task 1: geometry optimization of ethanol</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-simulate-an-oxygen-molecule">Task 2: simulate an oxygen molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-simulate-a-metalloporphyrin">Task 3: simulate a metalloporphyrin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-simulate-a-metalloporphyrin-binding-an-oxygen-molecule">Task 4: simulate a metalloporphyrin binding an oxygen molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-binding-energy">Task 5: binding energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-small-research-project">Task 6: small research project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -373,13 +392,177 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="porphyrins">
 <h1>Porphyrins<a class="headerlink" href="#porphyrins" title="Link to this heading">#</a></h1>
-<p>Simulating molecules. Orbitals. Basis sets.</p>
-<p>Optimizing geometry tutorial (ethanol).</p>
-<p>Simulating an oxygen molecule. Spin.</p>
-<p>Simulating a porphyrin with a metal center.</p>
-<p>Analyzing the result, is it sensible?</p>
-<p>(Gibbs) energy of adsorption.</p>
-<p>Varying simulation parameters. Solvation. Various metal centers.</p>
+<p>Porphyrins are complexes based on a porphine molecule bound to a metal ion in the center. They are found in various biological systems. For example, heme is a porphyrin, which is a part of the hemoglobin complex that binds oxygen in your blood. Chlorophyll, which is responsible for photosynthesis, also has a porphyrin group.</p>
+<img src="images/porphine.png" alt="Porphine" height="200"/>
+<p><em>Porphine</em> (<a class="reference external" href="https://en.wikipedia.org/wiki/Porphyrin#/media/File:Porphyrin.svg">source</a>)</p>
+<img src="images/heme.png" alt="Heme" height="200"/>
+<p><em>Heme binding oxygen</em> (<a class="reference external" href="https://en.wikipedia.org/wiki/Heme#/media/File:Mboxygenation.png">source</a>)</p>
+<p>In the electrochemistry project you will do or have done, porphyrins are deposited on a metal surface. Their metal centers can catalyze the oxygen reduction reaction. In this project, we will use density functional theory calculations to try and understand the reaction mechanism.</p>
+<section id="density-functional-theory-for-molecules">
+<h2>Density functional theory for molecules<a class="headerlink" href="#density-functional-theory-for-molecules" title="Link to this heading">#</a></h2>
+<p>Remember that our goal is to find the ground-state energy of several systems, from which we can then calculate the binding energy. (In experimental conditions, molecules are close to the ground state as well.)</p>
+<p>To this end we want to solve the Kohn-Sham equations for the orbitals (one-electron wave functions) <span class="math notranslate nohighlight">\(\psi_i\)</span> and their energies <span class="math notranslate nohighlight">\(\varepsilon_i\)</span>. Wave functions are functions, which you could view as an infinite collection of numbers: there are infinitely many points in space, and each space has a corresponding value of the wavefunction. How do we put this into a computer?</p>
+<p>One option would be to divide space into a grid (like a 3D chess board) and solve the wave function in each cube. It turns out that this is not very efficient. Instead, it turns out that wave functions usually have pretty similar shapes. In practice we ‘build’ each orbital out of a small collection of basic functions <span class="math notranslate nohighlight">\(\phi_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \psi(x) = c_1 \phi_1(x) + c_2 \phi_2 (x) + \cdots .\]</div>
+<p>The <span class="math notranslate nohighlight">\(\phi_i\)</span> are called <em>basis functions</em>, and <span class="math notranslate nohighlight">\(c_i\)</span> are the <em>coefficients</em> that scale them. The collection of all <span class="math notranslate nohighlight">\(\phi_i\)</span> is called a <em>basis set</em>. The image below shows an example.</p>
+<img src="images/basis-functions.png" alt="Basis functions" height="200">
+<p><em>Combining basis functions into an orbital.</em> (<a class="reference external" href="https://en.wikipedia.org/wiki/Basis_set_(chemistry)#/media/File:D-polarization_function.png">source</a>)</p>
+<p>Now the computer just needs to calculate the coefficients <span class="math notranslate nohighlight">\(c_i\)</span>. For the radial part, one popular basis function is an exponential function</p>
+<div class="math notranslate nohighlight">
+\[e^{-\zeta r}. \]</div>
+<p>Different basis functions are have different values of <span class="math notranslate nohighlight">\(\zeta\)</span>. The symbol <span class="math notranslate nohighlight">\(\zeta\)</span> is called a zeta, so a collection of three basis functions is often called a triple-zeta basis set (TZ), for example. The more basis functions you choose, the closer you can get to the ground state energy. However, the calculation might take longer. You can read more about basis sets <a class="reference external" href="https://chem.libretexts.org/Courses/Pacific_Union_College/Quantum_Chemistry/11%3A_Computational_Quantum_Chemistry/11.02%3A_Gaussian_Basis_Sets">here</a> (not required).</p>
+<p>In the following, we will use the Amsterdam Modelling Suite (AMS) software to calculate the binding energy of oxygen to porphyrin molecules. The software is available here: <a class="reference external" href="https://www.scm.com/support/downloads/">https://www.scm.com/support/downloads/</a>. Ask your supervisor for instructions to install with the university license.</p>
+<p>First, let’s get used to the software.</p>
+</section>
+<section id="task-1-geometry-optimization-of-ethanol">
+<h2>Task 1: geometry optimization of ethanol<a class="headerlink" href="#task-1-geometry-optimization-of-ethanol" title="Link to this heading">#</a></h2>
+<p>Follow <a class="reference external" href="https://www.scm.com/doc/Tutorials/GettingStarted/GeometryOptimizationOfEthanol.html">the tutorial on the website of AMS SCM</a>. Pay attention to the following things.</p>
+<ul class="simple">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">.logfile</span></code>: look for the word SCF, which stands for ‘self consistent field’. You can see that the software is running multiple cycles of the self-consistent procedure.</p></li>
+<li><p>Notice that the energy is minimized until it does not change much anymore. The change in energy before and after solving the Kohn-Sham equations is denoted as absolute error (<code class="docutils literal notranslate"><span class="pre">|Error|</span></code>).</p></li>
+<li><p>Practice saving images, which you will need later for writing your report (you don’t need to write about the ethanol tutorial, though).</p></li>
+</ul>
+<p>Now we are ready to do our first ‘useful’ calculation.</p>
+</section>
+<section id="task-2-simulate-an-oxygen-molecule">
+<h2>Task 2: simulate an oxygen molecule<a class="headerlink" href="#task-2-simulate-an-oxygen-molecule" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>In a new AMS input file, build an oxygen molecule. Pre-optimize the geometry with a simplified calculation method (force fields) using the button:</p>
+  <img src="images/optimize.png" alt="Optimize button" height="30">
+</li>
+<li><p>The ground state of oxygen has two unpaired electrons. Using the internet or your own knowledge, find out how many electrons are unpaired. The number of unpaired electrons should be entered into the field ‘Spin polarization’. To enter something in this field, you need to check the ‘Unrestricted’ box.</p></li>
+<li><p>In the rest of the practical we will use the XC functional BP86 (find it under the GGA group) and a TZ2P basis set. Choose the same settings here for consistency. (Convince yourself that this is important.)</p></li>
+<li><p>Write down the energy you get. How to find the energy? <a class="reference external" href="https://www.scm.com/doc/Tutorials/GettingStarted/10WaysToGetTheEnergy.html">Have a look at this page</a></p></li>
+</ul>
+<!-- My result: -9.85632954095 eV; Gibbs -10.2771 eV -->
+<ul class="simple">
+<li><p>Change the task from ‘Single Point’ to ‘Geometry Optimization’ and check the ‘Frequencies’ box so that we optimize the geometry and obtain information about the vibrations of an oxygen molecule.</p></li>
+<li><p>The vibrational frequency is in the <code class="docutils literal notranslate"><span class="pre">.out</span></code> file. Compare it to a value you find from a (reliable) source on the internet.</p></li>
+<li><p>Save the thermodynamic information (Statistical Thermal Analysis at the end of the <code class="docutils literal notranslate"><span class="pre">.out</span></code> file.).</p></li>
+</ul>
+<!-- ```{admonition} Bonus task 
+:class: tip, dropdown
+
+Compare with the results of a different XC functional, for example the more advanced r2SCAN-D4. How reliable are our results? What about different basis sets?
+``` -->
+</section>
+<section id="task-3-simulate-a-metalloporphyrin">
+<h2>Task 3: simulate a metalloporphyrin<a class="headerlink" href="#task-3-simulate-a-metalloporphyrin" title="Link to this heading">#</a></h2>
+<p>First, write down which metal ion is in the porphyrin you have researched or will research in the lab part of LO1. This should be iron for Team 3, cobalt for Team 5, and any of iron, cobalt and manganese for Team 4. If we don’t have much time, choose iron.</p>
+<ul>
+<li><p>In a new AMS input file, create a porphyrin molecule using the following shortcut:</p>
+  <img src="images/build-porphyrin.png" alt="Building a porphryin shortcut" height="400">
+</li>
+<li><p>Remove the two ‘attachment’ sticks on the side of the iron center.</p></li>
+<li><p>Replace the metal center with the relevant metal atom, and pre-optimize the geometry.</p></li>
+</ul>
+<p>The electronic configuration of the metals is something like <span class="math notranslate nohighlight">\(\mathrm{[Ar]} 3d^n 4s^2\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> depends on the metal. The metal center usually has oxidation state +2, so Fe(II) <span id="id1">[<a class="reference internal" href="#id25" title="Mariusz Radon and Kristine Pierloot. Binding of co, no, and o2 to heme by density functional and multireference ab initio calculations. The Journal of Physical Chemistry A, 112(46):11824–11832, 2008. doi:10.1021/jp806075b.">1</a>]</span>, Mn(II) <span id="id2">[<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">2</a>]</span>, or Co(II) <span id="id3">[<a class="reference internal" href="#id21" title="Rui Zhang and Jeffrey J Warren. Controlling the oxygen reduction selectivity of asymmetric cobalt porphyrins by using local electrostatic interactions. Journal of the American Chemical Society, 142(31):13426–13434, 2020. doi:10.1021/jacs.0c03861.">3</a>, <a class="reference internal" href="#id22" title="Bin Lv, Xialiang Li, Kai Guo, Jun Ma, Yanzhi Wang, Haitao Lei, Fang Wang, Xiaotong Jin, Qingxin Zhang, Wei Zhang, and others. Controlling oxygen reduction selectivity through steric effects: electrocatalytic two-electron and four-electron oxygen reduction with cobalt porphyrin atropisomers. Angewandte Chemie International Edition, 60(23):12742–12746, 2021. doi:10.1002/anie.202102523.">4</a>]</span>. The two electrons are removed from <span class="math notranslate nohighlight">\(4s\)</span>. The <span class="math notranslate nohighlight">\(3d\)</span> orbitals (which can hold max. 10 electrons) are partially filled.</p>
+<ul class="simple">
+<li><p>Write down the different possible spin configurations. What is the number of unpaired electrons for each of them?</p></li>
+<li><p>Using the following articles, find what the ground state of your porphyrin is. Enter the number of unpaired electrons in the field ‘Spin polarization’ (check ‘Unrestricted’ as ‘Yes’).</p>
+<ul>
+<li><p>FeP: <span id="id4">Matsuzawa <em>et al.</em> [<a class="reference internal" href="#id23" title="Nobuyuki Matsuzawa, Masafumi Ata, and David A Dixon. Density functional theory prediction of the second-order hyperpolarizability of metalloporphines. The Journal of Physical Chemistry, 99(19):7698–7706, 1995. doi:10.1021/j100019a058.">5</a>], Rovira and Parrinello [<a class="reference internal" href="#id24" title="Carme Rovira and Michele Parrinello. Oxygen binding to iron–porphyrin: a density functional study using both lsd and lsd+ gc schemes. International journal of quantum chemistry, 70(2):387–394, 1998. doi:10.1002/(SICI)1097-461X(1998)70:2&lt;387::AID-QUA16&gt;3.0.CO;2-9.">6</a>]</span></p></li>
+<li><p>MnP: <span id="id5">Phung and Pierloot [<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">2</a>]</span></p></li>
+<li><p>CoP: <span id="id6">de Souza <em>et al.</em> [<a class="reference internal" href="#id27" title="Jhonathan Rosa de Souza, Matheus Morato F de Moraes, Yuri Alexandre Aoto, and Paula Homem-de-Mello. Can one use the electronic absorption spectra of metalloporphyrins to benchmark electronic structure methods? a case study on the cobalt porphyrin. Physical Chemistry Chemical Physics, 22(41):23886–23898, 2020. doi:10.1039/d0cp04699j.">7</a>]</span> (this one’s difficult, don’t hesitate to ask for help).</p></li>
+</ul>
+</li>
+</ul>
+<p>We use the GGA XC functional BP86 as recommended by <span id="id7">Ovalle and Malardier-Jugroot [<a class="reference internal" href="#id28" title="Sebastian Ovalle and Cecile Malardier-Jugroot. Choice of functional for iron porphyrin density functional theory studies: geometry, spin-state, and binding energy analysis. Computational and Theoretical Chemistry, 1213:113726, 2022. doi:10.1016/j.comptc.2022.113726.">8</a>]</span> with a TZ2P basis set (should be more or less similar to their basis set A). Use a ‘large’ frozen core and a ‘scalar’ relativity correction.</p>
+<ul class="simple">
+<li><p>Calculate and note down the energy. <!-- My result: -261.05943748 eV with geometry optimization --></p></li>
+</ul>
+</section>
+<section id="task-4-simulate-a-metalloporphyrin-binding-an-oxygen-molecule">
+<h2>Task 4: simulate a metalloporphyrin binding an oxygen molecule<a class="headerlink" href="#task-4-simulate-a-metalloporphyrin-binding-an-oxygen-molecule" title="Link to this heading">#</a></h2>
+<p>Oxygen can bind to the metal center. In this bond, the valence orbitals of oxygen and the metal interact. When looking at the spin state of oxygen before, you found that some electrons are unpaired.</p>
+<ul class="simple">
+<li><p>Using Fig. 3 in <span id="id8">Phung and Pierloot [<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">2</a>]</span>, construct molecular orbital diagrams (there may be multiple possibilities) for a metalloporphyrin bonded to <span class="math notranslate nohighlight">\(\mathrm{O_2}\)</span>.</p></li>
+</ul>
+<p>Based on <span id="id9">Phung and Pierloot [<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">2</a>], Rovira and Parrinello [<a class="reference internal" href="#id24" title="Carme Rovira and Michele Parrinello. Oxygen binding to iron–porphyrin: a density functional study using both lsd and lsd+ gc schemes. International journal of quantum chemistry, 70(2):387–394, 1998. doi:10.1002/(SICI)1097-461X(1998)70:2&lt;387::AID-QUA16&gt;3.0.CO;2-9.">6</a>]</span> we’ll assume that the ground-state of the oxygen-bound complex usually has the lowest possible spin.</p>
+<ul class="simple">
+<li><p>How many unpaired electrons are there in the final molecule?</p></li>
+<li><p>Create a new AMS input file. Add a porphyrin and add an <span class="math notranslate nohighlight">\(\mathrm{O_2}\)</span> molecule that binds with one atom to the metal center. Pre-optimize the geometry.</p></li>
+<li><p>Compare your pre-optimized geometry to figures in <span id="id10">Rovira and Parrinello [<a class="reference internal" href="#id24" title="Carme Rovira and Michele Parrinello. Oxygen binding to iron–porphyrin: a density functional study using both lsd and lsd+ gc schemes. International journal of quantum chemistry, 70(2):387–394, 1998. doi:10.1002/(SICI)1097-461X(1998)70:2&lt;387::AID-QUA16&gt;3.0.CO;2-9.">6</a>]</span>. What can you conclude about the accuracy of the energy calculation, if we only pre-optimize the structure like we have now?</p></li>
+<li><p>Calculate the energy with the same settings as in the previous exercise. Note down the energy. <!-- My result: -272.21482872 eV with geom. opt. --></p></li>
+<li><p>If you go to SCM -&gt; Levels, right-click on one of the molecular orbitals and select the first option, you can visualize the orbitals. Visualize the HOMO and compare to Fig. 3 in <span id="id11">Phung and Pierloot [<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">2</a>]</span>.</p></li>
+<li><p>We don’t have time to do frequency calculations. Note down BP86 thermal corrections from literature. Tip: <a class="reference external" href="https://www.colby.edu/chemistry/PChem/Hartree.html">convert everything to the same unit, like eV</a></p>
+<ul>
+<li><p>FeP: look at <span id="id12">Phung and Pierloot [<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">2</a>]</span> <!--  0.008673 eV for FePO2 is negligible --></p></li>
+<li><p>MnP: also look at <span id="id13">Phung and Pierloot [<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">2</a>]</span></p></li>
+<li><p>CoP: I couldn’t find any thermal correction/ZPE data… Try look for it, or assume the same as for FeP/MnP</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="task-5-binding-energy">
+<h2>Task 5: binding energy<a class="headerlink" href="#task-5-binding-energy" title="Link to this heading">#</a></h2>
+<p>Now we have all the necessary ingredients to calculate the binding energy.</p>
+<ul class="simple">
+<li><p>Calculate the Gibbs binding energy. Compare to Table 2 in <span id="id14">Phung and Pierloot [<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">2</a>]</span> and Table 6 in <span id="id15">Radon and Pierloot [<a class="reference internal" href="#id25" title="Mariusz Radon and Kristine Pierloot. Binding of co, no, and o2 to heme by density functional and multireference ab initio calculations. The Journal of Physical Chemistry A, 112(46):11824–11832, 2008. doi:10.1021/jp806075b.">1</a>]</span> (five-coordinated complexes). <!-- I get delta G ~ -0.84 eV, which is about 19.46 kcal/mol, not too far off from their BP86 results, probably different basis set also plays a role, and we didn't correct for spin stuff, which gives another correction of ~7 kcal/mol --></p></li>
+<li><p>Why could there be differences? Try to find out using <span id="id16">[<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">2</a>]</span>, for example. Note: DMRG-CASPT2 is a very accurate wave function method, that does not suffer from many of the approximations made in DFT. Also think about the spin states we assumed, and our geometry optimization.</p></li>
+</ul>
+</section>
+<section id="task-6-small-research-project">
+<h2>Task 6: small research project<a class="headerlink" href="#task-6-small-research-project" title="Link to this heading">#</a></h2>
+<p>Choose an interesting research project, and do your own calculations. Compare the results to literature if you can. Here’s some ideas:</p>
+<ul class="simple">
+<li><p>Vary the metal center of the porphyrin (suggested for Team 4).</p>
+<ul>
+<li><p>Compare the binding energies. Correlate them with the experimental data you will collect or have collected in the lab.</p></li>
+<li><p>I haven’t been able to find the setting for calculating the vib. freq. of a specific bond. But if we find it, it would be interesting to calculate the vibrational frequency of the metal-oxygen bond for various metal centers.</p></li>
+</ul>
+</li>
+<li><p>Add a solvation model, COSMO, to study the effect of a solvent (suggested for Team 5).</p></li>
+<li><p>Team 5 can also look at the effect of pH by calculating the binding energy with an <span class="math notranslate nohighlight">\(\mathrm{OH^-}\)</span> molecule on the opposite side of the metal center as where the oxygen binds. See <a class="reference external" href="https://doi.org/10.1016/j.cattod.2017.05.007">https://doi.org/10.1016/j.cattod.2017.05.007</a> and <a class="reference external" href="https://pubs.acs.org/doi/10.1021/jacs.3c11246">https://pubs.acs.org/doi/10.1021/jacs.3c11246</a>. However, make sure to have enough time.</p></li>
+<li><p>Study the effect of geometry optimization on the binding energy. You can try if choosing the LDA XC functional <span id="id17">[<a class="reference internal" href="#id24" title="Carme Rovira and Michele Parrinello. Oxygen binding to iron–porphyrin: a density functional study using both lsd and lsd+ gc schemes. International journal of quantum chemistry, 70(2):387–394, 1998. doi:10.1002/(SICI)1097-461X(1998)70:2&lt;387::AID-QUA16&gt;3.0.CO;2-9.">6</a>]</span> speeds up geometry optimization. Tip: you can make very cool movies if you go to the SCM (top left) -&gt; Movies menu.</p></li>
+<li><p>Choose a different functional suggested by literature, such as TPSSh <span id="id18">[<a class="reference internal" href="#id28" title="Sebastian Ovalle and Cecile Malardier-Jugroot. Choice of functional for iron porphyrin density functional theory studies: geometry, spin-state, and binding energy analysis. Computational and Theoretical Chemistry, 1213:113726, 2022. doi:10.1016/j.comptc.2022.113726.">8</a>]</span> or LDA <span id="id19">[<a class="reference internal" href="#id24" title="Carme Rovira and Michele Parrinello. Oxygen binding to iron–porphyrin: a density functional study using both lsd and lsd+ gc schemes. International journal of quantum chemistry, 70(2):387–394, 1998. doi:10.1002/(SICI)1097-461X(1998)70:2&lt;387::AID-QUA16&gt;3.0.CO;2-9.">6</a>]</span>, and compare the binding energy.</p></li>
+</ul>
+<p>If you’re curious about something else, feel free to research that instead.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id20">
+<div role="list" class="citation-list">
+<div class="citation" id="id25" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id15">2</a>)</span>
+<p>Mariusz Radon and Kristine Pierloot. Binding of co, no, and o2 to heme by density functional and multireference ab initio calculations. <em>The Journal of Physical Chemistry A</em>, 112(46):11824–11832, 2008. <a class="reference external" href="https://doi.org/10.1021/jp806075b">doi:10.1021/jp806075b</a>.</p>
+</div>
+<div class="citation" id="id26" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id5">2</a>,<a role="doc-backlink" href="#id8">3</a>,<a role="doc-backlink" href="#id9">4</a>,<a role="doc-backlink" href="#id11">5</a>,<a role="doc-backlink" href="#id12">6</a>,<a role="doc-backlink" href="#id13">7</a>,<a role="doc-backlink" href="#id14">8</a>,<a role="doc-backlink" href="#id16">9</a>)</span>
+<p>Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. <em>Physical Chemistry Chemical Physics</em>, 20(25):17009–17019, 2018. <a class="reference external" href="https://doi.org/10.1039/C8CP03078B">doi:10.1039/C8CP03078B</a>.</p>
+</div>
+<div class="citation" id="id21" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Rui Zhang and Jeffrey J Warren. Controlling the oxygen reduction selectivity of asymmetric cobalt porphyrins by using local electrostatic interactions. <em>Journal of the American Chemical Society</em>, 142(31):13426–13434, 2020. <a class="reference external" href="https://doi.org/10.1021/jacs.0c03861">doi:10.1021/jacs.0c03861</a>.</p>
+</div>
+<div class="citation" id="id22" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">4</a><span class="fn-bracket">]</span></span>
+<p>Bin Lv, Xialiang Li, Kai Guo, Jun Ma, Yanzhi Wang, Haitao Lei, Fang Wang, Xiaotong Jin, Qingxin Zhang, Wei Zhang, and others. Controlling oxygen reduction selectivity through steric effects: electrocatalytic two-electron and four-electron oxygen reduction with cobalt porphyrin atropisomers. <em>Angewandte Chemie International Edition</em>, 60(23):12742–12746, 2021. <a class="reference external" href="https://doi.org/10.1002/anie.202102523">doi:10.1002/anie.202102523</a>.</p>
+</div>
+<div class="citation" id="id23" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">5</a><span class="fn-bracket">]</span></span>
+<p>Nobuyuki Matsuzawa, Masafumi Ata, and David A Dixon. Density functional theory prediction of the second-order hyperpolarizability of metalloporphines. <em>The Journal of Physical Chemistry</em>, 99(19):7698–7706, 1995. <a class="reference external" href="https://doi.org/10.1021/j100019a058">doi:10.1021/j100019a058</a>.</p>
+</div>
+<div class="citation" id="id24" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id9">2</a>,<a role="doc-backlink" href="#id10">3</a>,<a role="doc-backlink" href="#id17">4</a>,<a role="doc-backlink" href="#id19">5</a>)</span>
+<p>Carme Rovira and Michele Parrinello. Oxygen binding to iron–porphyrin: a density functional study using both lsd and lsd+ gc schemes. <em>International journal of quantum chemistry</em>, 70(2):387–394, 1998. <a class="reference external" href="https://doi.org/10.1002/(SICI)1097-461X(1998)70:2&lt;387::AID-QUA16&gt;3.0.CO;2-9">doi:10.1002/(SICI)1097-461X(1998)70:2&lt;387::AID-QUA16&gt;3.0.CO;2-9</a>.</p>
+</div>
+<div class="citation" id="id27" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">7</a><span class="fn-bracket">]</span></span>
+<p>Jhonathan Rosa de Souza, Matheus Morato F de Moraes, Yuri Alexandre Aoto, and Paula Homem-de-Mello. Can one use the electronic absorption spectra of metalloporphyrins to benchmark electronic structure methods? a case study on the cobalt porphyrin. <em>Physical Chemistry Chemical Physics</em>, 22(41):23886–23898, 2020. <a class="reference external" href="https://doi.org/10.1039/d0cp04699j">doi:10.1039/d0cp04699j</a>.</p>
+</div>
+<div class="citation" id="id28" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id7">1</a>,<a role="doc-backlink" href="#id18">2</a>)</span>
+<p>Sebastian Ovalle and Cecile Malardier-Jugroot. Choice of functional for iron porphyrin density functional theory studies: geometry, spin-state, and binding energy analysis. <em>Computational and Theoretical Chemistry</em>, 1213:113726, 2022. <a class="reference external" href="https://doi.org/10.1016/j.comptc.2022.113726">doi:10.1016/j.comptc.2022.113726</a>.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -427,6 +610,28 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-functional-theory-for-molecules">Density functional theory for molecules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-geometry-optimization-of-ethanol">Task 1: geometry optimization of ethanol</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-simulate-an-oxygen-molecule">Task 2: simulate an oxygen molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-simulate-a-metalloporphyrin">Task 3: simulate a metalloporphyrin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-simulate-a-metalloporphyrin-binding-an-oxygen-molecule">Task 4: simulate a metalloporphyrin binding an oxygen molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-binding-energy">Task 5: binding energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-small-research-project">Task 6: small research project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

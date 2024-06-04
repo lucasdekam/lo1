@@ -32,7 +32,7 @@ $$ \hat{H} = \hat{T} + \hat{V}_{ne} + \hat{V}_{ee}.$$
 
 The first term, $\hat{T}$, is the kinetic energy of the electrons; $\hat{V}_{ne}$ the interaction between the electrons and the nuclei; and $\hat{V}_{ee}$ is the interaction between the different electrons. The kinetic energy is no problem; there is a closed-form formula ($\hat{T} = -\hbar^2/2m \times  \nabla^2 \Psi$ for each electron). The interaction between electrons and nuclei is also no problem, because we assumed that the nuclei are fixed in space. However, the electron-electron interaction is very complicated (read about the 'many-body problem' on [Wikipedia](https://en.wikipedia.org/wiki/Many-body_problem)). 
 
-To solve the Schrödinger equation for many-electron systems (where many is more than three) on a computer within a reasonable calculation time, people have come up with many different approximations, from [Hartree-Fock theory](https://en.wikipedia.org/wiki/Hartree%E2%80%93Fock_method) to [coupled-cluster theory](https://en.wikipedia.org/wiki/Coupled_cluster). All these methods revolve around calculating the wave function. However, it turns out that these methods can be outperformed in accuracy and computation time by a different approach: the *density functional theory* (DFT). 
+To solve the Schrödinger equation for many-electron systems (where many is more than three) on a computer within a reasonable calculation time, people have come up with many different approximations, from [Hartree-Fock theory](https://en.wikipedia.org/wiki/Hartree%E2%80%93Fock_method) to [coupled-cluster theory](https://en.wikipedia.org/wiki/Coupled_cluster). All these methods revolve around calculating the wave function. Some of these methods can be extremely accurate, but it takes a lot of time to do such calculations on a computer. It turns out that there is another approach that achieves decent accuracy in much less computation time: the *density functional theory* (DFT). 
 
 In density functional theory, the central quantity is the electron density, $\rho(\mathbf{r})$, where $\mathbf{r}$ is the vector of spatial coordinates. Walter Kohn and Pierre Hohenberg showed that $\rho(\mathbf{r})$ also contains all relevant information about the system. Later, Walter Kohn and Lu Jeu Sham showed that the problem of calculating the electronic density can be reduced to solving the Schrödinger equation of noninteracting particles (so no $\hat{V}_{ee}$), which made the method very easy to use, while still being accurate. Walter Kohn was awarded the [Nobel Prize in 1998](https://www.nobelprize.org/prizes/chemistry/1998/summary/). 
 
@@ -46,7 +46,7 @@ $$ \rho(\mathbf{r}) = \sum_{i=1}^{N} |\psi_i(\mathbf{r})|^2. $$
 
 The effective potential depends on the density as follows:
 
-$$ V_\mathrm{eff}(\mathbf{r}) = V_\mathrm{ext}(\mathbf{r}) + \int \frac{\rho(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|} \mathrm d \mathbf{r}' + \frac{\delta E_\mathrm{xc}[\rho(\mathbf{r})]}{\delta \rho(\mathbf{r})}.$$
+$$ V_\mathrm{eff}(\mathbf{r}) = V_\mathrm{ext}(\mathbf{r}) + \int \frac{\rho(\mathbf{r}')}{4\pi\varepsilon_0 |\mathbf{r} - \mathbf{r}'|} \mathrm d \mathbf{r}' + \frac{\delta E_\mathrm{xc}[\rho(\mathbf{r})]}{\delta \rho(\mathbf{r})}.$$
 
 For this course, it is not important to understand what all these terms mean in detail. In simple words:
 
