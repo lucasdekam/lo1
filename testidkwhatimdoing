@@ -1,0 +1,156 @@
+# Electrochemistry lab 
+
+Page 1
+# Course information
+
+```{admonition} Learning goals 
+:class: tip
+After this lab course you should be able to...
+
+* make electrolyte solutions
+* assemble an electrochemical cell with an electrocatalyst in a three-electrode setup
+* investigate the effect of electrolyte and catalyst composition on ORR 
+* analyze your results with a critical view. To do this, you should compare your methods and results to scientific publications (some publications can be found in the reference lists on the pages of the respective projects)
+```
+
+## Practical information
+The practical lab is CM2.26 on the 2nd floor. There are lockers in the hallway to store your bags and jackets which are accessible with your LU card. A lab coat and suitable goggles are required at all times. Personal items except for food are allowed in the lab. Please bring your own lab journal and a laptop.
+
+Normal days are from 9:00 - 17:00 but some days there are deviations. On June 17th from 9:00-12:00 there is a EC group meeting from the group of prof. Marc Koper. You are free to join the meeting or work on your report/presentation/poster outside the lab.
+
+|      | June 10 | June 11 | June 12 | June 13 | June 14 |
+|------|---------|---------|---------|---------|---------|
+| Time | 10:00 - 17:00 | 9:00 - 15:45 | 9:00 - 17:00 | 9:00 - 17:00 | 9:00 - 17:00 | 
+
+|      | June 17 | June 18 | June 19 | June 20 | June 21 |
+|------|---------|---------|---------|---------|---------|
+| Room | 12:30 - 17:00 | 9:00 - 17:00 | 9:00 - 17:00 | 9:00 - 17:00 | 9:00 - 17:00 |
+
+### Layout electrochemistry lab schedule
+**Day 1**
+_The first day is to prepare as much as possible for the experiments on day 2 - 4 and it serves as an introduction to the field of electrochemistry._  We will try to do the following things on day 1: 
+•	Clean glassware
+•	Perform safety analysis chemicals (and gases) and experiments
+•	Develop research/experimental plan
+•	Read literature
+•	Install IviumSoft 
+
+**Day 2**
+•	Prepare electrolyte solutions
+•	Perform blank experiment on Au/C
+•	Perform first experiment with catalyst and experimental parameter 1
+**If there is enough time:**
+•	Perform second experiment
+
+**Day 3 - 4** 
+Finish the remaining experiments. On Day 4 we have the morning to do the final experiment and the afternoon is reserved for cleaning up. 
+
+
+page 2
+# Experimental procedures
+
+
+## Cleaning procedure
+Before any glassware can be used for clean electrochemistry, it needs to be cleaned by us thoroughly. We use potassium permanganate to oxidize any organic compounds and dilute [piranha solution](https://www.youtube.com/watch?v=cLpSapjKcxM) (sulfuric acid + hydrogen peroxide) to dissolve any inorganic impurities. The name _piranha_ refers to the similarities with a real piranha when organic material comes into contact with the solution. These chemicals are therefore really dangerous and you should be really careful not to spill it and damage your clothes.  
+1.	Store glassware in a 1 g/L KMnO4 + 0.1 M H2SO4 solution for 2-3 h.
+2.	Pour out KMnO4 solution for reuse into storage vat
+3.	Rinse glassware 3x with DI water (dispose of very dilute KMnO4 in sink)
+4.	Soak in dilute piranha (~5 mL H2SO4 + ~5 mL H2O2 in 3 L beaker) for 20 minutes
+5.	Dispose of dilute piranha by neutralizing with sodium carbonate in a seperate bucket
+6.	Rinse 3x with DI water
+7.	Boil in DI water 3x
+
+After the cleaning procedure, our glassware remains clean. However, everything else it not clean. In electrochemistry we have to be really careful what touches what. Except for the cleaning procedure, the chemicals we are using are not extremely dangerous. Therefore, gloves are worn more to protect the cleanliness of the experiment than for the safety of ourselves. Therefore we also have to keep our gloves spot clean and only touch the outside of glassware and only use clean glassware (really clean).
+
+Every consumable like glass vials, gloves, pipette tips and centrifuge tubes are made sterile and therefore clean enough for our experiment. We can use these however much we like. Solvent bottles are also clean, and we should make sure they stay clean and avoid cross contamination. 
+
+## Preparing electrolyte solutions
+1.  Make sure you have a clean beaker or flask to measure out the water
+2.  Do not use spoons but use clean pipette tips only touched by gloves to weigh out chemicals on clean surfaces and **do not put chemicals back into their packaging**. If you have too much just dispose of it.
+3.  Only use cleaned glassware and disposable syringes (no needles) to make electrolyte solutions
+4.  Make electrolyte directly in the cell
+
+## Catalyst preparation
+1.  Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Vortex for 2-3 min.
+2.  Prepare 1 mL 1.25 mM solution of  metal complex in acetone.
+
+Prepare catalyst ink:
+3.  Take 40 µL complex solution
+4.  Add 20 µL Nafion suspension and homogenize by using the vortext
+5.  Add 120 µL Carbon black suspension (sonicate/vortex for 15 min. or more prior to application)
+
+Dropcast catalyst ink:
+6.  Take 50 µL of catalyst ink with pipette and drop on one side of substrate
+7.  Let acetone evaporate in air for 30 min
+8.  Optional use heatgun to speed up drying
+9. Keep dropcasting until all solution is on substrate
+
+## Setting up a three-electrode setup
+Setting up the electrochemical cell requires a specific order in order to protect the potentiostat and your working electrode. There is never any potential or current applied to the reference electrode, but it is needed for the potentiostat to 'know' at which potential it needs to keep the CE and WE so we connect the RE first. Then we connect the CE to have a 'sink' for the current to go if the potentiostat needs to get rid of current. When we connect our WE last, the potentiostat keeps the potential vs the RE stable and uses the CE to get rid of current when it needs to. Now when we connect the WE, there will never be any current/potential spike that could potentially be damaging to the electrocatalyst.
+
+1.	Fill cell with electrolyte 
+2.	Rinse reference and counter electrode and insert into cell
+3.	Connect reference electrode
+4.	Connect counter electrode
+5.	Assemble working electrode
+6.	Submerge and connect working electrode 
+7.	Make sure no electrodes are touching
+8.	Load appropriate potentiostat settings
+9.	Connect working electrode
+10.	Run measurement
+
+## Cyclic voltammetry (CV)
+_Before any measurement measure ohmic drop (iR-drop) using impedance spectroscopy and measure the open circuit potential._
+1.  Make sure electrodes are connected properly
+2.  Select starting potential (should be above 0.8 V and lower than 1.2 V)
+3.  Select highest vertex potential (should be lower than oxygen evolution potential ~1.23 - 1.55 V)
+4.  Select lowest vertex potential (should be > 0 V)
+5.  Select scan rate (mV/s) in the range of 5 - 250 mV/s
+6.  I range (auto), E range -10V to +10V
+7.  When iR-drop and OCP have been determined, start CA and CV
+
+## Linear sweep voltammetry (LSV)
+1.  Start at a stable potential from which you want to scan
+2.  Use chronoamperometry (CA) at a stable potential for 1 min
+2.  Follow same steps as CV except for lowest vertex potential
+
+
+
+
+
+page 3
+# Theory
+
+## Electrochemical stability window
+_These are the most important reactions that occur on any electrode in aqeous electrolyte._ 
+
+The potentials given are the standard redox potentials for the conversion between H2/O2 <-> H2O. Platinum is a really good catalyst for HER/HOR so the onset for both reactions is respectively <0V and >0V but OER/ORR start at a significant overpotential of at least 0.2 V for the best catalysts.
+
+**1)    Hydrogen evolution reaction (HER) @ <0 V vs. RHE**
+Acidic:
+$$\mathrm{2 H^+ + 2e^-\rightarrow H_2}$$
+Alkaline:
+$$\mathrm{2 H_2O + 2e^-\rightarrow H_2 + 2 OH^-}$$
+
+**2)	Hydrogen oxidation reaction (HOR) @ >0 V vs. RHE**
+What are the reactions for acidic and alkaline conditions?
+
+**3) Oxygen evolution reaction (OER) @ >>1.23 V vs. RHE**
+Acidic:
+$$\mathrm{2 H_2O\rightarrow O_2 + 4 H^+ + 4 e^-}$$
+Alkaline
+$$\mathrm{4 OH^-\rightarrow O_2 + 2 H_2O+ 4 e^-}$$
+
+
+**4) Oxygen reduction reaction (ORR) @ <<1.23 V vs. RHE**
+What are the reactions for acidic and alkaline conditions?
+
+## References 
+To be filled in later. 
+
+
+
+
+
+
+
