@@ -1,12 +1,13 @@
-# Course information
+# General information
 
 ```{admonition} Learning goals 
 :class: tip
 In the report you should show that you are able to...
 
 * calculate the binding energy of an adsorbate
-* choose a small research project, and answer your research question
-* analyze your results with a critical view. To do this, you should compare your methods and results to scientific publications (some publications can be found in the reference lists on the pages of the respective projects)
+* choose a small research project, motivate your choice, and describe the expected outcome
+* answer your research question, and analyze your results with a critical view
+* compare your methods and results to scientific publications (some publications can be found in the reference lists on the pages of the respective projects)
 ```
 
 ## Schedule
