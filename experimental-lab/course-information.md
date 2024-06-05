@@ -1,4 +1,4 @@
-# Electrochemistry lab 
+# Course information
 
 ```{admonition} Learning goals 
 :class: tip

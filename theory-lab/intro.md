@@ -27,8 +27,6 @@ The electrode surface acts as a catalyst: it binds the *intermediates* $\mathrm{
 In the lab part, you will find or have found that different catalysts (different electrodes) have a different activity for the oxygen reduction reaction. 
 
 
-ORR, electrocatalysis (small reminder to Dennis' presentation).
-
 Gibbs free energy of adsorption and computational hydrogen electrode.
 
 
