@@ -2,13 +2,21 @@
 
 Porphyrins are complexes based on a porphine molecule bound to a metal ion in the center. They are found in various biological systems. For example, heme is a porphyrin, which is a part of the hemoglobin complex that binds oxygen in your blood. Chlorophyll, which is responsible for photosynthesis, also has a porphyrin group. 
 
-<img src="images/porphine.png" alt="Porphine" height="200"/>
+```{figure} ../images/porphine.png
+---
+height: 200
+name: porphine
+---
+Porphine ([source](https://en.wikipedia.org/wiki/Porphyrin#/media/File:Porphyrin.svg))
+```
 
-*Porphine* ([source](https://en.wikipedia.org/wiki/Porphyrin#/media/File:Porphyrin.svg))
-
-<img src="images/heme.png" alt="Heme" height="200"/>
-
-*Heme binding oxygen* ([source](https://en.wikipedia.org/wiki/Heme#/media/File:Mboxygenation.png))
+```{figure} ../images/heme.png
+---
+height: 200
+name: heme
+---
+Heme binding oxygen ([source](https://en.wikipedia.org/wiki/Heme#/media/File:Mboxygenation.png))
+```
 
 In the electrochemistry project you will do or have done, porphyrins are deposited on a metal surface. Their metal centers can catalyze the oxygen reduction reaction. In this project, we will use density functional theory calculations to try and understand the reaction mechanism.
 
@@ -24,9 +32,14 @@ $$ \psi(x) = c_1 \phi_1(x) + c_2 \phi_2 (x) + \cdots .$$
 
 The $\phi_i$ are called *basis functions*, and $c_i$ are the *coefficients* that scale them. The collection of all $\phi_i$ is called a *basis set*. The image below shows an example.
 
-<img src="images/basis-functions.png" alt="Basis functions" height="200">
 
-*Combining basis functions into an orbital.* ([source](https://en.wikipedia.org/wiki/Basis_set_(chemistry)#/media/File:D-polarization_function.png))
+```{figure} ../images/basis-functions.png
+---
+height: 200
+name: basis
+---
+Combining basis functions into an orbital. ([source](https://en.wikipedia.org/wiki/Basis_set_(chemistry)#/media/File:D-polarization_function.png))
+```
 
 Now the computer just needs to calculate the coefficients $c_i$. For the radial part, one popular basis function is an exponential function
 
@@ -51,8 +64,13 @@ Now we are ready to do our first 'useful' calculation.
 ## Task 2: simulate an oxygen molecule
 
 * In a new AMS input file, build an oxygen molecule. Pre-optimize the geometry with a simplified calculation method (force fields) using the button: 
-    
-    <img src="images/optimize.png" alt="Optimize button" height="30">
+
+```{image} ../images/optimize.png
+:alt: Optimize button
+:class: bg-primary mb-1
+:height: 30px
+:align: center
+```
 
 * The ground state of oxygen has two unpaired electrons. Using the internet or your own knowledge, find out how many electrons are unpaired. The number of unpaired electrons should be entered into the field 'Spin polarization'. To enter something in this field, you need to check the 'Unrestricted' box.
 
@@ -79,7 +97,12 @@ First, write down which metal ion is in the porphyrin you have researched or wil
 
 * In a new AMS input file, create a porphyrin molecule using the following shortcut:
 
-    <img src="images/build-porphyrin.png" alt="Building a porphryin shortcut" height="400">
+```{image} ../images/build-porphyrin.png
+:alt: Building a porphryin shortcut
+:class: bg-primary mb-1
+:height: 400
+:align: center
+```
 
 * Remove the two 'attachment' sticks on the side of the iron center.
 

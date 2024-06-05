@@ -2,8 +2,17 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: course-information
-chapters:
-- file: intro
-- file: metals
-- file: porphyrins
+root: index
+
+parts:
+- caption: Theory lab
+  chapters:
+  - file: theory-lab/course-information
+  - file: theory-lab/intro
+  - file: theory-lab/metals
+  - file: theory-lab/porphyrins
+- caption: Experimental lab
+  chapters:
+  - file: experimental-lab/course-information
+  - file: experimental-lab/experimental
+  - file: experimental-lab/theory

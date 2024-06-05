@@ -1,4 +1,4 @@
-# Course information
+# General information
 
 ```{admonition} Learning goals 
 :class: tip
