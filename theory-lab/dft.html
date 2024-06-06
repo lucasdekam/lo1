@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction &#8212; LO1 2024</title>
+    <title>Quantum chemistry &#8212; LO1 2024</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'theory-lab/intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'theory-lab/dft';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Quantum chemistry" href="dft.html" />
-    <link rel="prev" title="General information" href="course-information.html" />
+    <link rel="next" title="Metals" href="metals.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,8 +176,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory lab</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="course-information.html">General information</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dft.html">Quantum chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Quantum chemistry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="metals.html">Metals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="porphyrins.html">Porphyrins</a></li>
 </ul>
@@ -257,7 +257,7 @@
       
       
       
-      <li><a href="https://github.com/lucasdekam/dft-for-dummies/issues/new?title=Issue%20on%20page%20%2Ftheory-lab/intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/lucasdekam/dft-for-dummies/issues/new?title=Issue%20on%20page%20%2Ftheory-lab/dft.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -287,7 +287,7 @@
       
       
       
-      <li><a href="../_sources/theory-lab/intro.md" target="_blank"
+      <li><a href="../_sources/theory-lab/dft.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,7 +371,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction</h1>
+    <h1>Quantum chemistry</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -381,8 +381,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binding-energy-in-electrocatalysis">The binding energy in electrocatalysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-schrodinger-equation">The Schrödinger equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-functional-theory">Density functional theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energies">Energies</a></li>
 </ul>
             </nav>
         </div>
@@ -394,56 +395,70 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
-<p>In this practical we will look at the oxygen reduction reaction. This half-reaction occurs at the cathode of a fuel cell. Fuel cells are used to convert hydrogen gas and oxygen gas into water and energy in hydrogen-powered cars like the Toyota Mirai, for example. However, the oxygen reduction reaction is also interesting as a simple reaction that teaches us a lot about reactions at electrodes in general.</p>
-<p>In the oxygen reduction reaction, an oxygen molecule gains four electrons and four protons to form water:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="quantum-chemistry">
+<h1>Quantum chemistry<a class="headerlink" href="#quantum-chemistry" title="Link to this heading">#</a></h1>
+<p>The following text is inspired by the lecture notes of Christopher Stein (TU Munich) and Katharina Doblhoff-Dier (Leiden Univ.), and the Wikipedia page on <a class="reference external" href="https://en.wikipedia.org/wiki/Density_functional_theory">density functional theory</a>.</p>
+<p>In this practical course we consider electrocatalysis at the scale of atoms. In particular, we are interested in the chemical bond between a reaction intermediate and a catalyst. A chemical bond forms due to the interaction between the electrons of the reaction intermediate and the catalyst. So: to understand chemical bonds, we need to understand electrons.</p>
+<section id="the-schrodinger-equation">
+<h2>The Schrödinger equation<a class="headerlink" href="#the-schrodinger-equation" title="Link to this heading">#</a></h2>
+<p>Electrons are very small and very light, much lighter even than atomic nuclei. Electrons do not obey Newton’s laws of classical mechanics. Instead, we need to consider quantum mechanics. The central quantity in quantum mechanics is the wave function. If we know the wave function of something, we can use it to calculate any observable quantity.</p>
+<p>The wave function of all electrons in a certain system (for example, a molecule) can be found by solving the Schrödinger equation,</p>
 <div class="math notranslate nohighlight">
-\[\mathrm{O_2 + 4 H^+ + 4e^- \to 2 H_2O}.\]</div>
-<p>The electrons come from the electrode. The protons come from the electrolyte (we consider an acidic electrolyte here).</p>
-<p>The transfer of protons and electrons does not happen all at once; the reaction consists of multiple steps. Although multiple reaction mechanisms are possible, we will look at the simple mechanism from the work of <span id="id1">Nørskov <em>et al.</em> [<a class="reference internal" href="metals.html#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>. In the first step, an oxygen molecule adsorbs on the surface and dissociates:</p>
-<div class="math notranslate nohighlight">
-\[\mathrm{O_2 + 2 * \to 2 O^*}.\]</div>
-<p>Here <span class="math notranslate nohighlight">\(*\)</span> is an empty adsorption site on the surface and <span class="math notranslate nohighlight">\(\mathrm{O^*}\)</span> is an adsorbed oxygen atom. Next, a proton and an electron is transferred to each <span class="math notranslate nohighlight">\(\mathrm{O^*}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\mathrm{O^* + H^+ + e^- \to HO^*}\]</div>
-<p>and this can happen one more time to form water:</p>
-<div class="math notranslate nohighlight">
-\[\mathrm{HO^* + H^+ + e^- \to H_2O + *}.\]</div>
+\[ \hat{H}(\mathbf{R}) \Psi(\mathbf{R}) = E \Psi(\mathbf{R}) \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> denotes all coordinates of all electrons in the system, <span class="math notranslate nohighlight">\(\hat{H}\)</span> is the Hamiltonian of the system, <span class="math notranslate nohighlight">\(E\)</span> is the energy and <span class="math notranslate nohighlight">\(\Psi\)</span> is the wavefunction. Mathematically, <span class="math notranslate nohighlight">\(\Psi(\mathbf{R})\)</span> is an <em>eigenfunction</em> of <span class="math notranslate nohighlight">\(\hat{H}\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> the corresponding <em>eigenvalue</em>.</p>
+<p>In general, we want to calculate the lowest possible energy, the <em>ground state</em>. Although it is in principle possible to calculate higher, excited states, these usually do not occur at room temperature.</p>
 <div class="dropdown admonition note">
 <p class="admonition-title">Note</p>
-<p>Oxygen reduction can also take place through the binding of an entire oxygen molecule <span id="id2">[<a class="reference internal" href="metals.html#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>,</p>
-<div class="math notranslate nohighlight">
-\[\mathrm{O_2 + * \to O_2^* }.\]</div>
-<p>This is particularly relevant for porphyrins <span id="id3">[<a class="reference internal" href="porphyrins.html#id22" title="Bin Lv, Xialiang Li, Kai Guo, Jun Ma, Yanzhi Wang, Haitao Lei, Fang Wang, Xiaotong Jin, Qingxin Zhang, Wei Zhang, and others. Controlling oxygen reduction selectivity through steric effects: electrocatalytic two-electron and four-electron oxygen reduction with cobalt porphyrin atropisomers. Angewandte Chemie International Edition, 60(23):12742–12746, 2021. doi:10.1002/anie.202102523.">1</a>]</span>.</p>
+<p>This is the time-independent Schrödinger equation. We don’t need to consider dynamics of electrons. We also assume that all nuclei are fixed in space. We can make this assumption because the nuclei are much heavier than the electrons. This approximation is also called the Born-Oppenheimer approximation.</p>
 </div>
-<p>The site <span class="math notranslate nohighlight">\(*\)</span> acts as a catalyst: it binds the <em>intermediates</em> <span class="math notranslate nohighlight">\(\mathrm{O^*}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{HO^*}\)</span> during the reaction. The reduction of oxygen to water causes a flow of electrons: an electric current. The field of science that studies catalytic reactions that drive or require an electric current is called <em>electrocatalysis</em>.</p>
-<section id="the-binding-energy-in-electrocatalysis">
-<h2>The binding energy in electrocatalysis<a class="headerlink" href="#the-binding-energy-in-electrocatalysis" title="Link to this heading">#</a></h2>
-<p>In the lab part, you will find or have found that different catalysts (different electrodes) have a different activity for the oxygen reduction reaction. A major milestone in electrocatalysis was relating the activity of a catalyst to the <em>binding energy</em> to an intermediate.</p>
-<p><strong>Task for students who model metals</strong>: By writing down the Gibbs energy of the reaction for</p>
+<p>The Hamiltonian is an operator. You can think of it as a ‘recipe’ that tells you how the wave function is related to the energy. For the electrons in a molecule, the Hamiltonian is the sum of several parts:</p>
 <div class="math notranslate nohighlight">
-\[\mathrm{\frac12 O_2 + * \to O^*}\]</div>
-<p>define the binding energy of an oxygen atom to a metal surface.</p>
-<p><strong>Task for students who model porphyrins</strong>: By writing down the Gibbs energy of the reaction for</p>
-<div class="math notranslate nohighlight">
-\[\mathrm{O_2 + * \to O_2^* }\]</div>
-<p>define the binding energy of an oxygen molecule to a porphyrin catalyst.</p>
+\[ \hat{H} = \hat{T} + \hat{V}_{ne} + \hat{V}_{ee}.\]</div>
+<p>The first term, <span class="math notranslate nohighlight">\(\hat{T}\)</span>, is the kinetic energy of the electrons; <span class="math notranslate nohighlight">\(\hat{V}_{ne}\)</span> the interaction between the electrons and the nuclei; and <span class="math notranslate nohighlight">\(\hat{V}_{ee}\)</span> is the interaction between the different electrons. The kinetic energy is no problem; there is a closed-form formula (<span class="math notranslate nohighlight">\(\hat{T} = -\hbar^2/2m \times  \nabla^2 \Psi\)</span> for each electron). The interaction between electrons and nuclei is also no problem, because we assumed that the nuclei are fixed in space. However, the electron-electron interaction is very complicated (read about the ‘many-body problem’ on <a class="reference external" href="https://en.wikipedia.org/wiki/Many-body_problem">Wikipedia</a>).</p>
+<p>To solve the Schrödinger equation for many-electron systems (where many is more than three) on a computer within a reasonable calculation time, people have come up with many different approximations, from <a class="reference external" href="https://en.wikipedia.org/wiki/Hartree%E2%80%93Fock_method">Hartree-Fock theory</a> to <a class="reference external" href="https://en.wikipedia.org/wiki/Coupled_cluster">coupled-cluster theory</a>. All these methods revolve around calculating the wave function. Some of these methods can be extremely accurate, but it takes a lot of time to do such calculations on a computer. It turns out that there is another approach that achieves decent accuracy in much less computation time: the <em>density functional theory</em> (DFT).</p>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id4">
-<div role="list" class="citation-list">
-<div class="citation" id="id13" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
-<p>Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. <em>The Journal of Physical Chemistry B</em>, 108(46):17886–17892, 2004. <a class="reference external" href="https://doi.org/10.1021/jp047349j">doi:10.1021/jp047349j</a>.</p>
+<section id="density-functional-theory">
+<h2>Density functional theory<a class="headerlink" href="#density-functional-theory" title="Link to this heading">#</a></h2>
+<p>In density functional theory, the central quantity is the electron density, <span class="math notranslate nohighlight">\(\rho(\mathbf{r})\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> is the vector of spatial coordinates. Walter Kohn and Pierre Hohenberg showed that <span class="math notranslate nohighlight">\(\rho(\mathbf{r})\)</span> also contains all relevant information about the system. Later, Walter Kohn and Lu Jeu Sham showed that the problem of calculating the electronic density can be reduced to solving the Schrödinger equation of noninteracting particles (so no <span class="math notranslate nohighlight">\(\hat{V}_{ee}\)</span>), which made the method very easy to use, while still being accurate. Walter Kohn was awarded the <a class="reference external" href="https://www.nobelprize.org/prizes/chemistry/1998/summary/">Nobel Prize in 1998</a>.</p>
+<p>The method of Kohn and Sham comes down to solving <span class="math notranslate nohighlight">\(N\)</span> Schrödinger equations, one for each electron. The electrons move in an effective potential <span class="math notranslate nohighlight">\(V_\mathrm{eff}(\mathbf{r})\)</span>, which depends on the electron density and the positions of the nuclei. The system of these particular <span class="math notranslate nohighlight">\(N\)</span> Schrödinger equations is known as the Kohn-Sham equations; they read</p>
+<div class="math notranslate nohighlight">
+\[ \left( -\frac{\hbar^2}{2m} \nabla^2 + V_\mathrm{eff}(\mathbf{r}) \right) \psi_i(\mathbf{r}) = \varepsilon_i \psi_i(\mathbf{r}). \]</div>
+<p>Each electron has its own one-electron wavefunction <span class="math notranslate nohighlight">\(\psi_i\)</span>, known as an <em>orbital</em>. These orbitals have an associated energy <span class="math notranslate nohighlight">\(\varepsilon_i\)</span>. The density is calculated from the orbitals as</p>
+<div class="math notranslate nohighlight">
+\[ \rho(\mathbf{r}) = \sum_{i=1}^{N} |\psi_i(\mathbf{r})|^2. \]</div>
+<p>The effective potential depends on the density as follows:</p>
+<div class="math notranslate nohighlight">
+\[ V_\mathrm{eff}(\mathbf{r}) = V_\mathrm{ext}(\mathbf{r}) + \int \frac{\rho(\mathbf{r}')}{4\pi\varepsilon_0 |\mathbf{r} - \mathbf{r}'|} \mathrm d \mathbf{r}' + \frac{\delta E_\mathrm{xc}[\rho(\mathbf{r})]}{\delta \rho(\mathbf{r})}.\]</div>
+<p>For this course, it is not important to understand what all these terms mean in detail. In simple words:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_\mathrm{ext}\)</span> (ext for external) describes the electrostatic interaction of the electron with the various nuclei in the system.</p></li>
+<li><p>The integral of <span class="math notranslate nohighlight">\(\rho\)</span> describes the electrostatic interaction of the electron with the negatively charged electron cloud, consisting of all electrons in the system.</p></li>
+<li><p>The <em>exchange-correlation functional</em> <span class="math notranslate nohighlight">\(E_\mathrm{xc}\)</span> contains corrections to the approximations made by Kohn and Sham. Finding better exchange-correlation functionals is an ongoing topic in research. Different systems might be described better by different exchange-correlation functionals.</p></li>
+</ul>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p>In case you are wondering what the symbols in the last term mean, here’s an explanation. A <em>function</em> <span class="math notranslate nohighlight">\(f(x)\)</span> takes a number as input, and outputs a number. For example: <span class="math notranslate nohighlight">\(f(x)=x^2\)</span> turns <span class="math notranslate nohighlight">\(x=2\)</span> into <span class="math notranslate nohighlight">\(f(2)=4\)</span>. A <em>functional</em> <span class="math notranslate nohighlight">\(F[f(x)]\)</span> takes an entire function as input, and outputs a number. Functionals also have their own kind of derivative, denoted with a <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
 </div>
-<div class="citation" id="id6" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
-<p>Bin Lv, Xialiang Li, Kai Guo, Jun Ma, Yanzhi Wang, Haitao Lei, Fang Wang, Xiaotong Jin, Qingxin Zhang, Wei Zhang, and others. Controlling oxygen reduction selectivity through steric effects: electrocatalytic two-electron and four-electron oxygen reduction with cobalt porphyrin atropisomers. <em>Angewandte Chemie International Edition</em>, 60(23):12742–12746, 2021. <a class="reference external" href="https://doi.org/10.1002/anie.202102523">doi:10.1002/anie.202102523</a>.</p>
-</div>
-</div>
+<p>It follows that the Kohn-Sham equations depend on <span class="math notranslate nohighlight">\(\rho\)</span> through <span class="math notranslate nohighlight">\(V_\mathrm{eff}\)</span>. To write down and solve the Kohn-Sham equations, we therefore need to know <span class="math notranslate nohighlight">\(\rho\)</span>, but to know <span class="math notranslate nohighlight">\(\rho\)</span> we need to know the <span class="math notranslate nohighlight">\(\psi_i\)</span>, which we get by solving the Kohn-Sham equations. How do we solve this circular problem? Luckily, it turns out that when we solve the Kohn-Sham equations for a certain <span class="math notranslate nohighlight">\(\rho\)</span>, we get out <span class="math notranslate nohighlight">\(\psi_i\)</span> that give a ‘better’ <span class="math notranslate nohighlight">\(\rho\)</span>. ‘Better’ means: lower energy, because we are looking for the lowest energy state (ground state). By starting out with a certain guess for <span class="math notranslate nohighlight">\(\rho\)</span>, we can keep solving the Kohn-Sham equations with an improved <span class="math notranslate nohighlight">\(\rho\)</span> every time. When our energy does not change anymore, we know that we are at a minimum: we are <em>converged</em>. Such a ‘circular’ procedure is called a <em>self-consistent procedure</em>.</p>
+<p>Now the question remains: how do we solve the Kohn-Sham equations numerically, and what are the <span class="math notranslate nohighlight">\(\psi_i\)</span>? Depending on whether you have to simulate metal electrodes or porphyrin molecules, you will use different representations of <span class="math notranslate nohighlight">\(\psi_i\)</span>. These representations will be discussed in the respective pages, and you will use software to use the Kohn-Sham equations self-consistently yourself.</p>
+</section>
+<section id="energies">
+<h2>Energies<a class="headerlink" href="#energies" title="Link to this heading">#</a></h2>
+<p>From a DFT calculation we get the ground state energy <span class="math notranslate nohighlight">\(E\)</span> of all electrons, which is the sum of energies of all occupied orbitals. You can think of it as the ‘bonding energy’. However, the movement of the nuclei also adds energy to the system.</p>
+<p>In electrochemical experiments, we usually have a constant temperature <span class="math notranslate nohighlight">\(T\)</span> and pressure <span class="math notranslate nohighlight">\(P\)</span>. The reaction energies are therefore described by Gibbs free energies:</p>
+<div class="math notranslate nohighlight">
+\[G = U - TS + PV\]</div>
+<p>with <span class="math notranslate nohighlight">\(U\)</span> the internal energy, <span class="math notranslate nohighlight">\(S\)</span> the entropy and <span class="math notranslate nohighlight">\(V\)</span> the system volume. The internal energy and the entropy are affected by the motion of the nuclei: rotational, translational, and vibrational. The <span class="math notranslate nohighlight">\(PV\)</span> term is usually only relevant for gases.</p>
+<p>In this practical, we will mostly worry about the electronic energies. The thermodynamic corrections to find the Gibbs energy will be provided.</p>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p>Although they are much heavier than electrons, nuclei also experience quantum mechanical effects. By the Heisenberg uncertainty principle, <span class="math notranslate nohighlight">\(\Delta x \Delta p \geq \hbar/2\)</span>, we cannot precisely determine the position or momentum (‘speed’) of a nucleus. So even if we say the nucleus is precisely at the lowest energy position, it could have some momentum, and therefore kinetic energy. We could also say it is not moving, but then it might be in a higher energy position.</p>
+<p>This ‘uncertainty energy’ is approximated by the description of a quantum harmonic oscillator, which has energies</p>
+<div class="math notranslate nohighlight">
+\[E_n = (n + \frac12) \hbar \omega.\]</div>
+<p>At higher temperatures, higher modes can be occupied.</p>
+<p>From a DFT calculation we can calculate the forces on each atom and thereby the vibrational frequencies of the systems. Each vibrational mode has its own <span class="math notranslate nohighlight">\(\omega_i\)</span>.</p>
+<p>The lowest possible energy the harmonic oscillator can have is <span class="math notranslate nohighlight">\(\frac12 \hbar \omega\)</span>, due to Heisenberg’s uncertainty principle. Because this lowest energy is there even at zero Kelvin, it is called the zero-point energy (ZPE).</p>
 </div>
 </section>
 </section>
@@ -479,20 +494,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="course-information.html"
+       href="intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">General information</p>
+        <p class="prev-next-title">Introduction</p>
       </div>
     </a>
     <a class="right-next"
-       href="dft.html"
+       href="metals.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Quantum chemistry</p>
+        <p class="prev-next-title">Metals</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -512,8 +527,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binding-energy-in-electrocatalysis">The binding energy in electrocatalysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-schrodinger-equation">The Schrödinger equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-functional-theory">Density functional theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energies">Energies</a></li>
 </ul>
   </nav></div>
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -57,11 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'theory-lab/metals';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Porphyrins" href="porphyrins.html" />
-    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="prev" title="Quantum chemistry" href="dft.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,12 +177,13 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="course-information.html">General information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dft.html">Quantum chemistry</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Metals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="porphyrins.html">Porphyrins</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental lab</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../experimental-lab/course-information.html">Electrochemistry lab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experimental-lab/course-information.html">Course information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../experimental-lab/experimental.html">Experimental procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../experimental-lab/theory.html">Theory</a></li>
 </ul>
@@ -355,7 +358,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -371,6 +376,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-boundary-conditions">Periodic boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-functional-theory-for-periodic-systems">Density functional theory for periodic systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-bulk-metal">Task 1: bulk metal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-oxygen-molecule">Task 2: oxygen molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-empty-slab">Task 3: empty slab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-slab-with-adsorbate">Task 4: slab with adsorbate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-research-project">Task 5: research project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -382,12 +402,276 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="metals">
 <h1>Metals<a class="headerlink" href="#metals" title="Link to this heading">#</a></h1>
-<p>Simulating bulk FCC metal. Periodic systems. Bloch’s theorem, Fourier transform. Band structure.</p>
-<p>Simulating an oxygen molecule. Spin.</p>
-<p>Simulating an empty slab. ASE.</p>
-<p>Simulating a slab with adsorbate.</p>
-<p>Gibbs free energy of adsorption. Entropy and zero-point energy (a consequence of the Heisenberg uncertainty principle).</p>
-<p>Varying simulation parameters. Various surfaces.</p>
+<p>Most electrodes are made of metal. The electrodes in the fuel cell of a hydrogen car are made of platinum, for example. Here we calculate the binding energy of oxygen to metal electrodes. Our objective is to find out how reliable the simulation settings of <span id="id1">Nørskov <em>et al.</em> [<a class="reference internal" href="#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span> are.</p>
+<section id="periodic-boundary-conditions">
+<h2>Periodic boundary conditions<a class="headerlink" href="#periodic-boundary-conditions" title="Link to this heading">#</a></h2>
+<p>First, let’s consider how to calculate the ground-state energy of a metal system.</p>
+<p>The metal electrodes in experiments are several millimeters or centimeters big. An atom is less than a nanometer wide. Calculating the density of electrons for the millions of atoms in an electrode obviously takes too long on a computer. Luckily, metal is organized in a <em>lattice</em>, and looks similar everywhere.</p>
+<p>For this reason, one uses <em>periodic boundary conditions</em>: you model only a few atoms, called a <em>supercell</em>, and repeat the cell in each direction. This means that electrons on the right of the cell interact with electrons on the left of the next cell. In the picture below, you see such a supercell.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">bulk</span>
+<span class="kn">from</span> <span class="nn">ase.visualize.plot</span> <span class="kn">import</span> <span class="n">plot_atoms</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">metal</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s1">&#39;Pt&#39;</span><span class="p">,</span> <span class="n">crystalstructure</span><span class="o">=</span><span class="s1">&#39;fcc&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">4.02</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">metal</span><span class="o">.</span><span class="n">repeat</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/463875f6ca92f24bc21068ee268ff3827b31570508f2f15ab82bd1f1018068c8.png" src="../_images/463875f6ca92f24bc21068ee268ff3827b31570508f2f15ab82bd1f1018068c8.png" />
+</div>
+</div>
+</section>
+<section id="density-functional-theory-for-periodic-systems">
+<h2>Density functional theory for periodic systems<a class="headerlink" href="#density-functional-theory-for-periodic-systems" title="Link to this heading">#</a></h2>
+<p>Our goal is now to solve the Kohn-Sham equations for the orbitals <span class="math notranslate nohighlight">\(\psi_i\)</span> and their energies <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> to obtain the ground state energy of a metal. It turns out that it is very efficient to make use of the periodicity of the simulation cell.</p>
+<p>Due to the periodicity, electrons can be expressed as waves that travel through the material. The waves have a frequency in space that is expressed by the three-dimensional <em>wave vector</em> <span class="math notranslate nohighlight">\(\mathbf{k}=(k_x, k_y, k_z)\)</span>. Each frequency is associated with an energy. A plot of the energy for each <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> is called the <em>band structure</em>. As metals have many electrons, there are also many bands.</p>
+<figure class="align-default" id="bandstructure">
+<a class="reference internal image-reference" href="../_images/bandstructure-bare.png"><img alt="../_images/bandstructure-bare.png" src="../_images/bandstructure-bare.png" style="height: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Bandstructure of a platinum fcc(111) surface</span><a class="headerlink" href="#bandstructure" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Expressing electrons in a periodic system as waves is closely related to the techniques of the <a class="reference external" href="https://youtu.be/spUNpyF58BY?si=Z2UN96n6tIFOa1WV">Fourier transform</a> and <a class="reference external" href="https://youtu.be/r6sGWTCMz2k?si=hFfTSdh6r_OQolRd">Fourier series</a>, which allows any function to be expressed as a sum of waves with various frequencies.</p>
+<p>Near a nucleus, the electron wave function changes very fast. Describing such fast changes requires a high spatial frequency <span class="math notranslate nohighlight">\(|\mathbf{k}|\)</span>. Simulating more <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> increases computation time. To speed up calculations, people have defined <em>pseudopotentials</em> for many elements. Pseudopotentials include nucleus as well as the core electrons, which shield the charge of the nuclei. This smoothes the wave function, so that we do not need to calculate as many <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> points.</p>
+<figure class="align-default" id="pseudopotentials">
+<a class="reference internal image-reference" href="../_images/pp.png"><img alt="../_images/pp.png" src="../_images/pp.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Pseudopotential and the corresponding pseudo-wavefunction (both red) comapred to the real potential and real wavefunction.</span><a class="headerlink" href="#pseudopotentials" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="task-1-bulk-metal">
+<h2>Task 1: bulk metal<a class="headerlink" href="#task-1-bulk-metal" title="Link to this heading">#</a></h2>
+<p>Let’s get started with simulations. We’ll use the software <a class="reference external" href="https://vasp.at/">VASP</a> (Vienna Ab-initio Simulation Package), which runs on the computation cluster of the university. We will write several files that contain the simulation settings (<em>input files</em>). You can then upload them to the following website:</p>
+<p><a class="reference external" href="https://lab.tc.lic.leidenuniv.nl/LGI/">lab.tc.lic.leidenuniv.nl/LGI</a></p>
+<p>VASP will then do the calculation for you.</p>
+<p>The first file we need is the INCAR file. Make an empty file and name it INCAR (not <code class="docutils literal notranslate"><span class="pre">INCAR.txt</span></code>, remove the extension). Enter the following contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">first</span> <span class="n">line</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">for</span> <span class="n">a</span> <span class="n">comment</span><span class="o">.</span> <span class="n">For</span> <span class="n">example</span><span class="p">:</span> <span class="s2">&quot;bulk fcc metal&quot;</span>
+<span class="n">ENCUT</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">ISMEAR</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SIGMA</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">EDIFF</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="n">GGA</span> <span class="o">=</span> <span class="n">RP</span>
+</pre></div>
+</div>
+<p>These are different settings for the algorithm that solves the Kohn-Sham equations. <code class="docutils literal notranslate"><span class="pre">ENCUT</span></code> specifies the maximum frequency of the electron waves used, in terms of an energy through the relation <span class="math notranslate nohighlight">\(E=\hbar |\mathbf{k}|\)</span>. <code class="docutils literal notranslate"><span class="pre">EDIFF</span></code> is the <em>convergence criterion</em> for the self-consistent solving cycles. If the energy of subsequent solutions changes by less than <code class="docutils literal notranslate"><span class="pre">EDIFF</span></code>, the algorithm stops and returns the final result. <code class="docutils literal notranslate"><span class="pre">ISMEAR</span></code> and <code class="docutils literal notranslate"><span class="pre">SIGMA</span></code> spread out the occupation of bands by electrons; this helps convergence. <code class="docutils literal notranslate"><span class="pre">GGA</span></code> sets the exchange-correlation functional to the RPBE functional.</p>
+<p>Next, we need to specify the simulation cell. This is done by making a file POSCAR with the following contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Au</span>
+ <span class="mf">4.20</span>
+     <span class="mf">0.5</span> <span class="mf">0.5</span> <span class="mf">0.0</span>
+     <span class="mf">0.0</span> <span class="mf">0.5</span> <span class="mf">0.5</span>
+     <span class="mf">0.5</span> <span class="mf">0.0</span> <span class="mf">0.5</span>
+ <span class="n">Au</span>
+   <span class="mi">1</span>
+<span class="n">Cartesian</span>
+  <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>The first line is the chemical symbol of the material. The next line is a scaling factor for the whole cell. The three lines below are normalized vectors of the cell. Here, I chose a cell that contains only one atom, the ‘primitive unit cell’. It looks like this:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">bulk</span>
+<span class="kn">from</span> <span class="nn">ase.visualize.plot</span> <span class="kn">import</span> <span class="n">plot_atoms</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">metal</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s1">&#39;Au&#39;</span><span class="p">,</span> <span class="n">crystalstructure</span><span class="o">=</span><span class="s1">&#39;fcc&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">4.20</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+<span class="n">plot_atoms</span><span class="p">(</span><span class="n">metal</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/aef225e8108ad8ab50927212d8892c393877023bf605ef7039ca7985a372f0a1.png" src="../_images/aef225e8108ad8ab50927212d8892c393877023bf605ef7039ca7985a372f0a1.png" />
+</div>
+</div>
+<p>Next, the POSCAR describes how many atoms there are of each type (here: Au, 1). The last lines of the POSCAR file set a shift of the atom in the cell. We don’t need to shift it, so we set it to zero.</p>
+<p>Next, we need a KPOINTS file. We cannot calculate all k-points in the bandstructure, so we approximate it by a grid with a number of points. Here’s a possible k-points file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KPoints</span> <span class="k">for</span> <span class="n">bulk</span> <span class="n">metal</span>
+<span class="mi">0</span>
+<span class="n">Gamma</span>
+<span class="mi">16</span> <span class="mi">16</span> <span class="mi">16</span>
+<span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>You can use the documentation on the <a class="reference external" href="https://www.vasp.at/wiki/index.php/KPOINTS#Regular_k-point_mesh">VASP wiki</a> to understand the different lines.</p>
+<p>Lastly, we need a POTCAR file, that contains the pseudopotential that VASP will use. These you will get from the supervisor.</p>
+<ul class="simple">
+<li><p>In the output repository, find the <code class="docutils literal notranslate"><span class="pre">OSZICAR</span></code> file. Find the self-consistent field cycles and the final energy <code class="docutils literal notranslate"><span class="pre">E0</span></code>.</p></li>
+<li><p>Also find the <code class="docutils literal notranslate"><span class="pre">OUTCAR</span></code> file. Find the energies calculated for each k-point.</p></li>
+</ul>
+<p>(You don’t need to save anything here.)</p>
+</section>
+<section id="task-2-oxygen-molecule">
+<h2>Task 2: oxygen molecule<a class="headerlink" href="#task-2-oxygen-molecule" title="Link to this heading">#</a></h2>
+<p>A bulk metal is periodic, but an oxygen molecule is not. However, we can still simulate an oxygen molecule by making a large enough simulation cell, so that the molecule in one cell does not interact with the molecule in the next cell. Let’s do such a simulation.</p>
+<p>INCAR:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Oxygen</span> <span class="n">molecule</span>
+<span class="n">ENCUT</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">ISMEAR</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SIGMA</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">EDIFF</span> <span class="o">=</span> <span class="mf">1e-06</span>
+<span class="n">GGA</span> <span class="o">=</span> <span class="n">RP</span>
+
+<span class="n">EDIFFG</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1e-2</span>
+<span class="n">IBRION</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ISIF</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">NSW</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">ISPIN</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>The first group of tags is the same as before. We just need a larger <code class="docutils literal notranslate"><span class="pre">ENCUT</span></code> to describe oxygen. The second group is related to geometry relaxation: <code class="docutils literal notranslate"><span class="pre">IBRION</span> <span class="pre">=</span> <span class="pre">2</span></code> specifies that we optimize (<em>relax</em>) the positions of the atoms until the forces on them are below <code class="docutils literal notranslate"><span class="pre">EDIFFG</span> <span class="pre">=</span> <span class="pre">-1e-2</span></code>, in eV/Å (1 Å, Ångstrom, is 0.1 nm). The last line indicates that we take into account spin. This is because the ground state of the oxygen molecule has two unpaired electrons.</p>
+<p>POSCAR:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Oxygen</span> <span class="n">molecule</span>
+<span class="n">O</span>
+ <span class="mi">1</span>
+    <span class="mi">10</span>    <span class="mi">0</span>    <span class="mi">0</span>
+     <span class="mi">0</span>   <span class="mi">10</span>    <span class="mi">0</span>
+     <span class="mi">0</span>    <span class="mi">0</span>   <span class="mi">10</span>
+ <span class="n">O</span>
+   <span class="mi">2</span>
+<span class="n">Selective</span> <span class="n">dynamics</span>
+<span class="n">Cartesian</span>
+  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>   
+  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mf">1.5</span>   
+</pre></div>
+</div>
+<p>Now we placed two oxygen atoms a distance of 1.5 Å apart.</p>
+<p>KPOINTS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="o">-</span><span class="n">points</span> <span class="k">for</span> <span class="n">oxygen</span>
+<span class="mi">0</span>
+<span class="n">Gamma</span>
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>
+<span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>It turns out that the band structure consists of a bunch of flat lines, so we only need one k-point to describe it. As a rule of thumb: if we don’t need the periodicity to describe the whole system, one k-point is sufficient.</p>
+<p>Ask the supervisor for the oxygen POTCAR, submit the calculation, and find out:</p>
+<ul class="simple">
+<li><p>the final bond length in Å, using the <code class="docutils literal notranslate"><span class="pre">CONTCAR</span></code> file</p></li>
+<li><p>the final electronic energy <code class="docutils literal notranslate"><span class="pre">E0</span></code>, using the <code class="docutils literal notranslate"><span class="pre">OSZICAR</span></code> file</p></li>
+</ul>
+</section>
+<section id="task-3-empty-slab">
+<h2>Task 3: empty slab<a class="headerlink" href="#task-3-empty-slab" title="Link to this heading">#</a></h2>
+<p>We will model an electrode as a slab of a few atoms thick. <span id="id2">Nørskov <em>et al.</em> [<a class="reference internal" href="#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span> use a thickness of three atoms, for example. Writing POSCAR files by hand gets a bit annoying, so let’s use the Python module <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/about.html">ASE</a>. You can build and visualize a simple Pt slab as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">fcc111</span> 
+<span class="kn">from</span> <span class="nn">ase.visualize</span> <span class="kn">import</span> <span class="n">view</span>
+
+<span class="n">slab</span> <span class="o">=</span> <span class="n">fcc111</span><span class="p">(</span><span class="s2">&quot;Pt&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">vacuum</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">4.02</span><span class="p">)</span>
+<span class="n">view</span><span class="p">(</span><span class="n">slab</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We also need to enable periodic boundary conditions, and fix the bottom two layers of the slab, so they don’t fly away (in reality, the rest of the metal would be holding them in place).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.constraints</span> <span class="kn">import</span> <span class="n">FixAtoms</span>
+<span class="n">slab</span><span class="o">.</span><span class="n">pbc</span> <span class="o">=</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">slab</span><span class="o">.</span><span class="n">set_constraint</span><span class="p">(</span><span class="n">FixAtoms</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">[</span><span class="n">tag</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">slab</span><span class="o">.</span><span class="n">get_tags</span><span class="p">()]))</span>
+</pre></div>
+</div>
+<p>You can export the slab as POSCAR using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.io</span> <span class="kn">import</span> <span class="n">write</span>
+<span class="n">write</span><span class="p">(</span><span class="s2">&quot;POSCAR&quot;</span><span class="p">,</span> <span class="n">slab</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For your calculations, use the following INCAR file:</p>
+<p>INCAR</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Metal</span> <span class="n">slab</span>
+<span class="n">ENCUT</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">ISMEAR</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SIGMA</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">EDIFF</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<span class="n">GGA</span> <span class="o">=</span> <span class="n">RP</span>
+
+<span class="n">IBRION</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">EDIFFG</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.00e-02</span>
+<span class="n">ISIF</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">NSW</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Write your own KPOINTS file using <span id="id3">Nørskov <em>et al.</em> [<a class="reference internal" href="#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>. You can ignore that their grid is a ‘Monkhorst-Pack’ grid, and just change the number of k-points.</p></li>
+<li><p>Using the bandstructure in the direction perpendicular to a slab, motivate the number of k-points in the z-direction.</p></li>
+</ul>
+<figure class="align-default" id="bandstructure-in-z-direction">
+<a class="reference internal image-reference" href="../_images/bs-z.png"><img alt="../_images/bs-z.png" src="../_images/bs-z.png" style="height: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Bandstructure in the direction perpendicular to a platinum fcc(111) surface</span><a class="headerlink" href="#bandstructure-in-z-direction" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Ask the supervisor for the platinum POTCAR and use it to calculate the electronic energy of your empty slab.</p></li>
+</ul>
+</section>
+<section id="task-4-slab-with-adsorbate">
+<h2>Task 4: slab with adsorbate<a class="headerlink" href="#task-4-slab-with-adsorbate" title="Link to this heading">#</a></h2>
+<p>When programming, using a search engine and software documentation is very important.</p>
+<ul class="simple">
+<li><p>Find a function to add an adsorbate to your surface. Write a new POSCAR with the adsorbate.</p></li>
+<li><p>Ask for the new POTCAR and do the calculation with the same INCAR and KPOINTS as for the bare slab.</p></li>
+</ul>
+<p>Thermal corrections:</p>
+<p>TODO</p>
+<ul class="simple">
+<li><p>Calculate the binding energy.</p></li>
+</ul>
+</section>
+<section id="task-5-research-project">
+<h2>Task 5: research project<a class="headerlink" href="#task-5-research-project" title="Link to this heading">#</a></h2>
+<p>LATTICE CONSTANTS: TODO</p>
+<ul class="simple">
+<li><p>First, calculate the binding energy of O to both Pt and Au, and compare.</p></li>
+<li><p>Then, choose a simulation setting of <span id="id4">Nørskov <em>et al.</em> [<a class="reference internal" href="#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>, change it and compare the binding energies of Pt and Au again. Examples of simulation settings are:</p>
+<ul>
+<li><p>the number of k-points in the x- and y-directions</p></li>
+<li><p>the number of layers</p></li>
+<li><p>the adsorption site (<code class="docutils literal notranslate"><span class="pre">'fcc'</span></code> or <code class="docutils literal notranslate"><span class="pre">'ontop'</span></code>, see ASE documentation)</p></li>
+<li><p>the exchange-correlation functional (<code class="docutils literal notranslate"><span class="pre">GGA=RP</span></code> for RPBE or <code class="docutils literal notranslate"><span class="pre">GGA=PE</span></code> for PBE)</p></li>
+</ul>
+</li>
+</ul>
+<p>Another project (if there is more time) is to calculate the binding energies of the other intermediates (see also <span id="id5">Kulkarni <em>et al.</em> [<a class="reference internal" href="#id16" title="Ambarish Kulkarni, Samira Siahrostami, Anjli Patel, and Jens K Nørskov. Understanding catalytic activity trends in the oxygen reduction reaction. Chemical reviews, 118(5):2302–2312, 2018. doi:10.1021/acs.chemrev.7b00488.">2</a>]</span>) with the computational hydrogen electrode approach.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p>add more (TODO)</p>
+<div class="docutils container" id="id6">
+<div role="list" class="citation-list">
+<div class="citation" id="id15" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>,<a role="doc-backlink" href="#id4">4</a>)</span>
+<p>Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. <em>The Journal of Physical Chemistry B</em>, 108(46):17886–17892, 2004. <a class="reference external" href="https://doi.org/10.1021/jp047349j">doi:10.1021/jp047349j</a>.</p>
+</div>
+<div class="citation" id="id16" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">2</a><span class="fn-bracket">]</span></span>
+<p>Ambarish Kulkarni, Samira Siahrostami, Anjli Patel, and Jens K Nørskov. Understanding catalytic activity trends in the oxygen reduction reaction. <em>Chemical reviews</em>, 118(5):2302–2312, 2018. <a class="reference external" href="https://doi.org/10.1021/acs.chemrev.7b00488">doi:10.1021/acs.chemrev.7b00488</a>.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -421,12 +705,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="dft.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction</p>
+        <p class="prev-next-title">Quantum chemistry</p>
       </div>
     </a>
     <a class="right-next"
@@ -444,6 +728,28 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#periodic-boundary-conditions">Periodic boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-functional-theory-for-periodic-systems">Density functional theory for periodic systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-bulk-metal">Task 1: bulk metal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-oxygen-molecule">Task 2: oxygen molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-empty-slab">Task 3: empty slab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-slab-with-adsorbate">Task 4: slab with adsorbate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-research-project">Task 5: research project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
