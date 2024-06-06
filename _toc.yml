@@ -9,6 +9,7 @@ parts:
   chapters:
   - file: theory-lab/course-information
   - file: theory-lab/intro
+  - file: theory-lab/dft
   - file: theory-lab/metals
   - file: theory-lab/porphyrins
 - caption: Experimental lab
