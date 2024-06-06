@@ -18,11 +18,11 @@ name: heme
 Heme binding oxygen ([source](https://en.wikipedia.org/wiki/Heme#/media/File:Mboxygenation.png))
 ```
 
-In the electrochemistry project you will do or have done, porphyrins are deposited on a metal surface. Their metal centers can catalyze the oxygen reduction reaction. In this project, we will use density functional theory calculations to try and understand the reaction mechanism.
+In the electrochemistry project you will do or have done, porphyrins are deposited on a surface. Their metal centers can catalyze the oxygen reduction reaction. In this project, we will use density functional theory calculations to calculate the binding energy of the oxygen molecule.
 
 ## Density functional theory for molecules
 
-Remember that our goal is to find the ground-state energy of several systems, from which we can then calculate the binding energy. (In experimental conditions, molecules are close to the ground state as well.)
+Remember that our goal is to find the ground-state energy of various molecules, from which we can then calculate the binding energy. 
 
 To this end we want to solve the Kohn-Sham equations for the orbitals (one-electron wave functions) $\psi_i$ and their energies $\varepsilon_i$. Wave functions are functions, which you could view as an infinite collection of numbers: there are infinitely many points in space, and each space has a corresponding value of the wavefunction. How do we put this into a computer?
 
@@ -178,4 +178,5 @@ If you're curious about something else, feel free to research that instead.
 
 ```{bibliography}
 :style: unsrt
+:filter: docname in docnames
 ```
