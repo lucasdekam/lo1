@@ -29,7 +29,7 @@ The first term, $\hat{T}$, is the kinetic energy of the electrons; $\hat{V}_{ne}
 
 To solve the Schrödinger equation for many-electron systems (where many is more than three) on a computer within a reasonable calculation time, people have come up with many different approximations, from [Hartree-Fock theory](https://en.wikipedia.org/wiki/Hartree%E2%80%93Fock_method) to [coupled-cluster theory](https://en.wikipedia.org/wiki/Coupled_cluster). All these methods revolve around calculating the wave function. Some of these methods can be extremely accurate, but it takes a lot of time to do such calculations on a computer. It turns out that there is another approach that achieves decent accuracy in much less computation time: the *density functional theory* (DFT). 
 
-## Density functonal theory
+## Density functional theory
 
 In density functional theory, the central quantity is the electron density, $\rho(\mathbf{r})$, where $\mathbf{r}$ is the vector of spatial coordinates. Walter Kohn and Pierre Hohenberg showed that $\rho(\mathbf{r})$ also contains all relevant information about the system. Later, Walter Kohn and Lu Jeu Sham showed that the problem of calculating the electronic density can be reduced to solving the Schrödinger equation of noninteracting particles (so no $\hat{V}_{ee}$), which made the method very easy to use, while still being accurate. Walter Kohn was awarded the [Nobel Prize in 1998](https://www.nobelprize.org/prizes/chemistry/1998/summary/). 
 
