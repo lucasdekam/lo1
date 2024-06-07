@@ -1,8 +1,9 @@
 # Experimental procedures
-
+**Tutorial paper about cyclic voltammetry and electrochemistry**
+[A Practical Beginner’s Guide to Cyclic Voltammetry](https://pubs.acs.org/doi/full/10.1021/acs.jchemed.7b00361)
 
 ## Cleaning procedure
-Before any glassware can be used for clean electrochemistry, it needs to be cleaned by us thoroughly. We use potassium permanganate to oxidize any organic compounds and dilute [piranha solution](https://www.youtube.com/watch?v=cLpSapjKcxM) (sulfuric acid + hydrogen peroxide) to dissolve any inorganic impurities. The name _piranha_ refers to the similarities with a real piranha when organic material comes into contact with the solution. These chemicals are therefore really dangerous and you should be really careful not to spill it and damage your clothes.  
+Before any glassware can be used for clean electrochemistry, it needs to be cleaned by us thoroughly. We use potassium permanganate to oxidize any organic compounds and dilute [piranha solution](https://www.youtube.com/watch?v=cLpSapjKcxM) (sulfuric acid + hydrogen peroxide) to dissolve any inorganic impurities. The name _piranha_ refers to the similarities with a real piranha when organic material comes into contact with the solution. These chemicals are therefore really dangerous and you should be really careful not to spill and damage your clothes.  
 1.	Store glassware in a 1 g/L KMnO4 + 0.1 M H2SO4 solution for 2-3 h.
 2.	Pour out KMnO4 solution for reuse into storage vat
 3.	Rinse glassware 3x with DI water (dispose of very dilute KMnO4 in sink)
@@ -22,19 +23,20 @@ Every consumable like glass vials, gloves, pipette tips and centrifuge tubes are
 4.  Make electrolyte directly in the cell
 
 ## Catalyst preparation
-1.  Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Vortex for 2-3 min.
-2.  Prepare 1 mL 1.25 mM solution of  metal complex in acetone.
+Prepare two different solutions:
+1.  Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Vortex for 2-3 min
+2.  Prepare 1 mL solution of 1.25 mM metal complex in acetone
 
-Prepare catalyst ink:
-3.  Take 40 µL complex solution
-4.  Add 20 µL Nafion suspension and homogenize by using the vortext
-5.  Add 120 µL Carbon black suspension (sonicate/vortex for 15 min. or more prior to application)
+Make catalyst ink in seperate vial:
+1.  Take 40 µL complex solution
+2.  Add 20 µL Nafion suspension and homogenize by using the vortex
+3.  Add 120 µL Carbon black suspension (sonicate/vortex for 15 min. or more prior to application)
 
-Dropcast catalyst ink:
-6.  Take 50 µL of catalyst ink with pipette and drop on one side of substrate
-7.  Let acetone evaporate in air for 30 min
-8.  Optional use heatgun to speed up drying
-9. Keep dropcasting until all solution is on substrate
+Dropcasting:
+1.  Take 10 µL of catalyst ink with pipette and drop on one side of substrate
+2.  Let acetone evaporate in air for 30 min
+3.  Optional use heatgun to speed up drying
+4.  Keep dropcasting until all solution is on substrate
 
 ## Setting up a three-electrode setup
 Setting up the electrochemical cell requires a specific order in order to protect the potentiostat and your working electrode. There is never any potential or current applied to the reference electrode, but it is needed for the potentiostat to 'know' at which potential it needs to keep the CE and WE so we connect the RE first. Then we connect the CE to have a 'sink' for the current to go if the potentiostat needs to get rid of current. When we connect our WE last, the potentiostat keeps the potential vs the RE stable and uses the CE to get rid of current when it needs to. Now when we connect the WE, there will never be any current/potential spike that could potentially be damaging to the electrocatalyst.
@@ -43,7 +45,8 @@ Setting up the electrochemical cell requires a specific order in order to protec
 2.	Rinse reference and counter electrode and insert into cell
 3.	Connect reference electrode
 4.	Connect counter electrode
-5.	Assemble working electrode
+5.	Briefly anneal working electrode (if Gold)
+6.  Assemble working electrode
 6.	Submerge and connect working electrode 
 7.	Make sure no electrodes are touching
 8.	Load appropriate potentiostat settings

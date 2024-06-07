@@ -1,3 +1,4 @@
+# Electrochemistry lab 
 # Course information
 
 ```{admonition} Learning goals 
@@ -7,6 +8,7 @@ After this lab course you should be able to...
 * make electrolyte solutions
 * assemble an electrochemical cell with an electrocatalyst in a three-electrode setup
 * investigate the effect of electrolyte and catalyst composition on ORR 
+* work cleanly and precisely in an electrochemistry lab
 * analyze your results with a critical view. To do this, you should compare your methods and results to scientific publications (some publications can be found in the reference lists on the pages of the respective projects)
 ```
 
@@ -23,21 +25,31 @@ Normal days are from 9:00 - 17:00 but some days there are deviations. On June 17
 |------|---------|---------|---------|---------|---------|
 | Room | 12:30 - 17:00 | 9:00 - 17:00 | 9:00 - 17:00 | 9:00 - 17:00 | 9:00 - 17:00 |
 
-### Layout electrochemistry lab schedule
+## Layout electrochemistry lab schedule
 **Day 1**
-_The first day is to prepare as much as possible for the experiments on day 2 - 4 and it serves as an introduction to the field of electrochemistry._  We will try to do the following things on day 1: 
-•	Clean glassware
-•	Perform safety analysis chemicals (and gases) and experiments
-•	Develop research/experimental plan
-•	Read literature
-•	Install IviumSoft 
+_The goal on the first day is to prepare as much as possible for the experiments on day 2 - 4 and it serves as an introduction to the field of electrochemistry._  We will try to do the following things on day 1: 
+- Clean glassware
+- Perform safety analysis chemicals (and gases) and experiments
+- Develop research/experimental plan
+- Read literature
+- Install IviumSoft 
 
 **Day 2**
-•	Prepare electrolyte solutions
-•	Perform blank experiment on Au/C
-•	Perform first experiment with catalyst and experimental parameter 1
+- Prepare electrolyte solutions
+- Perform blank experiment on Au/C
+- Perform first experiment with catalyst and experimental parameter 1
+
 **If there is enough time:**
-•	Perform second experiment
+- Perform second experiment
 
 **Day 3 - 4** 
 Finish the remaining experiments. On Day 4 we have the morning to do the final experiment and the afternoon is reserved for cleaning up. 
+
+
+
+
+
+
+
+
+

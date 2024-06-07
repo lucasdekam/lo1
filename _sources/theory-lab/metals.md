@@ -285,8 +285,6 @@ Another project (if there is more time) is to calculate the binding energies of 
 
 ## References
 
-add more (TODO)
-
 ```{bibliography}
 :style: unsrt
 :filter: docname in docnames
