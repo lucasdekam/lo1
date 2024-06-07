@@ -154,8 +154,8 @@ SIGMA = 0.05
 EDIFF = 1e-06
 GGA = RP
 
-EDIFFG = -1e-2
 IBRION = 2
+EDIFFG = -1e-2
 ISIF = 2
 NSW = 100
 
@@ -167,14 +167,12 @@ The first group of tags is the same as before. We just need a larger `ENCUT` to 
 POSCAR:
 ```
 Oxygen molecule
-O
  1
     10    0    0
      0   10    0
      0    0   10
  O
    2
-Selective dynamics
 Cartesian
   0  0  0   
   0  0  1.5   
@@ -195,7 +193,7 @@ It turns out that the band structure consists of a bunch of flat lines, so we on
 
 Ask the supervisor for the oxygen POTCAR, submit the calculation, and find out:
 
-* the final bond length in Å, using the `CONTCAR` file
+* the final bond length in Å, using the `CONTCAR` file. Look for (a reliable source of) the bond length of oxygen on the internet. Does it agree with the calculation?
 * the final electronic energy `E0`, using the `OSZICAR` file
 
 ## Task 3: empty slab
