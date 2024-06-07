@@ -261,11 +261,17 @@ When programming, using a search engine and software documentation is very impor
 * Find a function to add an adsorbate to your surface. Write a new POSCAR with the adsorbate.
 * Ask for the new POTCAR and do the calculation with the same INCAR and KPOINTS as for the bare slab.
 
-Thermal corrections: 
+Thermal corrections at 298 K and 1 bar gas pressure in eV: 
 
-TODO
+|                           | $U_\mathrm{trans}$ | $U_\mathrm{rot}$ | $U_\mathrm{vib}$ | $S_\mathrm{trans}$ | $S_\mathrm{rot}$ | $S_\mathrm{vib}$ | $PV=k_\mathrm{B}T$ |
+|---------------------------|--------------------|------------------|------------------|--------------------|------------------|------------------|--------------------|
+| $\mathrm{O_2}$            | 0.0385             | 0.0257           | 0.147            | 0.00158            | 0.000459         | 0.00102          | 0.0257             | 
+| $\mathrm{Pt(111)-O}$ fcc  | 0                  | 0                | 0.100            | 0                  | 0                | 0.000124         | 0                  | 
+| $\mathrm{Au(111)-O}$ fcc  | 0                  | 0                | 0.0934           | 0                  | 0                | 0.000159         | 0                  | 
+| $\mathrm{Pt(111)-O}$ top  | 0                  | 0                | 0.0969           | 0                  | 0                | 0.000144         | 0                  |
 
-* Calculate the binding energy.
+
+* Calculate the binding (Gibbs) energy.
 
 
 ## Task 5: research project
