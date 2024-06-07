@@ -81,7 +81,7 @@ Now we are ready to do our first 'useful' calculation.
 
 * Change the task from 'Single Point' to 'Geometry Optimization' and check the 'Frequencies' box so that we optimize the geometry and obtain information about the vibrations of an oxygen molecule. 
 
-* The vibrational frequency is in the `.out` file. Compare it to a value you find from a (reliable) source on the internet.
+* The vibrational frequency is in the `.out` file. Compare it to a value you find from a (reliable) source on the internet. <!-- hint: https://cccbdb.nist.gov/expvibs2x.asp -->
 
 * Save the thermodynamic information (Statistical Thermal Analysis at the end of the `.out` file.).
 
