@@ -31,7 +31,7 @@ from ase.build import bulk
 from ase.visualize.plot import plot_atoms
 import matplotlib.pyplot as plt
 
-metal = bulk('Pt', crystalstructure='fcc', a=4.02)
+metal = bulk('Pt', crystalstructure='fcc', a=4.00)
 
 fig = plt.figure(figsize=(3, 3))
 ax = fig.add_subplot()
@@ -78,8 +78,8 @@ VASP will then do the calculation for you.
 
 The first file we need is the INCAR file. Make an empty file and name it INCAR (not `INCAR.txt`, remove the extension). Enter the following contents:
 
-```
-The first line can be used for a comment. For example: "bulk fcc metal"
+``` text
+The first line can be used for a comment. For example: "Bulk fcc metal"
 ENCUT = 300
 ISMEAR = 0
 SIGMA = 0.05
@@ -92,7 +92,7 @@ These are different settings for the algorithm that solves the Kohn-Sham equatio
 Next, we need to specify the simulation cell. This is done by making a file POSCAR with the following contents:
 
 ```
-Au
+Bulk fcc gold
  4.20
      0.5 0.5 0.0
      0.0 0.5 0.5
@@ -103,7 +103,7 @@ Cartesian
   0 0 0
 ```
 
-The first line is the chemical symbol of the material. The next line is a scaling factor for the whole cell. The three lines below are normalized vectors of the cell. Here, I chose a cell that contains only one atom, the 'primitive unit cell'. It looks like this:
+The first line is a comment. The next line is a scaling factor for the whole cell. The three lines below are normalized vectors of the cell. Here, I chose a cell that contains only one atom, the 'primitive unit cell'. It looks like this:
 
 ```{code-cell}
 :tags: [hide-input]
@@ -126,7 +126,7 @@ Next, the POSCAR describes how many atoms there are of each type (here: Au, 1). 
 Next, we need a KPOINTS file. We cannot calculate all k-points in the bandstructure, so we approximate it by a grid with a number of points. Here's a possible k-points file:
 
 ```
-KPoints for bulk metal
+Bulk fcc gold
 0
 Gamma
 16 16 16
@@ -182,7 +182,7 @@ Now we placed two oxygen atoms a distance of 1.5 Å apart.
 
 KPOINTS:
 ```
-K-points for oxygen
+Oxygen molecule
 0
 Gamma
 1 1 1
@@ -193,8 +193,8 @@ It turns out that the band structure consists of a bunch of flat lines, so we on
 
 Ask the supervisor for the oxygen POTCAR, submit the calculation, and find out:
 
-* the final bond length in Å, using the `CONTCAR` file. Look for (a reliable source of) the bond length of oxygen on the internet. Does it agree with the calculation?
-* the final electronic energy `E0`, using the `OSZICAR` file
+* the final bond length in Å, using the `CONTCAR` file. Look for (a reliable source of) the bond length of oxygen on the internet. Does it agree with the calculation? <!-- hint: https://cccbdb.nist.gov/expvibs2x.asp -->
+* the final electronic energy `E0`, using the `OSZICAR` file <!-- E0 = -9.57215267 eV -->
 
 ## Task 3: empty slab
 
@@ -204,9 +204,17 @@ We will model an electrode as a slab of a few atoms thick. {cite:t}`norskov2004o
 from ase.build import fcc111 
 from ase.visualize import view
 
-slab = fcc111("Pt", size=(2, 2, 3), vacuum=7.0, a=4.02)
+slab = fcc111("Pt", size=(2, 2, 3), vacuum=7.0, a=4.00)
 view(slab)
 ```
+
+Lattice constants:
+| Material | XC functional | $a$ / Å |
+|----------|---------------|---------|
+| Pt       | RPBE          | 4.00    |
+| Au       | RPBE          | 4.20    | 
+| Pt       | PBE           | 3.98    |
+| Au       | PBE           | 4.16    |
 
 We also need to enable periodic boundary conditions, and fix the bottom two layers of the slab, so they don't fly away (in reality, the rest of the metal would be holding them in place). 
 
@@ -254,6 +262,9 @@ Bandstructure in the direction perpendicular to a platinum fcc(111) surface
 
 * Ask the supervisor for the platinum POTCAR and use it to calculate the electronic energy of your empty slab. 
 
+<!-- Pt: -60.82438386 eV -->
+<!-- Au: -29.57300867 eV -->
+
 ## Task 4: slab with adsorbate
 
 When programming, using a search engine and software documentation is very important.
@@ -261,22 +272,27 @@ When programming, using a search engine and software documentation is very impor
 * Find a function to add an adsorbate to your surface. Write a new POSCAR with the adsorbate.
 * Ask for the new POTCAR and do the calculation with the same INCAR and KPOINTS as for the bare slab.
 
-Thermal corrections at 298 K and 1 bar gas pressure in eV: 
+Thermal corrections at 298 K and 1 bar gas pressure in eV (energy) or eV/K (entropy): 
 
 |                           | $U_\mathrm{trans}$ | $U_\mathrm{rot}$ | $U_\mathrm{vib}$ | $S_\mathrm{trans}$ | $S_\mathrm{rot}$ | $S_\mathrm{vib}$ | $PV=k_\mathrm{B}T$ |
 |---------------------------|--------------------|------------------|------------------|--------------------|------------------|------------------|--------------------|
-| $\mathrm{O_2}$            | 0.0385             | 0.0257           | 0.147            | 0.00158            | 0.000459         | 0.00102          | 0.0257             | 
+| $\mathrm{O_2}$            | 0.0385             | 0.0257           | 0.0959           | 0.00158            | 0.000459         | 9.509E-5 (*)     | 0.0257             | 
 | $\mathrm{Pt(111)-O}$ fcc  | 0                  | 0                | 0.100            | 0                  | 0                | 0.000124         | 0                  | 
 | $\mathrm{Au(111)-O}$ fcc  | 0                  | 0                | 0.0934           | 0                  | 0                | 0.000159         | 0                  | 
 | $\mathrm{Pt(111)-O}$ top  | 0                  | 0                | 0.0969           | 0                  | 0                | 0.000144         | 0                  |
 
+(*) This also contains the electronic entropy, because I didn't have space for an extra column
+<!-- TODO: make only Ugas -->
 
-* Calculate the binding (Gibbs) energy.
+* Using the table above and your results, calculate the binding (Gibbs) energy.
+
+<!-- Pt(111)-O: -66.7716337 eV -->
+<!-- Yields  delta G = -0.861 eV -->
+<!-- Au(111)-O: -34.14675678 eV -->
+<!-- Yields delta G = -->
 
 
 ## Task 5: research project
-
-LATTICE CONSTANTS: TODO
 
 * First, calculate the binding energy of O to both Pt and Au, and compare.
 * Then, choose a simulation setting of {cite:t}`norskov2004origin`, change it and compare the binding energies of Pt and Au again. Examples of simulation settings are:
@@ -285,7 +301,12 @@ LATTICE CONSTANTS: TODO
   * the adsorption site (`'fcc'` or `'ontop'`, see ASE documentation)
   * the exchange-correlation functional (`GGA=RP` for RPBE or `GGA=PE` for PBE)
 
-Another project (if there is more time) is to calculate the binding energies of the other intermediates (see also {cite:t}`kulkarni2018understanding`) with the computational hydrogen electrode approach. 
+More project ideas (if there is more time):
+* calculate the binding energies of the other intermediates (see also {cite:t}`kulkarni2018understanding`) with the computational hydrogen electrode approach. 
+* calculate frequencies (spin-polarized?) and compare to {cite:t}`steininger1982adsorption`
+* calculate binding energy referenced to a single atom; use spin-polarization; compare to {cite:t}`lynch2000density`
+
+
 
 ## References
 
