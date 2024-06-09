@@ -45,7 +45,21 @@ plt.show()
 
 Our goal is now to solve the Kohn-Sham equations for the orbitals $\psi_i$ and their energies $\varepsilon_i$ to obtain the ground state energy of a metal. It turns out that it is very efficient to make use of the periodicity of the simulation cell. 
 
-Due to the periodicity, electrons can be expressed as waves that travel through the material. The waves have a frequency in space that is expressed by the three-dimensional *wave vector* $\mathbf{k}=(k_x, k_y, k_z)$. Each frequency is associated with an energy. A plot of the energy for each $\mathbf{k}$ is called the *band structure*. As metals have many electrons, there are also many bands.
+With the technique of [Fourier series](https://youtu.be/r6sGWTCMz2k?si=hFfTSdh6r_OQolRd), it is possible to write any periodic function as a sum of waves with different frequencies. (The Fourier series technique is very similar to the [Fourier transform](https://youtu.be/spUNpyF58BY?si=Z2UN96n6tIFOa1WV).) For example, we can write the electric potential due to the charged metal nuclei as a Fourier series. Waves are written as complex exponentials $e^{i ...}$.
+
+In periodic systems, electron wavefunctions can also be written as waves. This fact is stated by Bloch's theorem:
+
+$$\psi_\mathbf{k}(\mathbf{r}) = e^{i\mathbf{k} \cdot \mathbf{r}} u_\mathbf{k}(\mathbf{r})$$
+
+where $\mathbf{k}$ is a three-dimensional *wave vector* $\mathbf{k}=(k_x, k_y, k_z)$, that represents the direction in which the wave travels. 
+
+The function $u_\mathbf{k}(\mathbf{r})$ is a function with the same periodicity as the nuclei in the metal lattice. Because it is a periodic function, we can write it as a Fourier series:
+
+$$u_\mathbf{k}(\mathbf{r}) = \sum_\mathbf{G} c_\mathbf{G}^\mathbf{k} e^{i \mathbf{G} \cdot \mathbf{r}} $$
+
+where $c$ are coefficients.
+
+Each wave $\psi_\mathbf{k}$ is associated with an energy. A plot of the energy for each $\mathbf{k}$ is called the *band structure*. The number of bands is related to the number of electrons per atom.
 
 ```{figure} ../images/bandstructure-bare.png
 ---
@@ -55,9 +69,13 @@ name: bandstructure
 Bandstructure of a platinum fcc(111) surface
 ```
 
-Expressing electrons in a periodic system as waves is closely related to the techniques of the [Fourier transform](https://youtu.be/spUNpyF58BY?si=Z2UN96n6tIFOa1WV) and [Fourier series](https://youtu.be/r6sGWTCMz2k?si=hFfTSdh6r_OQolRd), which allows any function to be expressed as a sum of waves with various frequencies.
+To calculate the total energy, we sum up all occupied bands over $\mathbf{k}$. In the computer, the band structure is approximated by calculating the energies for a certain number of equally spaced $\mathbf{k}$-points. Calculating these energies takes time. For faster calculations, we can choose less $\mathbf{k}$-points, but we lose resolution in the band structure.
 
-Near a nucleus, the electron wave function changes very fast. Describing such fast changes requires a high spatial frequency $|\mathbf{k}|$. Simulating more $\mathbf{k}$ increases computation time. To speed up calculations, people have defined *pseudopotentials* for many elements. Pseudopotentials include nucleus as well as the core electrons, which shield the charge of the nuclei. This smoothes the wave function, so that we do not need to calculate as many $\mathbf{k}$ points.
+The frequencies $\mathbf{k}$ are thus related to electron energies. The frequencies $\mathbf{G}$ also have a meaning. Each $\mathbf{G}$ corresponds to a term in the Fourier series of $u_\mathbf{k}$. The more $\mathbf{G}$'s we include, the more accurately we can describe $u_\mathbf{k}$, which is part of the electron wavefunctions. However, calculating more terms of the sum again takes time. We therefore only include $\mathbf{G}$ up to some chosen value $|\mathbf{G}|_\mathrm{cut}$. It is usually described as a 'cutoff energy':
+
+$$E_\mathrm{cut} = \hbar^2 |\mathbf{G}|_\mathrm{cut}^2 / 2m_e. $$
+
+Near a nucleus, the electron wave function changes very fast. Describing such fast changes requires a high $E_\mathrm{cut}$. To speed up calculations, people have defined *pseudopotentials*. Pseudopotentials include the charge of the nucleus as well as the core electrons, which do not participate in chemical bonds. Pseudopotentials make the wave function smooth, so that we do not need a high $E_\mathrm{cut}$.
 
 ```{figure} ../images/pp.png
 ---
