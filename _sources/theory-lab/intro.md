@@ -38,6 +38,22 @@ The site $*$ acts as a catalyst: it binds the *intermediates* $\mathrm{O^*}$ and
 
 In the lab part, you will find or have found that different catalysts (different electrodes) have a different activity for the oxygen reduction reaction. A major milestone in electrocatalysis was relating the activity of a catalyst to the *binding energy* to an intermediate.
 
+The binding energies of various oxygen species are related: if a catalyst binds oxygen strongly, it will also bind OH strongly {cite:p}`norskov2004origin, kulkarni2018understanding`.
+
+For optimal catalysis, the catalyst should bind oxygen strongly enough to adsorb it on the surface and enable electron transfer, but not so strongly that the product (water) cannot leave the surface. 
+
+Plotting the activity of various catalysts against their binding energy reveals a 'volcano plot': the activity is optimal if the binding energy is not too large, and not too small.
+
+
+```{figure} ../images/volcano.png
+---
+height: 300
+name: volcano
+---
+Volcano plot for the oxygen reduction reaction. 
+```
+
+
 **Task for students who model metals**: By writing down the Gibbs energy of the reaction for 
 
 $$\mathrm{\frac12 O_2 + * \to O^*}$$
