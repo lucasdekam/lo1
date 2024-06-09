@@ -43,6 +43,8 @@ plt.show()
 
 ## Density functional theory for periodic systems
 
+The content of this section is inspired by the article of Bernd Meyer in ["Compuational Nanoscience: Do It Yourself" of the FZ Jülich](https://juser.fz-juelich.de/record/51139/files/NIC-Band-31.pdf) (p. 71).
+
 Our goal is now to solve the Kohn-Sham equations for the orbitals $\psi_i$ and their energies $\varepsilon_i$ to obtain the ground state energy of a metal. It turns out that it is very efficient to make use of the periodicity of the simulation cell. 
 
 With the technique of [Fourier series](https://youtu.be/r6sGWTCMz2k?si=hFfTSdh6r_OQolRd), it is possible to write any periodic function as a sum of waves with different frequencies. (The Fourier series technique is very similar to the [Fourier transform](https://youtu.be/spUNpyF58BY?si=Z2UN96n6tIFOa1WV).) For example, we can write the electric potential due to the charged metal nuclei as a Fourier series. Waves are written as complex exponentials $e^{i ...}$.
