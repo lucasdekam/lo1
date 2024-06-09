@@ -43,7 +43,7 @@ plt.show()
 
 ## Density functional theory for periodic systems
 
-The content of this section is inspired by the article of Bernd Meyer in ["Computational Nanoscience: Do It Yourself" of the FZ Jülich](https://juser.fz-juelich.de/record/51139/files/NIC-Band-31.pdf) (p. 71).
+The content of this section is inspired by the article of Bernd Meyer in ["Computational Nanoscience: Do It Yourself" of the FZ Jülich](https://juser.fz-juelich.de/record/51139/files/NIC-Band-31.pdf) (p. 71), and the [Open Solid State Notes](https://solidstate.quantumtinkerer.tudelft.nl/) of Akhmerov and Van der Sar (TU Delft).
 
 Our goal is now to solve the Kohn-Sham equations for the orbitals $\psi_i$ and their energies $\varepsilon_i$ to obtain the ground state energy of a metal. It turns out that it is very efficient to make use of the periodicity of the simulation cell. 
 
