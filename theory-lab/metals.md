@@ -107,7 +107,7 @@ EDIFF = 1e-6
 GGA = RP
 ```
 
-These are different settings for the algorithm that solves the Kohn-Sham equations. `ENCUT` specifies the maximum frequency of the electron waves used, in terms of an energy through the relation $E=\hbar |\mathbf{k}|$. `EDIFF` is the *convergence criterion* for the self-consistent solving cycles. If the energy of subsequent solutions changes by less than `EDIFF`, the algorithm stops and returns the final result. `ISMEAR` and `SIGMA` spread out the occupation of bands by electrons; this helps convergence. `GGA` sets the exchange-correlation functional to the RPBE functional. 
+These are different settings for the algorithm that solves the Kohn-Sham equations. `ENCUT` specifies $E_\mathrm{cut}$ which was introduced earlier on this page. `EDIFF` is the *convergence criterion* for the self-consistent solving cycles. If the energy of subsequent solutions changes by less than `EDIFF`, the algorithm stops and returns the final result. `ISMEAR` and `SIGMA` spread out the occupation of bands by electrons; this helps convergence. `GGA` sets the exchange-correlation functional to the RPBE functional. 
 
 Next, we need to specify the simulation cell. This is done by making a file POSCAR with the following contents:
 
