@@ -50,7 +50,7 @@ Plotting the activity of various catalysts against their binding energy reveals 
 height: 300
 name: volcano
 ---
-Volcano plot for the oxygen reduction reaction. 
+Volcano plot for the oxygen reduction reaction. Figure taken from {cite:t}`norskov2004origin`.
 ```
 
 
