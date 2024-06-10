@@ -33,10 +33,11 @@ Make catalyst ink in seperate vial:
 3.  Add 120 µL Carbon black suspension (sonicate/vortex for 15 min. or more prior to application)
 
 Dropcasting:
-1.  Take 10 µL of catalyst ink with pipette and drop on one side of substrate
-2.  Let acetone evaporate in air for 30 min
-3.  Optional use heatgun to speed up drying
-4.  Keep dropcasting until all solution is on substrate
+1.  Take 5 µL of catalyst ink with pipette and drop on one side of substrate, make sure ink does not overflow
+2.  Let acetone evaporate in air for 30 - 60 s
+3.  Dropcast a second time, for two sided substrate: dropcast twice on both sides
+4.  Let it dry for 5 - 15 more min
+
 
 ## Setting up a three-electrode setup
 Setting up the electrochemical cell requires a specific order in order to protect the potentiostat and your working electrode. There is never any potential or current applied to the reference electrode, but it is needed for the potentiostat to 'know' at which potential it needs to keep the CE and WE so we connect the RE first. Then we connect the CE to have a 'sink' for the current to go if the potentiostat needs to get rid of current. When we connect our WE last, the potentiostat keeps the potential vs the RE stable and uses the CE to get rid of current when it needs to. Now when we connect the WE, there will never be any current/potential spike that could potentially be damaging to the electrocatalyst.

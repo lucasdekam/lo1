@@ -17,3 +17,4 @@ parts:
   - file: experimental-lab/course-information
   - file: experimental-lab/experimental
   - file: experimental-lab/theory
+  - file: experimental-lab/safety
