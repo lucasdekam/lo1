@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -187,6 +187,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../experimental-lab/experimental.html">Experimental procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../experimental-lab/theory.html">Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experimental-lab/safety.html">Safety discussion</a></li>
 </ul>
 
     </div>
@@ -407,13 +408,13 @@ document.write(`
 <figure class="align-default" id="porphine">
 <a class="reference internal image-reference" href="../_images/porphine.png"><img alt="../_images/porphine.png" src="../_images/porphine.png" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Porphine (<a class="reference external" href="https://en.wikipedia.org/wiki/Porphyrin#/media/File:Porphyrin.svg">source</a>)</span><a class="headerlink" href="#porphine" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Porphine (<a class="reference external" href="https://en.wikipedia.org/wiki/Porphyrin#/media/File:Porphyrin.svg">source</a>)</span><a class="headerlink" href="#porphine" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="heme">
 <a class="reference internal image-reference" href="../_images/heme.png"><img alt="../_images/heme.png" src="../_images/heme.png" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Heme binding oxygen (<a class="reference external" href="https://en.wikipedia.org/wiki/Heme#/media/File:Mboxygenation.png">source</a>)</span><a class="headerlink" href="#heme" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Heme binding oxygen (<a class="reference external" href="https://en.wikipedia.org/wiki/Heme#/media/File:Mboxygenation.png">source</a>)</span><a class="headerlink" href="#heme" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the electrochemistry project you will do or have done, porphyrins are deposited on a surface. Their metal centers can catalyze the oxygen reduction reaction. In this project, we will use density functional theory calculations to calculate the binding energy of the oxygen molecule.</p>
@@ -428,7 +429,7 @@ document.write(`
 <figure class="align-default" id="basis">
 <a class="reference internal image-reference" href="../_images/basis-functions.png"><img alt="../_images/basis-functions.png" src="../_images/basis-functions.png" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Combining basis functions into an orbital. (<a class="reference external" href="https://en.wikipedia.org/wiki/Basis_set_(chemistry)#/media/File:D-polarization_function.png">source</a>)</span><a class="headerlink" href="#basis" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Combining basis functions into an orbital. (<a class="reference external" href="https://en.wikipedia.org/wiki/Basis_set_(chemistry)#/media/File:D-polarization_function.png">source</a>)</span><a class="headerlink" href="#basis" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Now the computer just needs to calculate the coefficients <span class="math notranslate nohighlight">\(c_i\)</span>. For the radial part, one popular basis function is an exponential function</p>
@@ -482,7 +483,7 @@ Compare with the results of a different XC functional, for example the more adva
 <li><p>Remove the two ‘attachment’ sticks on the side of the iron center.</p></li>
 <li><p>Replace the metal center with the relevant metal atom, and pre-optimize the geometry.</p></li>
 </ul>
-<p>The electronic configuration of the metals is something like <span class="math notranslate nohighlight">\(\mathrm{[Ar]} 3d^n 4s^2\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> depends on the metal. The metal center usually has oxidation state +2, so Fe(II) <span id="id1">[<a class="reference internal" href="#id25" title="Mariusz Radon and Kristine Pierloot. Binding of co, no, and o2 to heme by density functional and multireference ab initio calculations. The Journal of Physical Chemistry A, 112(46):11824–11832, 2008. doi:10.1021/jp806075b.">2</a>]</span>, Mn(II) <span id="id2">[<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">3</a>]</span>, or Co(II) <span id="id3">[<a class="reference internal" href="intro.html#id7" title="Bin Lv, Xialiang Li, Kai Guo, Jun Ma, Yanzhi Wang, Haitao Lei, Fang Wang, Xiaotong Jin, Qingxin Zhang, Wei Zhang, and others. Controlling oxygen reduction selectivity through steric effects: electrocatalytic two-electron and four-electron oxygen reduction with cobalt porphyrin atropisomers. Angewandte Chemie International Edition, 60(23):12742–12746, 2021. doi:10.1002/anie.202102523.">2</a>, <a class="reference internal" href="#id21" title="Rui Zhang and Jeffrey J Warren. Controlling the oxygen reduction selectivity of asymmetric cobalt porphyrins by using local electrostatic interactions. Journal of the American Chemical Society, 142(31):13426–13434, 2020. doi:10.1021/jacs.0c03861.">4</a>]</span>. The two electrons are removed from <span class="math notranslate nohighlight">\(4s\)</span>. The <span class="math notranslate nohighlight">\(3d\)</span> orbitals (which can hold max. 10 electrons) are partially filled.</p>
+<p>The electronic configuration of the metals is something like <span class="math notranslate nohighlight">\(\mathrm{[Ar]} 3d^n 4s^2\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> depends on the metal. The metal center usually has oxidation state +2, so Fe(II) <span id="id1">[<a class="reference internal" href="#id25" title="Mariusz Radon and Kristine Pierloot. Binding of co, no, and o2 to heme by density functional and multireference ab initio calculations. The Journal of Physical Chemistry A, 112(46):11824–11832, 2008. doi:10.1021/jp806075b.">2</a>]</span>, Mn(II) <span id="id2">[<a class="reference internal" href="#id26" title="Quan Manh Phung and Kristine Pierloot. The dioxygen adducts of iron and manganese porphyrins: electronic structure and binding energy. Physical Chemistry Chemical Physics, 20(25):17009–17019, 2018. doi:10.1039/C8CP03078B.">3</a>]</span>, or Co(II) <span id="id3">[<a class="reference internal" href="#id22" title="Bin Lv, Xialiang Li, Kai Guo, Jun Ma, Yanzhi Wang, Haitao Lei, Fang Wang, Xiaotong Jin, Qingxin Zhang, Wei Zhang, and others. Controlling oxygen reduction selectivity through steric effects: electrocatalytic two-electron and four-electron oxygen reduction with cobalt porphyrin atropisomers. Angewandte Chemie International Edition, 60(23):12742–12746, 2021. doi:10.1002/anie.202102523.">1</a>, <a class="reference internal" href="#id21" title="Rui Zhang and Jeffrey J Warren. Controlling the oxygen reduction selectivity of asymmetric cobalt porphyrins by using local electrostatic interactions. Journal of the American Chemical Society, 142(31):13426–13434, 2020. doi:10.1021/jacs.0c03861.">4</a>]</span>. The two electrons are removed from <span class="math notranslate nohighlight">\(4s\)</span>. The <span class="math notranslate nohighlight">\(3d\)</span> orbitals (which can hold max. 10 electrons) are partially filled.</p>
 <ul class="simple">
 <li><p>Write down the different possible spin configurations. What is the number of unpaired electrons for each of them?</p></li>
 <li><p>Using the following articles, find what the ground state of your porphyrin is. Enter the number of unpaired electrons in the field ‘Spin polarization’ (check ‘Unrestricted’ as ‘Yes’).</p>

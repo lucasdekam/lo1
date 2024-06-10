@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -187,6 +187,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../experimental-lab/experimental.html">Experimental procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../experimental-lab/theory.html">Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experimental-lab/safety.html">Safety discussion</a></li>
 </ul>
 
     </div>
@@ -402,7 +403,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\mathrm{O_2 + 4 H^+ + 4e^- \to 2 H_2O}.\]</div>
 <p>The electrons come from the electrode. The protons come from the electrolyte (we consider an acidic electrolyte here).</p>
-<p>The transfer of protons and electrons does not happen all at once; the reaction consists of multiple steps. Although multiple reaction mechanisms are possible, we will look at the simple mechanism from the work of <span id="id1">Nørskov <em>et al.</em> [<a class="reference internal" href="#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>. In the first step, an oxygen molecule adsorbs on the surface and dissociates:</p>
+<p>The transfer of protons and electrons does not happen all at once; the reaction consists of multiple steps. Although multiple reaction mechanisms are possible, we will look at the simple mechanism from the work of <span id="id1">Nørskov <em>et al.</em> [<a class="reference internal" href="metals.html#id17" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>. In the first step, an oxygen molecule adsorbs on the surface and dissociates:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{O_2 + 2 * \to 2 O^*}.\]</div>
 <p>Here <span class="math notranslate nohighlight">\(*\)</span> is an empty adsorption site on the surface and <span class="math notranslate nohighlight">\(\mathrm{O^*}\)</span> is an adsorbed oxygen atom. Next, a proton and an electron is transferred to each <span class="math notranslate nohighlight">\(\mathrm{O^*}\)</span>:</p>
@@ -413,22 +414,22 @@ document.write(`
 \[\mathrm{HO^* + H^+ + e^- \to H_2O + *}.\]</div>
 <div class="dropdown admonition note">
 <p class="admonition-title">Note</p>
-<p>Oxygen reduction can also take place through the binding of an entire oxygen molecule <span id="id2">[<a class="reference internal" href="#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>,</p>
+<p>Oxygen reduction can also take place through the binding of an entire oxygen molecule <span id="id2">[<a class="reference internal" href="metals.html#id17" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>,</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{O_2 + * \to O_2^* }.\]</div>
-<p>This is particularly relevant for porphyrins <span id="id3">[<a class="reference internal" href="#id8" title="Bin Lv, Xialiang Li, Kai Guo, Jun Ma, Yanzhi Wang, Haitao Lei, Fang Wang, Xiaotong Jin, Qingxin Zhang, Wei Zhang, and others. Controlling oxygen reduction selectivity through steric effects: electrocatalytic two-electron and four-electron oxygen reduction with cobalt porphyrin atropisomers. Angewandte Chemie International Edition, 60(23):12742–12746, 2021. doi:10.1002/anie.202102523.">2</a>]</span>.</p>
+<p>This is particularly relevant for porphyrins <span id="id3">[<a class="reference internal" href="porphyrins.html#id22" title="Bin Lv, Xialiang Li, Kai Guo, Jun Ma, Yanzhi Wang, Haitao Lei, Fang Wang, Xiaotong Jin, Qingxin Zhang, Wei Zhang, and others. Controlling oxygen reduction selectivity through steric effects: electrocatalytic two-electron and four-electron oxygen reduction with cobalt porphyrin atropisomers. Angewandte Chemie International Edition, 60(23):12742–12746, 2021. doi:10.1002/anie.202102523.">1</a>]</span>.</p>
 </div>
 <p>The site <span class="math notranslate nohighlight">\(*\)</span> acts as a catalyst: it binds the <em>intermediates</em> <span class="math notranslate nohighlight">\(\mathrm{O^*}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{HO^*}\)</span> during the reaction. The reduction of oxygen to water causes a flow of electrons: an electric current. The field of science that studies catalytic reactions that drive or require an electric current is called <em>electrocatalysis</em>.</p>
 <section id="the-binding-energy-in-electrocatalysis">
 <h2>The binding energy in electrocatalysis<a class="headerlink" href="#the-binding-energy-in-electrocatalysis" title="Link to this heading">#</a></h2>
 <p>In the lab part, you will find or have found that different catalysts (different electrodes) have a different activity for the oxygen reduction reaction. A major milestone in electrocatalysis was relating the activity of a catalyst to the <em>binding energy</em> to an intermediate.</p>
-<p>The binding energies of various oxygen species are related: if a catalyst binds oxygen strongly, it will also bind OH strongly <span id="id4">[<a class="reference internal" href="#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>, <a class="reference internal" href="#id16" title="Ambarish Kulkarni, Samira Siahrostami, Anjli Patel, and Jens K Nørskov. Understanding catalytic activity trends in the oxygen reduction reaction. Chemical reviews, 118(5):2302–2312, 2018. doi:10.1021/acs.chemrev.7b00488.">3</a>]</span>.</p>
+<p>The binding energies of various oxygen species are related: if a catalyst binds oxygen strongly, it will also bind OH strongly <span id="id4">[<a class="reference internal" href="metals.html#id17" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>, <a class="reference internal" href="metals.html#id18" title="Ambarish Kulkarni, Samira Siahrostami, Anjli Patel, and Jens K Nørskov. Understanding catalytic activity trends in the oxygen reduction reaction. Chemical reviews, 118(5):2302–2312, 2018. doi:10.1021/acs.chemrev.7b00488.">2</a>]</span>.</p>
 <p>For optimal catalysis, the catalyst should bind oxygen strongly enough to adsorb it on the surface and enable electron transfer, but not so strongly that the product (water) cannot leave the surface.</p>
 <p>Plotting the activity of various catalysts against their binding energy reveals a ‘volcano plot’: the activity is optimal if the binding energy is not too large, and not too small.</p>
 <figure class="align-default" id="volcano">
 <a class="reference internal image-reference" href="../_images/volcano.png"><img alt="../_images/volcano.png" src="../_images/volcano.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Volcano plot for the oxygen reduction reaction. Figure taken from <span id="id5">Nørskov <em>et al.</em> [<a class="reference internal" href="#id15" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>.</span><a class="headerlink" href="#volcano" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Volcano plot for the oxygen reduction reaction. Figure taken from <span id="id5">Nørskov <em>et al.</em> [<a class="reference internal" href="metals.html#id17" title="Jens Kehlet Nørskov, Jan Rossmeisl, Ashildur Logadottir, LRKJ Lindqvist, John R Kitchin, Thomas Bligaard, and Hannes Jonsson. Origin of the overpotential for oxygen reduction at a fuel-cell cathode. The Journal of Physical Chemistry B, 108(46):17886–17892, 2004. doi:10.1021/jp047349j.">1</a>]</span>.</span><a class="headerlink" href="#volcano" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Task for students who model metals</strong>: By writing down the Gibbs energy of the reaction for</p>
