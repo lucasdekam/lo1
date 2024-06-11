@@ -300,16 +300,19 @@ Thermal corrections at 298 K and 1 bar gas pressure in eV (energy) or eV/K (entr
 | $\mathrm{Pt(111)-O}$ fcc  | 0                  | 0                | 0.100            | 0                  | 0                | 0.000124         | 0                  | 
 | $\mathrm{Au(111)-O}$ fcc  | 0                  | 0                | 0.0934           | 0                  | 0                | 0.000159         | 0                  | 
 | $\mathrm{Pt(111)-O}$ top  | 0                  | 0                | 0.0969           | 0                  | 0                | 0.000144         | 0                  |
+| $\mathrm{Au(111)-O}$ top  | 0                  | 0                | 0.0398           | 0                  | 0                | 2.248E-5         | 0                  |
+
+<!-- Simulation settings: 2x2 slab with 3 layers, 5x5x1 k-points. Same lattice parameters as above. For oxygen, same parameters as above -->
 
 (*) This also contains the electronic entropy, because I didn't have space for an extra column
 <!-- TODO: make only Ugas -->
 
 * Using the table above and your results, calculate the binding (Gibbs) energy.
 
-<!-- Pt(111)-O: -66.7716337 eV -->
+<!-- Pt(111)-O fcc: -66.7716337 eV -->
 <!-- Yields  delta G = -0.861 eV -->
-<!-- Au(111)-O: -34.14675678 eV -->
-<!-- Yields delta G = -->
+<!-- Au(111)-O fcc: -34.14675678 eV -->
+<!-- Yields delta G > 0 -->
 
 
 ## Task 5: research project
