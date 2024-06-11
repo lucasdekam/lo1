@@ -18,48 +18,18 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from ase.build import fcc111, add_adsorbate
-from ase.visualize.plot import plot_atoms
-from ase.constraints import FixAtoms
-from ase.io import write 
-from matplotlib import pyplot as plt 
-
-slab = fcc111("Pt", size=(2, 2, 3), vacuum=7.0, a=4.00)
-slab.pbc = (True, True, True)
-slab.set_constraint(FixAtoms(mask=[tag > 1 for tag in slab.get_tags()]))
-add_adsorbate(slab, 'O', 1.0, 'fcc')
-write('POSCAR', slab)
-
-fig = plt.figure()
-ax = fig.add_subplot()
-plot_atoms(slab, ax, repeat=(3,3,1))
-
+from ase.io import read
+atoms = read("POSCAR")
+view(atoms)
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mTypeError[0m                                 Traceback (most recent call last)
-Cell [1;32mIn[1], line 15[0m
-[0;32m     13[0m fig [38;5;241m=[39m plt[38;5;241m.[39mfigure()
-[0;32m     14[0m ax [38;5;241m=[39m fig[38;5;241m.[39madd_subplot()
-[1;32m---> 15[0m [43mplot_atoms[49m[43m([49m[43mslab[49m[43m,[49m[43m [49m[43max[49m[43m,[49m[43m [49m[43mrepeat[49m[38;5;241;43m=[39;49m[43m([49m[38;5;241;43m3[39;49m[43m,[49m[38;5;241;43m3[39;49m[43m,[49m[38;5;241;43m1[39;49m[43m)[49m[43m)[49m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[2], line 3[0m
+[0;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mase[39;00m[38;5;21;01m.[39;00m[38;5;21;01mio[39;00m [38;5;28;01mimport[39;00m read
+[0;32m      2[0m atoms [38;5;241m=[39m read([38;5;124m"[39m[38;5;124mPOSCAR[39m[38;5;124m"[39m)
+[1;32m----> 3[0m [43mview[49m(atoms)
 
-File [1;32m~\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\ase\visualize\plot.py:86[0m, in [0;36mplot_atoms[1;34m(atoms, ax, **parameters)[0m
-[0;32m     84[0m [38;5;28;01mif[39;00m ax [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[0;32m     85[0m     ax [38;5;241m=[39m plt[38;5;241m.[39mgca()
-[1;32m---> 86[0m [43mMatplotlib[49m[43m([49m[43matoms[49m[43m,[49m[43m [49m[43max[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mparameters[49m[43m)[49m[38;5;241m.[39mwrite()
-[0;32m     87[0m [38;5;28;01mreturn[39;00m ax
-
-File [1;32m~\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\ase\visualize\plot.py:8[0m, in [0;36mMatplotlib.__init__[1;34m(self, atoms, ax, rotation, radii, colors, scale, offset, **parameters)[0m
-[0;32m      5[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m([38;5;28mself[39m, atoms, ax,
-[0;32m      6[0m              rotation[38;5;241m=[39m[38;5;124m'[39m[38;5;124m'[39m, radii[38;5;241m=[39m[38;5;28;01mNone[39;00m,
-[0;32m      7[0m              colors[38;5;241m=[39m[38;5;28;01mNone[39;00m, scale[38;5;241m=[39m[38;5;241m1[39m, offset[38;5;241m=[39m([38;5;241m0[39m, [38;5;241m0[39m), [38;5;241m*[39m[38;5;241m*[39mparameters):
-[1;32m----> 8[0m     [43mPlottingVariables[49m[38;5;241;43m.[39;49m[38;5;21;43m__init__[39;49m[43m([49m
-[0;32m      9[0m [43m        [49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43matoms[49m[43m,[49m[43m [49m[43mrotation[49m[38;5;241;43m=[39;49m[43mrotation[49m[43m,[49m
-[0;32m     10[0m [43m        [49m[43mradii[49m[38;5;241;43m=[39;49m[43mradii[49m[43m,[49m[43m [49m[43mcolors[49m[38;5;241;43m=[39;49m[43mcolors[49m[43m,[49m[43m [49m[43mscale[49m[38;5;241;43m=[39;49m[43mscale[49m[43m,[49m
-[0;32m     11[0m [43m        [49m[43mextra_offset[49m[38;5;241;43m=[39;49m[43moffset[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mparameters[49m[43m)[49m
-[0;32m     13[0m     [38;5;28mself[39m[38;5;241m.[39max [38;5;241m=[39m ax
-[0;32m     14[0m     [38;5;28mself[39m[38;5;241m.[39mfigure [38;5;241m=[39m ax[38;5;241m.[39mfigure
-
-[1;31mTypeError[0m: PlottingVariables.__init__() got an unexpected keyword argument 'repeat'
+[1;31mNameError[0m: name 'view' is not defined
 
