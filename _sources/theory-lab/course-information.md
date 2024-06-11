@@ -5,8 +5,8 @@
 In the report you should show that you are able to...
 
 * calculate the binding energy of an adsorbate
-* describe the most important settings for a DFT calculation, in the sense of {cite:p}`norskov2004origin`
 * choose a small research project, motivate your choice, and describe the expected outcome
+* describe the most important parameters for a DFT calculation (for inspiration: {cite:p}`norskov2004origin`)
 * answer your research question, and analyze your results with a critical view
 * compare your methods and results to scientific publications (some publications can be found in the reference lists on the pages of the respective projects)
 ```
