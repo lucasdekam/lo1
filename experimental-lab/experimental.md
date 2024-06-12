@@ -26,21 +26,36 @@ Every consumable like glass vials, gloves, pipette tips and centrifuge tubes are
 Prepare two different solutions:
 1.  Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Vortex for 2-3 min
 2.  Prepare 1 mL solution of 1.25 mM metal complex in acetone
+3.  Wrap the vial in aluminum foil to protect it from the light
+4.  Store in the fridge over night
+
+The complex will be diluted in the catalyst ink, for different loadings, you can vary the concentration from 1.25 mM to 3.5 mM.
 
 Make catalyst ink in seperate vial:
 1.  Take 40 µL complex solution
-2.  Add 20 µL Nafion suspension and homogenize by using the vortex
-3.  Add 120 µL Carbon black suspension (sonicate/vortex for 15 min. or more prior to application)
+2.  Add 20 µL Nafion suspension and homogenize by using the sonicator for 15 min
+3.  Add 120 µL Carbon black suspension (sonicate for 30 min. or more prior to application)
 
 Dropcasting:
 1.  Take 5 µL of catalyst ink with pipette and drop on one side of substrate, make sure ink does not overflow
 2.  Let acetone evaporate in air for 30 - 60 s
 3.  Dropcast a second time, for two sided substrate: dropcast twice on both sides
 4.  Let it dry for 5 - 15 more min
+5.  To clean the substrate, rinse with acetone and wipe with a clean wipe
 
 
 ## Setting up a three-electrode setup
 Setting up the electrochemical cell requires a specific order in order to protect the potentiostat and your working electrode. There is never any potential or current applied to the reference electrode, but it is needed for the potentiostat to 'know' at which potential it needs to keep the CE and WE so we connect the RE first. Then we connect the CE to have a 'sink' for the current to go if the potentiostat needs to get rid of current. When we connect our WE last, the potentiostat keeps the potential vs the RE stable and uses the CE to get rid of current when it needs to. Now when we connect the WE, there will never be any current/potential spike that could potentially be damaging to the electrocatalyst.
+
+```{figure} /images/cell-setup.png
+---
+height: 300
+name: cell-setup
+---
+A schematic display of the three-electrode setup with a working (WE), counter (CE), and reference (RE) electrode. The numbers indicate the order in which they need to be connected, and the colours indicate which clips are used to connect to the respective electrodes. 2 clips on the potentiostat are unused. 
+```
+
+
 
 1.	Fill cell with electrolyte 
 2.	Rinse reference and counter electrode and insert into cell
