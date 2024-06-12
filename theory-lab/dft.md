@@ -1,6 +1,6 @@
 # Quantum chemistry
 
-The following text is inspired by the lecture notes of Christopher Stein (TU Munich) and Katharina Doblhoff-Dier (Leiden Univ.), and the Wikipedia page on [density functional theory](https://en.wikipedia.org/wiki/Density_functional_theory). 
+The following text is inspired by the lecture notes of Christopher Stein (TU Munich) and Katharina Doblhoff-Dier (Leiden Univ.), and the Wikipedia page on [density functional theory](https://en.wikipedia.org/wiki/Density_functional_theory). The introductory article of {cite:t}`BW13` might also be interesting to the reader.
 
 In this practical course we consider electrocatalysis at the scale of atoms. In particular, we are interested in the chemical bond between a reaction intermediate and a catalyst. A chemical bond forms due to the interaction between the electrons of the reaction intermediate and the catalyst. So: to understand chemical bonds, we need to understand electrons.
 
@@ -87,4 +87,11 @@ At higher temperatures, higher modes can be occupied.
 From a DFT calculation we can calculate the forces on each atom and thereby the vibrational frequencies of the systems. Each vibrational mode has its own $\omega_i$. 
 
 The lowest possible energy the harmonic oscillator can have is $\frac12 \hbar \omega$, due to Heisenberg's uncertainty principle. Because this lowest energy is there even at zero Kelvin, it is called the zero-point energy (ZPE). 
+```
+
+## References
+
+```{bibliography}
+:style: unsrt
+:filter: docname in docnames
 ```
