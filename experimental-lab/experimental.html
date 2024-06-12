@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -432,12 +432,15 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Vortex for 2-3 min</p></li>
 <li><p>Prepare 1 mL solution of 1.25 mM metal complex in acetone</p></li>
+<li><p>Wrap the vial in aluminum foil to protect it from the light</p></li>
+<li><p>Store in the fridge over night</p></li>
 </ol>
+<p>The complex will be diluted in the catalyst ink, for different loadings, you can vary the concentration from 1.25 mM to 3.5 mM.</p>
 <p>Make catalyst ink in seperate vial:</p>
 <ol class="arabic simple">
 <li><p>Take 40 µL complex solution</p></li>
-<li><p>Add 20 µL Nafion suspension and homogenize by using the vortex</p></li>
-<li><p>Add 120 µL Carbon black suspension (sonicate/vortex for 15 min. or more prior to application)</p></li>
+<li><p>Add 20 µL Nafion suspension and homogenize by using the sonicator for 15 min</p></li>
+<li><p>Add 120 µL Carbon black suspension (sonicate for 30 min. or more prior to application)</p></li>
 </ol>
 <p>Dropcasting:</p>
 <ol class="arabic simple">
@@ -445,11 +448,18 @@ document.write(`
 <li><p>Let acetone evaporate in air for 30 - 60 s</p></li>
 <li><p>Dropcast a second time, for two sided substrate: dropcast twice on both sides</p></li>
 <li><p>Let it dry for 5 - 15 more min</p></li>
+<li><p>To clean the substrate, rinse with acetone and wipe with a clean wipe</p></li>
 </ol>
 </section>
 <section id="setting-up-a-three-electrode-setup">
 <h2>Setting up a three-electrode setup<a class="headerlink" href="#setting-up-a-three-electrode-setup" title="Link to this heading">#</a></h2>
 <p>Setting up the electrochemical cell requires a specific order in order to protect the potentiostat and your working electrode. There is never any potential or current applied to the reference electrode, but it is needed for the potentiostat to ‘know’ at which potential it needs to keep the CE and WE so we connect the RE first. Then we connect the CE to have a ‘sink’ for the current to go if the potentiostat needs to get rid of current. When we connect our WE last, the potentiostat keeps the potential vs the RE stable and uses the CE to get rid of current when it needs to. Now when we connect the WE, there will never be any current/potential spike that could potentially be damaging to the electrocatalyst.</p>
+<figure class="align-default" id="cell-setup">
+<a class="reference internal image-reference" href="../_images/cell-setup.png"><img alt="../_images/cell-setup.png" src="../_images/cell-setup.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">A schematic display of the three-electrode setup with a working (WE), counter (CE), and reference (RE) electrode. The numbers indicate the order in which they need to be connected, and the colours indicate which clips are used to connect to the respective electrodes. 2 clips on the potentiostat are unused.</span><a class="headerlink" href="#cell-setup" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <ol class="arabic simple">
 <li><p>Fill cell with electrolyte</p></li>
 <li><p>Rinse reference and counter electrode and insert into cell</p></li>
