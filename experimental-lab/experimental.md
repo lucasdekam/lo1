@@ -17,14 +17,17 @@ After the cleaning procedure, our glassware remains clean. However, everything e
 Every consumable like glass vials, gloves, pipette tips and centrifuge tubes are made sterile and therefore clean enough for our experiment. We can use these however much we like. Solvent bottles are also clean, and we should make sure they stay clean and avoid cross contamination. 
 
 ## Preparing electrolyte solutions
+**DO NOT USE UNCLEAN GLASSWARE, DO NOT USE METAL SPOONS, DO NOT USE NEEDLES, DO NOT USE SOLVENT BOTTLES, DO NOT PUT CHEMICALS BACK INTO THE CONTAINERS.**
+
+
 1.  Make sure you have a clean beaker or flask to measure out the water
-2.  Do not use spoons but use clean pipette tips only touched by gloves to weigh out chemicals on clean surfaces and **do not put chemicals back into their packaging**. If you have too much just dispose of it.
+2.  Do not use spoons but use clean pipette tips only touched by gloves to weigh out chemicals on clean surfaces and **do not put chemicals back into their packaging**. If you weigh too much, make more solution or dispose in trash/chemical waste.
 3.  Only use cleaned glassware and disposable syringes (no needles) to make electrolyte solutions
 4.  Make electrolyte directly in the cell
 
 ## Catalyst preparation
 Prepare two different solutions:
-1.  Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Vortex for 2-3 min
+1.  Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Sonicate the suspension for 30 min
 2.  Prepare 1 mL solution of 1.25 mM metal complex in acetone
 3.  Wrap the vial in aluminum foil to protect it from the light
 4.  Store in the fridge over night
@@ -34,14 +37,14 @@ The complex will be diluted in the catalyst ink, for different loadings, you can
 Make catalyst ink in seperate vial:
 1.  Take 40 µL complex solution
 2.  Add 20 µL Nafion suspension and homogenize by using the sonicator for 15 min
-3.  Add 120 µL Carbon black suspension (sonicate for 30 min. or more prior to application)
+3.  Add 120 µL Carbon black suspension (sonicate for 10 min. or more prior to application)
 
 Dropcasting:
 1.  Take 5 µL of catalyst ink with pipette and drop on one side of substrate, make sure ink does not overflow
 2.  Let acetone evaporate in air for 30 - 60 s
 3.  Dropcast a second time, for two sided substrate: dropcast twice on both sides
 4.  Let it dry for 5 - 15 more min
-5.  To clean the substrate, rinse with acetone and wipe with a clean wipe
+5.  To clean the substrate after the, for gold, sonicate in acetone 15 min. For graphite rinse with acetone and repolish with the rough and smoother sandpaper.
 
 
 ## Setting up a three-electrode setup
@@ -55,10 +58,10 @@ name: cell-setup
 A schematic display of the three-electrode setup with a working (WE), counter (CE), and reference (RE) electrode. The numbers indicate the order in which they need to be connected, and the colours indicate which clips are used to connect to the respective electrodes. 2 clips on the potentiostat are unused. 
 ```
 
-
+**Always rinse all electrodes with demi water before inserting into the cell**
 
 1.	Fill cell with electrolyte 
-2.	Rinse reference and counter electrode and insert into cell
+2.	Rinse reference (hydroflex) and counter electrode (graphite) and insert into cell
 3.	Connect reference electrode
 4.	Connect counter electrode
 5.	Briefly anneal working electrode (if Gold)
@@ -72,14 +75,16 @@ A schematic display of the three-electrode setup with a working (WE), counter (C
 ## Cyclic voltammetry (CV)
 _Before any measurement measure ohmic drop (iR-drop) using impedance spectroscopy and measure the open circuit potential._
 1.  Make sure electrodes are connected properly
-2.  Select starting potential (should be above 0.8 V and lower than 1.2 V)
-3.  Select highest vertex potential (should be lower than oxygen evolution potential ~1.23 - 1.55 V)
+2.  Select starting potential should be around 0.8 V. 
+3.  Select highest vertex potential: for graphite go to 1.0 V maximum. 
 4.  Select lowest vertex potential (should be > 0 V)
 5.  Select scan rate (mV/s) in the range of 5 - 250 mV/s
-6.  I range (auto), E range -10V to +10V
+6.  I range (100 micro A), E step to 1 mV
 7.  When iR-drop and OCP have been determined, start CA and CV
 
 ## Linear sweep voltammetry (LSV)
+An alternative to cyclic voltammetry.
+
 1.  Start at a stable potential from which you want to scan
 2.  Use chronoamperometry (CA) at a stable potential for 1 min
 2.  Follow same steps as CV except for lowest vertex potential
