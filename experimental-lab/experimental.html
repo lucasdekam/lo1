@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -387,6 +387,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-three-electrode-setup">Setting up a three-electrode setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-voltammetry-cv">Cyclic voltammetry (CV)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-sweep-voltammetry-lsv">Linear sweep voltammetry (LSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chronoamperometry">Chronoamperometry</a></li>
 </ul>
             </nav>
         </div>
@@ -419,9 +420,10 @@ document.write(`
 </section>
 <section id="preparing-electrolyte-solutions">
 <h2>Preparing electrolyte solutions<a class="headerlink" href="#preparing-electrolyte-solutions" title="Link to this heading">#</a></h2>
+<p><strong>DO NOT USE UNCLEAN GLASSWARE, DO NOT USE METAL SPOONS, DO NOT USE NEEDLES, DO NOT USE SOLVENT BOTTLES, DO NOT PUT CHEMICALS BACK INTO THE CONTAINERS.</strong></p>
 <ol class="arabic simple">
 <li><p>Make sure you have a clean beaker or flask to measure out the water</p></li>
-<li><p>Do not use spoons but use clean pipette tips only touched by gloves to weigh out chemicals on clean surfaces and <strong>do not put chemicals back into their packaging</strong>. If you have too much just dispose of it.</p></li>
+<li><p>Do not use spoons but use clean pipette tips only touched by gloves to weigh out chemicals on clean surfaces and <strong>do not put chemicals back into their packaging</strong>. If you weigh too much, make more solution or dispose in trash/chemical waste.</p></li>
 <li><p>Only use cleaned glassware and disposable syringes (no needles) to make electrolyte solutions</p></li>
 <li><p>Make electrolyte directly in the cell</p></li>
 </ol>
@@ -430,7 +432,7 @@ document.write(`
 <h2>Catalyst preparation<a class="headerlink" href="#catalyst-preparation" title="Link to this heading">#</a></h2>
 <p>Prepare two different solutions:</p>
 <ol class="arabic simple">
-<li><p>Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Vortex for 2-3 min</p></li>
+<li><p>Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Sonicate the suspension for 30 min</p></li>
 <li><p>Prepare 1 mL solution of 1.25 mM metal complex in acetone</p></li>
 <li><p>Wrap the vial in aluminum foil to protect it from the light</p></li>
 <li><p>Store in the fridge over night</p></li>
@@ -440,15 +442,16 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Take 40 µL complex solution</p></li>
 <li><p>Add 20 µL Nafion suspension and homogenize by using the sonicator for 15 min</p></li>
-<li><p>Add 120 µL Carbon black suspension (sonicate for 30 min. or more prior to application)</p></li>
+<li><p>Add 120 µL Carbon black suspension (sonicate for 10 min. or more prior to application)</p></li>
 </ol>
 <p>Dropcasting:</p>
 <ol class="arabic simple">
-<li><p>Take 5 µL of catalyst ink with pipette and drop on one side of substrate, make sure ink does not overflow</p></li>
+<li><p>Polish a graphite rod with rough and smooth sandpaper, polish in a 8 pattern for 30 - 60 s per sandpaper. Rinse with water and wipe with paper afterwards.</p></li>
+<li><p>Take 5 µL of catalyst ink with pipette and drop bottom of graphite rod</p></li>
 <li><p>Let acetone evaporate in air for 30 - 60 s</p></li>
-<li><p>Dropcast a second time, for two sided substrate: dropcast twice on both sides</p></li>
+<li><p>Dropcast a second time</p></li>
 <li><p>Let it dry for 5 - 15 more min</p></li>
-<li><p>To clean the substrate, rinse with acetone and wipe with a clean wipe</p></li>
+<li><p>To clean the substrate after the experiment, for graphite rinse with acetone and repolish with the rough and smoother sandpaper. For gold, sonicate in acetone 15 min.</p></li>
 </ol>
 </section>
 <section id="setting-up-a-three-electrode-setup">
@@ -460,9 +463,10 @@ document.write(`
 <p><span class="caption-number">Fig. 9 </span><span class="caption-text">A schematic display of the three-electrode setup with a working (WE), counter (CE), and reference (RE) electrode. The numbers indicate the order in which they need to be connected, and the colours indicate which clips are used to connect to the respective electrodes. 2 clips on the potentiostat are unused.</span><a class="headerlink" href="#cell-setup" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<p><strong>Always rinse all electrodes with demi water before inserting into the cell</strong></p>
 <ol class="arabic simple">
 <li><p>Fill cell with electrolyte</p></li>
-<li><p>Rinse reference and counter electrode and insert into cell</p></li>
+<li><p>Rinse reference (hydroflex) and counter electrode (graphite) and insert into cell</p></li>
 <li><p>Connect reference electrode</p></li>
 <li><p>Connect counter electrode</p></li>
 <li><p>Briefly anneal working electrode (if Gold)</p></li>
@@ -479,21 +483,26 @@ document.write(`
 <p><em>Before any measurement measure ohmic drop (iR-drop) using impedance spectroscopy and measure the open circuit potential.</em></p>
 <ol class="arabic simple">
 <li><p>Make sure electrodes are connected properly</p></li>
-<li><p>Select starting potential (should be above 0.8 V and lower than 1.2 V)</p></li>
-<li><p>Select highest vertex potential (should be lower than oxygen evolution potential ~1.23 - 1.55 V)</p></li>
+<li><p>Select starting potential should be around 0.8 V.</p></li>
+<li><p>Select highest vertex potential: for graphite go to 1.0 V maximum.</p></li>
 <li><p>Select lowest vertex potential (should be &gt; 0 V)</p></li>
 <li><p>Select scan rate (mV/s) in the range of 5 - 250 mV/s</p></li>
-<li><p>I range (auto), E range -10V to +10V</p></li>
+<li><p>I range (100 micro A), E step to 1 mV</p></li>
 <li><p>When iR-drop and OCP have been determined, start CA and CV</p></li>
 </ol>
 </section>
 <section id="linear-sweep-voltammetry-lsv">
 <h2>Linear sweep voltammetry (LSV)<a class="headerlink" href="#linear-sweep-voltammetry-lsv" title="Link to this heading">#</a></h2>
+<p>An alternative to cyclic voltammetry.</p>
 <ol class="arabic simple">
 <li><p>Start at a stable potential from which you want to scan</p></li>
 <li><p>Use chronoamperometry (CA) at a stable potential for 1 min</p></li>
 <li><p>Follow same steps as CV except for lowest vertex potential</p></li>
 </ol>
+</section>
+<section id="chronoamperometry">
+<h2>Chronoamperometry<a class="headerlink" href="#chronoamperometry" title="Link to this heading">#</a></h2>
+<p>Applying a constant potential and measuring the current over a long time to estimate the activity and stability. This is usually used once the potential is found where the catalyst produces the highest activity rate.</p>
 </section>
 </section>
 
@@ -567,6 +576,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-three-electrode-setup">Setting up a three-electrode setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-voltammetry-cv">Cyclic voltammetry (CV)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-sweep-voltammetry-lsv">Linear sweep voltammetry (LSV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chronoamperometry">Chronoamperometry</a></li>
 </ul>
   </nav></div>
 
