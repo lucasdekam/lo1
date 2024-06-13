@@ -40,11 +40,12 @@ Make catalyst ink in seperate vial:
 3.  Add 120 µL Carbon black suspension (sonicate for 10 min. or more prior to application)
 
 Dropcasting:
-1.  Take 5 µL of catalyst ink with pipette and drop on one side of substrate, make sure ink does not overflow
-2.  Let acetone evaporate in air for 30 - 60 s
-3.  Dropcast a second time, for two sided substrate: dropcast twice on both sides
-4.  Let it dry for 5 - 15 more min
-5.  To clean the substrate after the, for gold, sonicate in acetone 15 min. For graphite rinse with acetone and repolish with the rough and smoother sandpaper.
+1.  Polish a graphite rod with rough and smooth sandpaper, polish in a 8 pattern for 30 - 60 s per sandpaper. Rinse with water and wipe with paper afterwards.
+2.  Take 5 µL of catalyst ink with pipette and drop bottom of graphite rod
+3.  Let acetone evaporate in air for 30 - 60 s
+4.  Dropcast a second time
+5.  Let it dry for 5 - 15 more min
+6.  To clean the substrate after the experiment, for graphite rinse with acetone and repolish with the rough and smoother sandpaper. For gold, sonicate in acetone 15 min. 
 
 
 ## Setting up a three-electrode setup
@@ -88,3 +89,6 @@ An alternative to cyclic voltammetry.
 1.  Start at a stable potential from which you want to scan
 2.  Use chronoamperometry (CA) at a stable potential for 1 min
 2.  Follow same steps as CV except for lowest vertex potential
+
+## Chronoamperometry
+Applying a constant potential and measuring the current over a long time to estimate the activity and stability. This is usually used once the potential is found where the catalyst produces the highest activity rate. 
