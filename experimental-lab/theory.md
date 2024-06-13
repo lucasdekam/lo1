@@ -37,7 +37,11 @@ What are the reactions for acidic and alkaline conditions?
 Some references that use similar materials (Fe, Co, molecular catalysts) as used in this LO1 class to compare. There is no need to read every paper, they only serve as reference materials.
 
 **Tutorial paper about cyclic voltammetry and electrochemistry**
+
 [A Practical Beginner’s Guide to Cyclic Voltammetry](https://pubs.acs.org/doi/full/10.1021/acs.jchemed.7b00361)
+
+**Reference about pH effect**
+[Effects of electrolyte pH on oxygen reduction properties using a cobalt porphyrin-coated carbon composite](https://www.sciencedirect.com/science/article/pii/S0013468624005358?via%3Dihub)
 
 **References about molecular Fe/Co catalysts on different substrates**
 
