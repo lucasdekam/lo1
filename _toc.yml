@@ -18,3 +18,4 @@ parts:
   - file: experimental-lab/experimental
   - file: experimental-lab/theory
   - file: experimental-lab/safety
+  - file: experimental-lab/figures
