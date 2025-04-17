@@ -73,17 +73,29 @@ O        0.00000000       1.64602562       3.43960167
 H        0.00000000       0.00000000       6.57500000
 H        1.42550000       0.82301281      10.95833333
 H        0.00000000       1.64602562       2.19166667
-3
-Lattice="3.173 0.0 0.0 -1.5864999999999994 2.747898606208024 0.0 0.0 0.0 4.64" Properties=species:S:1:pos:R:3 spacegroup="P -3 m 1" unit_cell=conventional type=material name=Co_hydroxide cod_id=1010267 MACE_energy=-16.280788915071845 pbc="T T T"
+5
+Lattice="3.186 0.0 0.0 -1.5929999999999993 2.7591569364572215 0.0 0.0 0.0 4.653" Properties=species:S:1:pos:R:3 spacegroup="P -3 m 1" unit_cell=conventional type=material name=Co_hydroxide cod_id=1548810 MACE_energy=-26.94631245182168 pbc="T T T"
 Co       0.00000000       0.00000000       0.00000000
-O       -0.00015865       1.83202400       1.02080000
-O        1.58665865       0.91587461       3.61920000
+O        1.59284070       0.91962701       3.60793620
+O        0.00015930       1.83952993       1.04506380
+H        1.59284070       0.91962701       2.65686300
+H        0.00015930       1.83952993       1.99613700
 4
-Lattice="5.18 0.0 0.0 0.0 3.015 0.0 -1.7541235770929275 0.0 2.4546566921438755" Properties=species:S:1:pos:R:3 spacegroup="C 2/m" unit_cell=conventional type=material name=CoO cod_id=1528838 MACE_energy=-23.92209336119723 pbc="T T T"
+Lattice="5.18 0.0 0.0 0.0 3.015 0.0 -1.7541235770929275 0.0 2.4546566921438755" Properties=species:S:1:pos:R:3 spacegroup="C 2/m" unit_cell=conventional type=material name=CoO_1528838 cod_id=1528838 MACE_energy=-23.92209336119723 pbc="T T T"
 Co       0.00000000       0.00000000       0.00000000
 Co       2.59000000       1.50750000       0.00000000
 O       -0.87706179       1.50750000       1.22732835
 O        1.71293821       0.00000000       1.22732835
+8
+Lattice="4.263 0.0 0.0 0.0 4.263 0.0 0.0 0.0 4.263" Properties=species:S:1:pos:R:3 spacegroup="F m -3 m" unit_cell=conventional type=material name=CoO_1533087 cod_id=1533087 MACE_energy=-47.8676567563572 pbc="T T T"
+Co       0.00000000       0.00000000       0.00000000
+Co       0.00000000       2.13150000       2.13150000
+Co       2.13150000       0.00000000       2.13150000
+Co       2.13150000       2.13150000       0.00000000
+O        2.13150000       2.13150000       2.13150000
+O        2.13150000       0.00000000       0.00000000
+O        0.00000000       2.13150000       0.00000000
+O        0.00000000       0.00000000       2.13150000
 6
 Lattice="4.83 0.0 0.0 0.0 2.82 0.0 -0.6262789543202941 0.0 4.456206309337067" Properties=species:S:1:pos:R:3 spacegroup="C m" unit_cell=conventional type=material name=CoO2 cod_id=3000496 MACE_energy=-34.00187258703086 pbc="T T T"
 Co       1.62803421       0.00000000       0.89124126
