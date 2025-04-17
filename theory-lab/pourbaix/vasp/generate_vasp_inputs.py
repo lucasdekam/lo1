@@ -37,8 +37,7 @@ def main(index, output_dir):
     ispin = 1
     if atoms.info["type"] == "material":
         kpts = [
-            max(1, round(2 * np.pi / a / KSPACING))
-            for a in atoms.get_cell_lengths_and_angles()[:3]
+            max(1, round(2 * np.pi / a / KSPACING)) for a in atoms.cell.cellpar()[:3]
         ]
     if "spin_polarized" in atoms.info:
         if atoms.info["spin_polarized"]:
