@@ -10,7 +10,7 @@ molecule:
   ibrion: 2
   nelmin: 4
   nsw: 20
-  ediffg: -0.02
+  ediffg: 1e-4
 material:
   xc: pbe
   encut: 400
@@ -23,5 +23,5 @@ material:
   isif: 3
   ibrion: 2
   nelmin: 4
-  ediffg: -0.02
+  ediffg: 1e-4
   nsw: 20

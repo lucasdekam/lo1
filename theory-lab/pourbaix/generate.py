@@ -78,7 +78,7 @@ for s in structures:
     s.calc = calculator
     ucf = UnitCellFilter(s)
     opt = BFGS(ucf)
-    opt.run(fmax=0.02)
+    opt.run(fmax=0.001)
     s.info["MACE_energy"] = s.get_potential_energy()
     print(s.info["MACE_energy"])
 
