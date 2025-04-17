@@ -15,7 +15,6 @@ material:
   xc: pbe
   encut: 400
   ediff: 1.0e-6
-  ldautype: 2
   ismear: 0  # Gaussian
   sigma: 0.1
   lwave: False
