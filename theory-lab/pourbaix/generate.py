@@ -27,40 +27,32 @@ for m in molecules:
     m.info["name"] = m.get_chemical_formula()
 
 # Read structures from Crystallography Open Database cif files
-names = [
-    "Li",
-    "Na",
-    "Li2O",
-    "Na2O",
-    "Co_heterogenite_2h",
-    "Co_heterogenite_3r",
-    "Co_hydroxide",
-    "CoO",
-    "CoO2",
-    "Co3O4",
-]
-cod_ids = [
-    9008473,
-    9008545,
-    1010064,
-    1010876,
-    9009449,
-    9009884,
-    1010267,
-    1528838,
-    3000496,
-    1538531,
-]
-materials = [read(name + ".cif", format="cif") for name in names]
+cifs = {
+    "Li": 9008473,
+    "Na": 9008545,
+    "Li2O": 1010064,
+    "Na2O": 1010876,
+    "Co_heterogenite_2h": 9009449,
+    "Co_heterogenite_3r": 9009884,
+    "Co_hydroxide": 1548810,
+    "CoO_1528838": 1528838,
+    "CoO_1533087": 1533087,
+    "CoO2": 3000496,
+    "Co3O4": 1538531,
+}
 
-for i, m in enumerate(materials):
+materials = []
+
+for name, cod_id in cifs.items():
+    m = read(name + ".cif", format="cif")
     m.info["type"] = "material"
-    m.info["name"] = names[i]
-    m.info["cod_id"] = cod_ids[i]
+    m.info["name"] = name
+    m.info["cod_id"] = cod_id
     if "occupancy" in m.info:
         del m.info["occupancy"]
     if "spacegroup_kinds" in m.arrays:
         del m.arrays["spacegroup_kinds"]
+    materials.append(m)
 
 # Calculate the energies with MACE-MP
 structures = molecules + materials
