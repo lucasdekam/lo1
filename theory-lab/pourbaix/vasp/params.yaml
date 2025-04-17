@@ -1,0 +1,27 @@
+molecule:
+  xc: pbe
+  encut: 400
+  ediff: 1.0e-6
+  ismear: 0 
+  sigma: 0.1
+  lwave: False
+  lcharg: False
+  isif: 2
+  ibrion: 2
+  nelmin: 4
+  nsw: 20
+  ediffg: -0.02
+material:
+  xc: pbe
+  encut: 400
+  ediff: 1.0e-6
+  ldautype: 2
+  ismear: 0  # Gaussian
+  sigma: 0.1
+  lwave: False
+  lcharg: False
+  isif: 3
+  ibrion: 2
+  nelmin: 4
+  ediffg: -0.02
+  nsw: 20
