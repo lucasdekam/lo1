@@ -11,7 +11,7 @@ from ase.calculators.vasp import Vasp
 from ase.io import read
 import yaml
 
-KSPACING = 0.2  # per Angstrom
+KSPACING = 0.15  # per Angstrom
 
 
 def main(index, output_dir):
@@ -49,6 +49,7 @@ def main(index, output_dir):
         gamma=gamma,
         ispin=ispin,
         ncore=4,
+        ediffg=0.01 * len(atoms),
         **params[atoms.info["type"]],
     )
     print(f"Writing to directory {directory_name}...", flush=True)

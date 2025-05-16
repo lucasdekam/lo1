@@ -1,6 +1,6 @@
 molecule:
   xc: pbe
-  encut: 400
+  encut: 450
   ediff: 1.0e-6
   ismear: 0 
   sigma: 0.1
@@ -9,18 +9,18 @@ molecule:
   isif: 2
   ibrion: 2
   nelmin: 4
-  ediffg: 0.01
+  # ediffg: 0.01
   nsw: 20
 material:
   xc: pbe
-  encut: 400
+  encut: 450
   ediff: 1.0e-6
-  ismear: 0  # Gaussian
+  ismear: 0  
   sigma: 0.1
   lwave: False
   lcharg: False
   isif: 3
   ibrion: 2
   nelmin: 4
-  ediffg: 0.01
+  # ediffg: 0.01 
   nsw: 20
