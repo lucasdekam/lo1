@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: LO1 2024
+title: LO1 at CASC
 author: Lucas de Kam
 
 # Force re-execution of notebooks on each build.
