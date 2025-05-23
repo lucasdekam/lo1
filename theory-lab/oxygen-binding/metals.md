@@ -14,7 +14,7 @@ kernelspec:
 
 # Metals
 
-Most electrodes are made of metal. The electrodes in the fuel cell of a hydrogen car are made of platinum, for example. Here we calculate the binding energy of oxygen to metal electrodes. Our objective is to find out how reliable the simulation settings of {cite:t}`norskov2004origin` are. 
+Most electrodes are made of metal. The electrodes in the fuel cell of a hydrogen car are made of platinum, for example. Here we calculate the binding energy of oxygen to metal electrodes. Our objective is to find out how reliable the simulation settings of {cite:t}`norskov2004origin` are.
 
 
 ## Periodic boundary conditions
@@ -22,7 +22,7 @@ First, let's consider how to calculate the ground-state energy of a metal system
 
 The metal electrodes in experiments are several millimeters or centimeters big. An atom is less than a nanometer wide. Calculating the density of electrons for the millions of atoms in an electrode obviously takes too long on a computer. Luckily, metal is organized in a *lattice*, and looks similar everywhere.
 
-For this reason, one uses *periodic boundary conditions*: you model only a few atoms, called a *supercell*, and repeat the cell in each direction. This means that electrons on the right of the cell interact with electrons on the left of the next cell. In the picture below, you see such a supercell. 
+For this reason, one uses *periodic boundary conditions*: you model only a few atoms, called a *supercell*, and repeat the cell in each direction. This means that electrons on the right of the cell interact with electrons on the left of the next cell. In the picture below, you see such a supercell.
 
 ```{code-cell}
 :tags: [hide-input]
@@ -45,7 +45,7 @@ plt.show()
 
 The content of this section is inspired by the article of Bernd Meyer in ["Computational Nanoscience: Do It Yourself" of the FZ Jülich](https://juser.fz-juelich.de/record/51139/files/NIC-Band-31.pdf) (p. 71), and the [Open Solid State Notes](https://solidstate.quantumtinkerer.tudelft.nl/) of Akhmerov and Van der Sar (TU Delft).
 
-Our goal is now to solve the Kohn-Sham equations for the orbitals $\psi_i$ and their energies $\varepsilon_i$ to obtain the ground state energy of a metal. It turns out that it is very efficient to make use of the periodicity of the simulation cell. 
+Our goal is now to solve the Kohn-Sham equations for the orbitals $\psi_i$ and their energies $\varepsilon_i$ to obtain the ground state energy of a metal. It turns out that it is very efficient to make use of the periodicity of the simulation cell.
 
 With the technique of [Fourier series](https://youtu.be/r6sGWTCMz2k?si=hFfTSdh6r_OQolRd), it is possible to write any periodic function as a sum of waves with different frequencies. (The Fourier series technique is very similar to the [Fourier transform](https://youtu.be/spUNpyF58BY?si=Z2UN96n6tIFOa1WV).) For example, we can write the electric potential due to the charged metal nuclei as a Fourier series. Waves are written as complex exponentials $e^{i ...}$.
 
@@ -53,7 +53,7 @@ In periodic systems, electron wavefunctions can also be written as waves. This f
 
 $$\psi_\mathbf{k}(\mathbf{r}) = e^{i\mathbf{k} \cdot \mathbf{r}} u_\mathbf{k}(\mathbf{r})$$
 
-where $\mathbf{k}$ is a three-dimensional *wave vector* $\mathbf{k}=(k_x, k_y, k_z)$, that represents the direction in which the wave travels. 
+where $\mathbf{k}$ is a three-dimensional *wave vector* $\mathbf{k}=(k_x, k_y, k_z)$, that represents the direction in which the wave travels.
 
 The function $u_\mathbf{k}(\mathbf{r})$ is a function with the same periodicity as the nuclei in the metal lattice. Because it is a periodic function, we can write it as a Fourier series:
 
@@ -63,7 +63,7 @@ where $c$ are coefficients.
 
 Each wave $\psi_\mathbf{k}$ is associated with an energy. A plot of the energy for each $\mathbf{k}$ is called the *band structure*. The number of bands is related to the number of electrons per atom.
 
-```{figure} ../images/bandstructure-bare.png
+```{figure} ../../images/bandstructure-bare.png
 ---
 height: 800
 name: bandstructure
@@ -79,12 +79,12 @@ $$E_\mathrm{cut} = \hbar^2 |\mathbf{G}|_\mathrm{cut}^2 / 2m_e. $$
 
 Near a nucleus, the electron wave function changes very fast. Describing such fast changes requires a high $E_\mathrm{cut}$. To speed up calculations, people have defined *pseudopotentials*. Pseudopotentials include the charge of the nucleus as well as the core electrons, which do not participate in chemical bonds. Pseudopotentials make the wave function smooth, so that we do not need a high $E_\mathrm{cut}$.
 
-```{figure} ../images/pp.png
+```{figure} ../../images/pp.png
 ---
 height: 300
 name: pseudopotentials
 ---
-Pseudopotential and the corresponding pseudo-wavefunction (both red) comapred to the real potential and real wavefunction. 
+Pseudopotential and the corresponding pseudo-wavefunction (both red) comapred to the real potential and real wavefunction.
 ```
 
 
@@ -107,7 +107,7 @@ EDIFF = 1e-6
 GGA = RP
 ```
 
-These are different settings for the algorithm that solves the Kohn-Sham equations. `ENCUT` specifies $E_\mathrm{cut}$ which was introduced earlier on this page. `EDIFF` is the *convergence criterion* for the self-consistent solving cycles. If the energy of subsequent solutions changes by less than `EDIFF`, the algorithm stops and returns the final result. `ISMEAR` and `SIGMA` spread out the occupation of bands by electrons; this helps convergence. `GGA` sets the exchange-correlation functional to the RPBE functional. 
+These are different settings for the algorithm that solves the Kohn-Sham equations. `ENCUT` specifies $E_\mathrm{cut}$ which was introduced earlier on this page. `EDIFF` is the *convergence criterion* for the self-consistent solving cycles. If the energy of subsequent solutions changes by less than `EDIFF`, the algorithm stops and returns the final result. `ISMEAR` and `SIGMA` spread out the occupation of bands by electrons; this helps convergence. `GGA` sets the exchange-correlation functional to the RPBE functional.
 
 Next, we need to specify the simulation cell. This is done by making a file POSCAR with the following contents:
 
@@ -153,11 +153,11 @@ Gamma
 0 0 0
 ```
 
-You can use the documentation on the [VASP wiki](https://www.vasp.at/wiki/index.php/KPOINTS#Regular_k-point_mesh) to understand the different lines.  
+You can use the documentation on the [VASP wiki](https://www.vasp.at/wiki/index.php/KPOINTS#Regular_k-point_mesh) to understand the different lines.
 
 Lastly, we need a POTCAR file, that contains the pseudopotential that VASP will use. These you will get from the supervisor.
 
-* In the output repository, find the `OSZICAR` file. Find the self-consistent field cycles and the final energy `E0`. 
+* In the output repository, find the `OSZICAR` file. Find the self-consistent field cycles and the final energy `E0`.
 * Also find the `OUTCAR` file. Find the energies calculated for each k-point.
 
 (You don't need to save anything here.)
@@ -194,8 +194,8 @@ Oxygen molecule
  O
    2
 Cartesian
-  0  0  0   
-  0  0  1.5   
+  0  0  0
+  0  0  1.5
 ```
 
 Now we placed two oxygen atoms a distance of 1.5 Å apart.
@@ -221,7 +221,7 @@ Ask the supervisor for the oxygen POTCAR, submit the calculation, and find out:
 We will model an electrode as a slab of a few atoms thick. {cite:t}`norskov2004origin` use a thickness of three atoms, for example. Writing POSCAR files by hand gets a bit annoying, so let's use the Python module [ASE](https://wiki.fysik.dtu.dk/ase/about.html). You can build and visualize a simple Pt slab as follows:
 
 ```
-from ase.build import fcc111 
+from ase.build import fcc111
 from ase.visualize import view
 
 slab = fcc111("Pt", size=(2, 2, 3), vacuum=7.0, a=4.00)
@@ -232,11 +232,11 @@ Lattice constants:
 | Material | XC functional | $a$ / Å |
 |----------|---------------|---------|
 | Pt       | RPBE          | 4.00    |
-| Au       | RPBE          | 4.20    | 
+| Au       | RPBE          | 4.20    |
 | Pt       | PBE           | 3.98    |
 | Au       | PBE           | 4.16    |
 
-We also need to enable periodic boundary conditions, and fix the bottom two layers of the slab, so they don't fly away (in reality, the rest of the metal would be holding them in place). 
+We also need to enable periodic boundary conditions, and fix the bottom two layers of the slab, so they don't fly away (in reality, the rest of the metal would be holding them in place).
 
 ```
 from ase.constraints import FixAtoms
@@ -272,7 +272,7 @@ NSW = 100
 
 * Using the bandstructure in the direction perpendicular to a slab, motivate the number of k-points in the z-direction.
 
-```{figure} ../images/bs-z.png
+```{figure} ../../images/bs-z.png
 ---
 height: 800
 name: bandstructure in z-direction
@@ -280,7 +280,7 @@ name: bandstructure in z-direction
 Bandstructure in the direction perpendicular to a platinum fcc(111) surface
 ```
 
-* Ask the supervisor for the platinum POTCAR and use it to calculate the electronic energy of your empty slab. 
+* Ask the supervisor for the platinum POTCAR and use it to calculate the electronic energy of your empty slab.
 
 <!-- Pt: -60.82438386 eV -->
 <!-- Au: -29.57300867 eV -->
@@ -292,13 +292,13 @@ When programming, using a search engine and software documentation is very impor
 * Find a function to add an adsorbate to your surface. Write a new POSCAR with the adsorbate.
 * Ask for the new POTCAR and do the calculation with the same INCAR and KPOINTS as for the bare slab.
 
-Thermal corrections at 298 K and 1 bar gas pressure in eV (energy) or eV/K (entropy): 
+Thermal corrections at 298 K and 1 bar gas pressure in eV (energy) or eV/K (entropy):
 
 |                           | $U_\mathrm{trans}$ | $U_\mathrm{rot}$ | $U_\mathrm{vib}$ | $S_\mathrm{trans}$ | $S_\mathrm{rot}$ | $S_\mathrm{vib}$ | $PV=k_\mathrm{B}T$ |
 |---------------------------|--------------------|------------------|------------------|--------------------|------------------|------------------|--------------------|
-| $\mathrm{O_2}$            | 0.0385             | 0.0257           | 0.0959           | 0.00158            | 0.000459         | 9.509E-5 (*)     | 0.0257             | 
-| $\mathrm{Pt(111)-O}$ fcc  | 0                  | 0                | 0.100            | 0                  | 0                | 0.000124         | 0                  | 
-| $\mathrm{Au(111)-O}$ fcc  | 0                  | 0                | 0.0934           | 0                  | 0                | 0.000159         | 0                  | 
+| $\mathrm{O_2}$            | 0.0385             | 0.0257           | 0.0959           | 0.00158            | 0.000459         | 9.509E-5 (*)     | 0.0257             |
+| $\mathrm{Pt(111)-O}$ fcc  | 0                  | 0                | 0.100            | 0                  | 0                | 0.000124         | 0                  |
+| $\mathrm{Au(111)-O}$ fcc  | 0                  | 0                | 0.0934           | 0                  | 0                | 0.000159         | 0                  |
 | $\mathrm{Pt(111)-O}$ top  | 0                  | 0                | 0.0969           | 0                  | 0                | 0.000144         | 0                  |
 | $\mathrm{Au(111)-O}$ top  | 0                  | 0                | 0.0398           | 0                  | 0                | 2.248E-5         | 0                  |
 
@@ -325,7 +325,7 @@ Thermal corrections at 298 K and 1 bar gas pressure in eV (energy) or eV/K (entr
   * the exchange-correlation functional (`GGA=RP` for RPBE or `GGA=PE` for PBE)
 
 More project ideas (if there is more time):
-* calculate the binding energies of the other intermediates (see also {cite:t}`kulkarni2018understanding`) with the computational hydrogen electrode approach. 
+* calculate the binding energies of the other intermediates (see also {cite:t}`kulkarni2018understanding`) with the computational hydrogen electrode approach.
 * calculate frequencies (spin-polarized?) and compare to {cite:t}`steininger1982adsorption`
 * calculate binding energy referenced to a single atom; use spin-polarization; compare to {cite:t}`lynch2000density`
 
