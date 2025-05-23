@@ -1,8 +1,8 @@
 # Porphyrins
 
-Porphyrins are complexes based on a porphine molecule bound to a metal ion in the center. They are found in various biological systems. For example, heme is a porphyrin, which is a part of the hemoglobin complex that binds oxygen in your blood. Chlorophyll, which is responsible for photosynthesis, also has a porphyrin group. 
+Porphyrins are complexes based on a porphine molecule bound to a metal ion in the center. They are found in various biological systems. For example, heme is a porphyrin, which is a part of the hemoglobin complex that binds oxygen in your blood. Chlorophyll, which is responsible for photosynthesis, also has a porphyrin group.
 
-```{figure} ../images/porphine.png
+```{figure} ../../images/porphine.png
 ---
 height: 200
 name: porphine
@@ -10,7 +10,7 @@ name: porphine
 Porphine ([source](https://en.wikipedia.org/wiki/Porphyrin#/media/File:Porphyrin.svg))
 ```
 
-```{figure} ../images/heme.png
+```{figure} ../../images/heme.png
 ---
 height: 200
 name: heme
@@ -22,7 +22,7 @@ In the electrochemistry project you will do or have done, porphyrins are deposit
 
 ## Density functional theory for molecules
 
-Remember that our goal is to find the ground-state energy of various molecules, from which we can then calculate the binding energy. 
+Remember that our goal is to find the ground-state energy of various molecules, from which we can then calculate the binding energy.
 
 To this end we want to solve the Kohn-Sham equations for the orbitals (one-electron wave functions) $\psi_i$ and their energies $\varepsilon_i$. Wave functions are functions, which you could view as an infinite collection of numbers: there are infinitely many points in space, and each space has a corresponding value of the wavefunction. How do we put this into a computer?
 
@@ -33,7 +33,7 @@ $$ \psi(x) = c_1 \phi_1(x) + c_2 \phi_2 (x) + \cdots .$$
 The $\phi_i$ are called *basis functions*, and $c_i$ are the *coefficients* that scale them. The collection of all $\phi_i$ is called a *basis set*. The image below shows an example.
 
 
-```{figure} ../images/basis-functions.png
+```{figure} ../../images/basis-functions.png
 ---
 height: 200
 name: basis
@@ -57,15 +57,15 @@ Follow [the tutorial on the website of AMS SCM](https://www.scm.com/doc/Tutorial
 
 * In the `.logfile`: look for the word SCF, which stands for 'self consistent field'. You can see that the software is running multiple cycles of the self-consistent procedure.
 * Notice that the energy is minimized until it does not change much anymore. The change in energy before and after solving the Kohn-Sham equations is denoted as absolute error (`|Error|`).
-* Practice saving images, which you will need later for writing your report (you don't need to write about the ethanol tutorial, though). 
+* Practice saving images, which you will need later for writing your report (you don't need to write about the ethanol tutorial, though).
 
 Now we are ready to do our first 'useful' calculation.
 
 ## Task 2: simulate an oxygen molecule
 
-* In a new AMS input file, build an oxygen molecule. Pre-optimize the geometry with a simplified calculation method (force fields) using the button: 
+* In a new AMS input file, build an oxygen molecule. Pre-optimize the geometry with a simplified calculation method (force fields) using the button:
 
-```{image} ../images/optimize.png
+```{image} ../../images/optimize.png
 :alt: Optimize button
 :class: bg-primary mb-1
 :height: 30px
@@ -76,16 +76,16 @@ Now we are ready to do our first 'useful' calculation.
 
 * In the rest of the practical we will use the XC functional BP86 (find it under the GGA group) and a TZ2P basis set. Choose the same settings here for consistency. (Convince yourself that this is important.)
 
-* Write down the energy you get. How to find the energy? [Have a look at this page](https://www.scm.com/doc/Tutorials/GettingStarted/10WaysToGetTheEnergy.html) 
+* Write down the energy you get. How to find the energy? [Have a look at this page](https://www.scm.com/doc/Tutorials/GettingStarted/10WaysToGetTheEnergy.html)
 <!-- My result: -9.85632954095 eV; Gibbs -10.2771 eV -->
 
-* Change the task from 'Single Point' to 'Geometry Optimization' and check the 'Frequencies' box so that we optimize the geometry and obtain information about the vibrations of an oxygen molecule. 
+* Change the task from 'Single Point' to 'Geometry Optimization' and check the 'Frequencies' box so that we optimize the geometry and obtain information about the vibrations of an oxygen molecule.
 
 * The vibrational frequency is in the `.out` file. Compare it to a value you find from a (reliable) source on the internet. <!-- hint: https://cccbdb.nist.gov/expvibs2x.asp -->
 
 * Save the thermodynamic information (Statistical Thermal Analysis at the end of the `.out` file.).
 
-<!-- ```{admonition} Bonus task 
+<!-- ```{admonition} Bonus task
 :class: tip, dropdown
 
 Compare with the results of a different XC functional, for example the more advanced r2SCAN-D4. How reliable are our results? What about different basis sets?
@@ -97,7 +97,7 @@ First, write down which metal ion is in the porphyrin you have researched or wil
 
 * In a new AMS input file, create a porphyrin molecule using the following shortcut:
 
-```{image} ../images/build-porphyrin.png
+```{image} ../../images/build-porphyrin.png
 :alt: Building a porphryin shortcut
 :class: bg-primary mb-1
 :height: 400
@@ -109,12 +109,12 @@ First, write down which metal ion is in the porphyrin you have researched or wil
 * Replace the metal center with the relevant metal atom, and pre-optimize the geometry.
 
 
-The electronic configuration of the metals is something like $\mathrm{[Ar]} 3d^n 4s^2$, where $n$ depends on the metal. The metal center usually has oxidation state +2, so Fe(II) {cite:p}`radon2008binding`, Mn(II) {cite:p}`phung2018dioxygen`, or Co(II) {cite:p}`zhang2020controlling, lv2021controlling`. The two electrons are removed from $4s$. The $3d$ orbitals (which can hold max. 10 electrons) are partially filled. 
+The electronic configuration of the metals is something like $\mathrm{[Ar]} 3d^n 4s^2$, where $n$ depends on the metal. The metal center usually has oxidation state +2, so Fe(II) {cite:p}`radon2008binding`, Mn(II) {cite:p}`phung2018dioxygen`, or Co(II) {cite:p}`zhang2020controlling, lv2021controlling`. The two electrons are removed from $4s$. The $3d$ orbitals (which can hold max. 10 electrons) are partially filled.
 
-* Write down the different possible spin configurations. What is the number of unpaired electrons for each of them? 
+* Write down the different possible spin configurations. What is the number of unpaired electrons for each of them?
 
 * Using the following articles, find what the ground state of your porphyrin is. Enter the number of unpaired electrons in the field 'Spin polarization' (check 'Unrestricted' as 'Yes').
-    * FeP: {cite:t}`matsuzawa1995density, rovira1998oxygen` 
+    * FeP: {cite:t}`matsuzawa1995density, rovira1998oxygen`
     * MnP: {cite:t}`phung2018dioxygen`
     * CoP: {cite:t}`de2020can` (this one's difficult, don't hesitate to ask for help).
 
@@ -124,9 +124,9 @@ We use the GGA XC functional BP86 as recommended by {cite:t}`ovalle2022choice` w
 
 
 ## Task 4: simulate a metalloporphyrin binding an oxygen molecule
-Oxygen can bind to the metal center. In this bond, the valence orbitals of oxygen and the metal interact. When looking at the spin state of oxygen before, you found that some electrons are unpaired. 
+Oxygen can bind to the metal center. In this bond, the valence orbitals of oxygen and the metal interact. When looking at the spin state of oxygen before, you found that some electrons are unpaired.
 
-* Using Fig. 3 in {cite:t}`phung2018dioxygen`, construct molecular orbital diagrams (there may be multiple possibilities) for a metalloporphyrin bonded to $\mathrm{O_2}$. 
+* Using Fig. 3 in {cite:t}`phung2018dioxygen`, construct molecular orbital diagrams (there may be multiple possibilities) for a metalloporphyrin bonded to $\mathrm{O_2}$.
 
 Based on {cite:t}`phung2018dioxygen, rovira1998oxygen` we'll assume that the ground-state of the oxygen-bound complex usually has the lowest possible spin.
 
@@ -140,7 +140,7 @@ Based on {cite:t}`phung2018dioxygen, rovira1998oxygen` we'll assume that the gro
 
 * If you go to SCM -> Levels, right-click on one of the molecular orbitals and select the first option, you can visualize the orbitals. Visualize the HOMO and compare to Fig. 3 in {cite:t}`phung2018dioxygen`.
 
-* We don't have time to do frequency calculations. Note down BP86 thermal corrections from literature. Tip: [convert everything to the same unit, like eV](https://www.colby.edu/chemistry/PChem/Hartree.html) 
+* We don't have time to do frequency calculations. Note down BP86 thermal corrections from literature. Tip: [convert everything to the same unit, like eV](https://www.colby.edu/chemistry/PChem/Hartree.html)
     * FeP: look at {cite:t}`phung2018dioxygen` <!--  0.008673 eV for FePO2 is negligible -->
     * MnP: also look at {cite:t}`phung2018dioxygen`
     * CoP: I couldn't find any thermal correction/ZPE data... Try look for it, or assume the same as for FeP/MnP
@@ -158,9 +158,9 @@ Now we have all the necessary ingredients to calculate the binding energy.
 
 Choose an interesting research project, and do your own calculations. Compare the results to literature if you can. Here's some ideas:
 
-* Vary the metal center of the porphyrin (suggested for Team 4). 
+* Vary the metal center of the porphyrin (suggested for Team 4).
     * Compare the binding energies. Correlate them with the experimental data you will collect or have collected in the lab.
-    * I haven't been able to find the setting for calculating the vib. freq. of a specific bond. But if we find it, it would be interesting to calculate the vibrational frequency of the metal-oxygen bond for various metal centers. 
+    * I haven't been able to find the setting for calculating the vib. freq. of a specific bond. But if we find it, it would be interesting to calculate the vibrational frequency of the metal-oxygen bond for various metal centers.
 
 
 * Add a solvation model, COSMO, to study the effect of a solvent (suggested for Team 5).

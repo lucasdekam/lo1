@@ -1,4 +1,4 @@
-# LO1 2024
+# LO1 at CASC
 
 Welcome to LO1 at CASC!
 
@@ -13,7 +13,7 @@ name: schedule
 Schedule for the whole LO1 course.
 ```
 
-## Research questions 
+## Research questions
 
 | Teams | Research question |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -30,11 +30,11 @@ Schedule for the whole LO1 course.
 For the report:
 
 * The report should describe all parts (DFT, EChem, Photo, STM). Make sure to keep the structure of introduction (why)/methods (how)/results/conclusion for each experiment. You can, for example, make a different section for each experiment.
-* Your research question is mostly related to the electrochemistry experiments. Try to answer this question in the electrochemistry section. 
-* Not all parts are closely related. Some of them are. Try to relate as many as you can, for example in the discussion/conclusion of your electrochemistry section. 
+* Your research question is mostly related to the electrochemistry experiments. Try to answer this question in the electrochemistry section.
+* Not all parts are closely related. Some of them are. Try to relate as many as you can, for example in the discussion/conclusion of your electrochemistry section.
 * The report should be around 10 pages, so a good rule of thumb is one page per day.
- 
+
 
 For the presentation or poster:
 
-* Choose the results you like and make an interesting story out of it. This means you are allowed to leave out results.  
+* Choose the results you like and make an interesting story out of it. This means you are allowed to leave out results.

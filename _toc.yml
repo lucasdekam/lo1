@@ -7,11 +7,8 @@ root: index
 parts:
 - caption: Theory lab
   chapters:
-  - file: theory-lab/course-information
-  - file: theory-lab/intro
-  - file: theory-lab/dft
-  - file: theory-lab/metals
-  - file: theory-lab/porphyrins
+  - file: theory-lab/pourbaix/introduction
+  - file: theory-lab/pourbaix/from-expts
 - caption: Experimental lab
   chapters:
   - file: experimental-lab/course-information
