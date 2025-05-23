@@ -1,0 +1,44 @@
+Traceback (most recent call last):
+  File "C:\Users\lucas\miniforge3\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\lucas\miniforge3\Lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucas\miniforge3\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucas\miniforge3\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\lucas\miniforge3\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\lucas\miniforge3\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\lucas\miniforge3\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from ase.io import read
+from mace.calculators import MACECalculator
+# from mace.calculators import mace_mp
+import numpy as np
+
+# --- 1. Load CoOx structure (replace with your file or construction)
+atoms = read("CoO_1533087.cif", format='cif')  
+
+# --- 2. Attach MACE calculator
+calc = MACECalculator(model_paths='./mace-omat-0-medium.model', default_dtype='float64')
+# calc = mace_mp(model='medium', default_dtype='float64')
+atoms.calc = calc 
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mase[39;00m[34;01m.[39;00m[34;01mio[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m read
+[32m      2[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mmace[39;00m[34;01m.[39;00m[34;01mcalculators[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m MACECalculator
+[32m      3[39m [38;5;66;03m# from mace.calculators import mace_mp[39;00m
+
+[31mModuleNotFoundError[39m: No module named 'ase'
+
