@@ -6,7 +6,7 @@ I recommend using Miniconda as Python distribution and Visual Studio Code for wr
 
 ## Miniconda 🐍
 
-Python's success is due to many free packages being available. For example, Numpy makes mathematics fast and the Atomic Simulation Environment (ASE) has many tools for chemistry simulations. Sometimes different packages are incompatible with each other. It can then be useful to have different Python installations ("environments") that are independent of one another. Conda is a popular tool for managing dependencies and environments.
+Python's success is due to many free packages being available. For example, Numpy makes mathematics fast and the Atomic Simulation Environment (ASE) has many tools for chemistry simulations. Sometimes different packages are incompatible with each other. It can then be useful to have different Python installations ("environments") that are independent of one another. Conda is a popular tool for managing Python installations.
 
 To get Conda you can install Anaconda or Miniconda. Anaconda contains some unnecessary extras whereas Miniconda is a more lightweight version. If you already have an Anaconda installation you don't need to install Miniconda.
 
@@ -19,7 +19,7 @@ If the installation fails on Mac you could try the Anaconda installer instead (s
 
 You can check if your installation works by searching for the 'Anaconda prompt' (Windows logo key + S, then type `prompt` for example). On Mac, you can just open the Terminal.
 
-Once in the prompt or terminal, you can type `conda list` and it should list some  packages installed in your 'base' (default) environment.
+Once in the prompt or terminal, you can type `conda list` and it should list some  packages installed in your 'base' (default) environment, including a `python` package.
 
 If you want, you can already type `pip install mace-torch` to install a package that we will need. The dependencies such as `torch` should be installed automatically.
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -401,7 +401,7 @@ document.write(`
 <p>I recommend using Miniconda as Python distribution and Visual Studio Code for writing and running code. You can find a short manual below.</p>
 <section id="miniconda">
 <h2>Miniconda 🐍<a class="headerlink" href="#miniconda" title="Link to this heading">#</a></h2>
-<p>Python’s success is due to many free packages being available. For example, Numpy makes mathematics fast and the Atomic Simulation Environment (ASE) has many tools for chemistry simulations. Sometimes different packages are incompatible with each other. It can then be useful to have different Python installations (“environments”) that are independent of one another. Conda is a popular tool for managing dependencies and environments.</p>
+<p>Python’s success is due to many free packages being available. For example, Numpy makes mathematics fast and the Atomic Simulation Environment (ASE) has many tools for chemistry simulations. Sometimes different packages are incompatible with each other. It can then be useful to have different Python installations (“environments”) that are independent of one another. Conda is a popular tool for managing Python installations.</p>
 <p>To get Conda you can install Anaconda or Miniconda. Anaconda contains some unnecessary extras whereas Miniconda is a more lightweight version. If you already have an Anaconda installation you don’t need to install Miniconda.</p>
 <p>To install Miniconda:</p>
 <ol class="arabic simple">
@@ -410,7 +410,7 @@ document.write(`
 </ol>
 <p>If the installation fails on Mac you could try the Anaconda installer instead (same link as before, but get the ‘Distribution’ rather than the ‘Miniconda’ installer).</p>
 <p>You can check if your installation works by searching for the ‘Anaconda prompt’ (Windows logo key + S, then type <code class="docutils literal notranslate"><span class="pre">prompt</span></code> for example). On Mac, you can just open the Terminal.</p>
-<p>Once in the prompt or terminal, you can type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> and it should list some  packages installed in your ‘base’ (default) environment.</p>
+<p>Once in the prompt or terminal, you can type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> and it should list some  packages installed in your ‘base’ (default) environment, including a <code class="docutils literal notranslate"><span class="pre">python</span></code> package.</p>
 <p>If you want, you can already type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mace-torch</span></code> to install a package that we will need. The dependencies such as <code class="docutils literal notranslate"><span class="pre">torch</span></code> should be installed automatically.</p>
 </section>
 <section id="visual-studio-code">
