@@ -176,7 +176,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory lab</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../pourbaix/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pourbaix/from-expts.html">Pourbaix diagram from experimental values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pourbaix/from-expts.html">Pourbaix diagram from literature values</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental lab</span></p>
 <ul class="nav bd-sidenav">
@@ -411,14 +411,54 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\e3nn\o3\_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), &#39;constants.pt&#39;))
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">mace.calculators</span><span class="w"> </span><span class="kn">import</span> <span class="n">MACECalculator</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># from mace.calculators import mace_mp</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># --- 1. Load CoOx structure (replace with your file or construction)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">atoms</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s2">&quot;CoO_1533087.cif&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;cif&#39;</span><span class="p">)</span>  
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># --- 2. Attach MACE calculator</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">MACECalculator</span><span class="p">(</span><span class="n">model_paths</span><span class="o">=</span><span class="s1">&#39;./mace-omat-0-medium.model&#39;</span><span class="p">,</span> <span class="n">default_dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;ase&#39;
+<span class="nn">File ~\miniconda3\envs\mace\Lib\site-packages\ase\io\formats.py:815,</span> in <span class="ni">read</span><span class="nt">(filename, index, format, parallel, do_not_split_by_at_sign, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span>     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">_iread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">813</span>                        <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">814</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">815</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="n">_iread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="nb">format</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">816</span>                        <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+
+<span class="nn">File ~\miniconda3\envs\mace\Lib\site-packages\ase\parallel.py:305,</span> in <span class="ni">parallel_generator.&lt;locals&gt;.new_generator</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span> <span class="k">def</span><span class="w"> </span><span class="nf">new_generator</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="k">if</span> <span class="p">(</span><span class="n">world</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span>         <span class="n">args</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;serial&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">or</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span>             <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;parallel&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span>         <span class="c1"># Disable:</span>
+<span class="ne">--&gt; </span><span class="mi">305</span>         <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">generator</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>             <span class="k">yield</span> <span class="n">result</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="k">return</span>
+
+<span class="nn">File ~\miniconda3\envs\mace\Lib\site-packages\ase\io\formats.py:871,</span> in <span class="ni">_iread</span><span class="nt">(filename, index, format, io, parallel, full_output, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span> <span class="k">if</span> <span class="n">io</span><span class="o">.</span><span class="n">acceptsfd</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;rb&#39;</span> <span class="k">if</span> <span class="n">io</span><span class="o">.</span><span class="n">isbinary</span> <span class="k">else</span> <span class="s1">&#39;r&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">871</span>     <span class="n">fd</span> <span class="o">=</span> <span class="n">open_with_compression</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>     <span class="n">must_close_fd</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">873</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~\miniconda3\envs\mace\Lib\site-packages\ase\io\formats.py:612,</span> in <span class="ni">open_with_compression</span><span class="nt">(filename, mode)</span>
+<span class="g g-Whitespace">    </span><span class="mi">609</span>     <span class="k">return</span> <span class="n">lzma</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">611</span>     <span class="c1"># Either None or unknown string</span>
+<span class="ne">--&gt; </span><span class="mi">612</span>     <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;CoO_1533087.cif&#39;
 </pre></div>
 </div>
 </div>

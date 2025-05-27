@@ -1,20 +1,27 @@
 Traceback (most recent call last):
-  File "C:\Users\lucas\miniforge3\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+  File "C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
     executenb(
-  File "C:\Users\lucas\miniforge3\Lib\site-packages\nbclient\client.py", line 1319, in execute
+  File "C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\nbclient\client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\lucas\miniforge3\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+  File "C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\lucas\miniforge3\Lib\asyncio\base_events.py", line 691, in run_until_complete
+  File "C:\Users\lucas\miniconda3\envs\mace\Lib\asyncio\base_events.py", line 664, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "C:\Users\lucas\miniforge3\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+  File "C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\nbclient\client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "C:\Users\lucas\miniforge3\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+  File "C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "C:\Users\lucas\miniforge3\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+  File "C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -32,13 +39,52 @@ calc = MACECalculator(model_paths='./mace-omat-0-medium.model', default_dtype='f
 atoms.calc = calc 
 ------------------
 
+----- stderr -----
+C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\e3nn\o3\_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+----- stdout -----
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+------------------
 
 [31m---------------------------------------------------------------------------[39m
-[31mModuleNotFoundError[39m                       Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
-[32m----> [39m[32m1[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mase[39;00m[34;01m.[39;00m[34;01mio[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m read
-[32m      2[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mmace[39;00m[34;01m.[39;00m[34;01mcalculators[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m MACECalculator
-[32m      3[39m [38;5;66;03m# from mace.calculators import mace_mp[39;00m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 7[39m
+[32m      4[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
+[32m      6[39m [38;5;66;03m# --- 1. Load CoOx structure (replace with your file or construction)[39;00m
+[32m----> [39m[32m7[39m atoms = [43mread[49m[43m([49m[33;43m"[39;49m[33;43mCoO_1533087.cif[39;49m[33;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43mformat[39;49m[43m=[49m[33;43m'[39;49m[33;43mcif[39;49m[33;43m'[39;49m[43m)[49m  
+[32m      9[39m [38;5;66;03m# --- 2. Attach MACE calculator[39;00m
+[32m     10[39m calc = MACECalculator(model_paths=[33m'[39m[33m./mace-omat-0-medium.model[39m[33m'[39m, default_dtype=[33m'[39m[33mfloat64[39m[33m'[39m)
 
-[31mModuleNotFoundError[39m: No module named 'ase'
+[36mFile [39m[32m~\miniconda3\envs\mace\Lib\site-packages\ase\io\formats.py:815[39m, in [36mread[39m[34m(filename, index, format, parallel, do_not_split_by_at_sign, **kwargs)[39m
+[32m    812[39m     [38;5;28;01mreturn[39;00m [38;5;28mlist[39m(_iread(filename, index, [38;5;28mformat[39m, io, parallel=parallel,
+[32m    813[39m                        **kwargs))
+[32m    814[39m [38;5;28;01melse[39;00m:
+[32m--> [39m[32m815[39m     [38;5;28;01mreturn[39;00m [38;5;28;43mnext[39;49m[43m([49m[43m_iread[49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[38;5;28;43mslice[39;49m[43m([49m[43mindex[49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m[43m [49m[38;5;28;43mformat[39;49m[43m,[49m[43m [49m[43mio[49m[43m,[49m
+[32m    816[39m [43m                       [49m[43mparallel[49m[43m=[49m[43mparallel[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m[43m)[49m
+
+[36mFile [39m[32m~\miniconda3\envs\mace\Lib\site-packages\ase\parallel.py:305[39m, in [36mparallel_generator.<locals>.new_generator[39m[34m(*args, **kwargs)[39m
+[32m    299[39m [38;5;129m@functools[39m.wraps(generator)
+[32m    300[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mnew_generator[39m(*args, **kwargs):
+[32m    301[39m     [38;5;28;01mif[39;00m (world.size == [32m1[39m [38;5;129;01mor[39;00m
+[32m    302[39m         args [38;5;129;01mand[39;00m [38;5;28mgetattr[39m(args[[32m0[39m], [33m'[39m[33mserial[39m[33m'[39m, [38;5;28;01mFalse[39;00m) [38;5;129;01mor[39;00m
+[32m    303[39m             [38;5;129;01mnot[39;00m kwargs.pop([33m'[39m[33mparallel[39m[33m'[39m, [38;5;28;01mTrue[39;00m)):
+[32m    304[39m         [38;5;66;03m# Disable:[39;00m
+[32m--> [39m[32m305[39m [43m        [49m[38;5;28;43;01mfor[39;49;00m[43m [49m[43mresult[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[43mgenerator[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m[43m:[49m
+[32m    306[39m [43m            [49m[38;5;28;43;01myield[39;49;00m[43m [49m[43mresult[49m
+[32m    307[39m         [38;5;28;01mreturn[39;00m
+
+[36mFile [39m[32m~\miniconda3\envs\mace\Lib\site-packages\ase\io\formats.py:871[39m, in [36m_iread[39m[34m(filename, index, format, io, parallel, full_output, **kwargs)[39m
+[32m    869[39m [38;5;28;01mif[39;00m io.acceptsfd:
+[32m    870[39m     mode = [33m'[39m[33mrb[39m[33m'[39m [38;5;28;01mif[39;00m io.isbinary [38;5;28;01melse[39;00m [33m'[39m[33mr[39m[33m'[39m
+[32m--> [39m[32m871[39m     fd = [43mopen_with_compression[49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m
+[32m    872[39m     must_close_fd = [38;5;28;01mTrue[39;00m
+[32m    873[39m [38;5;28;01melse[39;00m:
+
+[36mFile [39m[32m~\miniconda3\envs\mace\Lib\site-packages\ase\io\formats.py:612[39m, in [36mopen_with_compression[39m[34m(filename, mode)[39m
+[32m    609[39m     [38;5;28;01mreturn[39;00m lzma.open(filename, mode)
+[32m    610[39m [38;5;28;01melse[39;00m:
+[32m    611[39m     [38;5;66;03m# Either None or unknown string[39;00m
+[32m--> [39m[32m612[39m     [38;5;28;01mreturn[39;00m [38;5;28;43mopen[39;49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: 'CoO_1533087.cif'
 
