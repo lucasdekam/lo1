@@ -7,6 +7,7 @@ root: index
 parts:
 - caption: Theory lab
   chapters:
+  - file: theory-lab/preparation
   - file: theory-lab/pourbaix/introduction
   - file: theory-lab/pourbaix/from-expts
 - caption: Experimental lab
