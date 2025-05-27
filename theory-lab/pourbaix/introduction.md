@@ -12,7 +12,7 @@ Pourbaix diagram of iron ([Wikipedia](https://en.wikipedia.org/wiki/Pourbaix_dia
 
 ## Water stability
 
-The dotted blue lines in the Pourbaix diagram above indicate the water stability window. If you go below the lower line, you produce hydrogen according to the reaction
+The dashed blue lines in the Pourbaix diagram above indicate the water stability window. If you go below the lower line, you produce hydrogen according to the reaction
 
 $$
     \mathrm{2H^+ + 2e^- \to H_2(g)}.
