@@ -1,0 +1,1036 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Machine learning potentials &#8212; LO1 at CASC</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'theory-lab/pourbaix/mliap';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Extra: Quantum chemistry" href="../oxygen-binding/dft.html" />
+    <link rel="prev" title="Pourbaix diagram from literature values" href="from-expts.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LO1 at CASC</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    LO1 at CASC
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory lab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preparation.html">Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="from-expts.html">Pourbaix diagram from literature values</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Machine learning potentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oxygen-binding/dft.html">Extra: Quantum chemistry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental lab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/course-information.html">Electrochemistry lab</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/experimental.html">Experimental procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/theory.html">Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/safety.html">Safety discussion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/figures.html">Figure guidelines</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/lucasdekam/dft-for-dummies" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/lucasdekam/dft-for-dummies/issues/new?title=Issue%20on%20page%20%2Ftheory-lab/pourbaix/mliap.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/theory-lab/pourbaix/mliap.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Machine learning potentials</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electronic-structure-methods">Electronic structure methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oxygen-molecule">Oxygen molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materials">Materials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-potentials">
+<h1>Machine learning potentials<a class="headerlink" href="#machine-learning-potentials" title="Link to this heading">#</a></h1>
+<p>Looking up values in literature is one way to make a Pourbaix diagram. But what if we’re interested in a novel material that has not been tested experimentally yet?</p>
+<p>In materials science, the goal is often to find new materials with desirable properties. For example: an oxygen evolution catalyst that doesn’t corrode at low pH, a battery electrolyte with high ion conductivity, or a battery electrode that doesn’t swell during charging. Testing those materials in a lab is time-consuming. The field of computational materials science develops methods to screen new materials with calculations. The best candidate materials are tested in the lab.</p>
+<p>In this part you will learn about modern methods that are used for screening materials.</p>
+<section id="electronic-structure-methods">
+<h2>Electronic structure methods<a class="headerlink" href="#electronic-structure-methods" title="Link to this heading">#</a></h2>
+<p>The most important contribution to the internal energy <span class="math notranslate nohighlight">\(U\)</span> of a material is the energy of the electrons interacting with the nuclei. You can think of this energy as the “chemical binding energy”. Electrons are best described by quantum mechanics. The field of electronic structure theory develops methods to calculate the behavior of electrons as accurately as possible. Examples of these methods are Hartree-Fock theory and density functional theory (DFT).</p>
+<p>The calculations are very costly: they can take minutes to hours on a supercomputer. The figure below shows that a large part of supercomputing facilities is used for such electronic structure calculations. They also require expertise for choosing certain approximation parameters.</p>
+<figure class="align-default" id="hpc-usage">
+<a class="reference internal image-reference" href="../../_images/archer2.png"><img alt="../../_images/archer2.png" src="../../_images/archer2.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Usage of the British high-performance computing facility for various tasks in January 2022. VASP, CP2K and CASTEP are examples of quantum chemistry softwares. Source: <a class="reference external" href="https://www.archer2.ac.uk/news/2022/02/07/software-usage-data.html">archer2</a>.</span><a class="headerlink" href="#hpc-usage" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If you want (optional), you can read more about electronic structure methods on the page <a class="reference internal" href="../oxygen-binding/dft.html"><span class="std std-doc">Extra: Quantum chemistry</span></a> from last year’s LO1.</p>
+</section>
+<section id="machine-learning">
+<h2>Machine learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h2>
+<p>Often, we don’t even need all the electronic structure information. Given a certain atomistic structure we just want to know the energy, and sometimes the forces on the nuclei. In recent years, machine learning models have been developed to predict energies and forces for atomistic structures <span id="id1">[<a class="reference internal" href="#id22" title="Fabian L Thiemann, Niamh O’neill, Venkat Kapil, Angelos Michaelides, and Christoph Schran. Introduction to machine learning potentials for atomistic simulations. Journal of Physics: Condensed Matter, 37(7):073002, 2024. doi:10.1088/1361-648X/ad9657.">2</a>]</span>. A model that predicts the energy depending on the distance between particles is often called a ‘potential’ (like the Lennard-Jones potential). A machine learning model that predicts energies and forces on atoms is called a <strong>machine learning interatomic potential</strong> (MLIP).</p>
+<p>In general, a machine learning model represents a function <span class="math notranslate nohighlight">\(f\)</span>. The function <span class="math notranslate nohighlight">\(f\)</span> is learned from a ‘training set’ containing data points <span class="math notranslate nohighlight">\(x_i\)</span> with a label <span class="math notranslate nohighlight">\(y_i\)</span>. In atomistic machine learning, <span class="math notranslate nohighlight">\(x_i\)</span> represents the structure of a material (like the coordinates of all the atoms and their chemical elements), and <span class="math notranslate nohighlight">\(y_i\)</span> is the energy. Given a point <span class="math notranslate nohighlight">\(x_i\)</span>, the machine learning model predicts a label <span class="math notranslate nohighlight">\(\hat{y}_i=f(x_i)\)</span>.</p>
+<p>To <strong>train</strong> the model, a <strong>loss function</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} =  \sum_i (\hat{y}_i-y_i)^2\]</div>
+<p>is minimized. In words: the training procedure finds a function <span class="math notranslate nohighlight">\(f\)</span> so that all <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> are as close as possible to the corresponding <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
+<p>The function <span class="math notranslate nohighlight">\(f\)</span> representing the potential can be quite complicated. Over the past decade, a lot of research has gone into designing functions that describe atomistic structures efficiently. Symmetry is an important aspect: if you rotate a molecule in vacuum, its energy does not change. Many modern models are designed so that rotation of the structure does not change the energy <span id="id2">[<a class="reference internal" href="#id23" title="Alexandre Duval, Simon V Mathis, Chaitanya K Joshi, Victor Schmidt, Santiago Miret, Fragkiskos D Malliaros, Taco Cohen, Pietro Liò, Yoshua Bengio, and Michael Bronstein. A hitchhiker's guide to geometric gnns for 3d atomic systems. arXiv preprint arXiv:2312.07511, 2023.">3</a>]</span>.</p>
+<figure class="align-default" id="ace-dft">
+<a class="reference internal image-reference" href="../../_images/ace_dft.png"><img alt="../../_images/ace_dft.png" src="../../_images/ace_dft.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Comparison of various machine learning potentials with the training data from DFT, from <span id="id3">[<a class="reference internal" href="#id26" title="Yury Lysogorskiy, Cas van der Oord, Anton Bochkarev, Sarath Menon, Matteo Rinaldi, Thomas Hammerschmidt, Matous Mrovec, Aidan Thompson, Gábor Csányi, Christoph Ortner, and others. Performant implementation of the atomic cluster expansion (pace) and application to copper and silicon. npj computational materials, 7(1):97, 2021. doi:10.1038/s41524-021-00559-9.">4</a>]</span>. The plots above show potential energy vs. separation between atoms in a crystal lattice.</span><a class="headerlink" href="#ace-dft" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="tip admonition">
+<p class="admonition-title">Question</p>
+<p>Consider the figure above. Compare to a Morse potential. Does the potential look like what you would expect?</p>
+</div>
+<p>In addition to designing a model, we need a training set. A training set is usually made by calculating the energy <span class="math notranslate nohighlight">\(y_i\)</span> of atomic structures <span class="math notranslate nohighlight">\(x_i\)</span> with DFT. This has two important consequences:</p>
+<ul class="simple">
+<li><p>The accuracy of the model depends on how accurate the energy calculated with DFT is. So it’s still important to understand what approximations were made in the DFT calculations used to construct the training set.</p></li>
+<li><p>The model can predict the energy of new structures <span class="math notranslate nohighlight">\(x_i\)</span> that are similar to the training data. If you train a model only on water molecules, it probably cannot predict the energy of a metal. But it might also fail to predict the energy of a molecule if it has a weird structure (very short/large interatomic distance) that does not appear in the training set.</p></li>
+</ul>
+<p>So: <strong>it is important to understand the training set!</strong></p>
+<p>In the beginning, machine learning models were trained on specialized datasets. If you were interested in copper, you would train the model on a bunch of copper metal structures. But over the last two years, models have been trained on huge datasets containing many different materials and molecules. Although their predictions are not as accurate as quantum chemistry calculations, they provide a pretty good guess and are very fast. These big models are called <strong>foundational models</strong>.</p>
+<p>In the rest of this lab we will use machine learning interatomic potentials to calculate the energy of metal and metal oxide structures. Specifically, we’ll use foundational models with the MACE architecture <span id="id4">[<a class="reference internal" href="#id24" title="Ilyes Batatia, David P Kovacs, Gregor Simm, Christoph Ortner, and Gábor Csányi. Mace: higher order equivariant message passing neural networks for fast and accurate force fields. arXiv preprint arXiv:2206.07697, 2022.">5</a>, <a class="reference internal" href="#id25" title="Ilyes Batatia, Philipp Benner, Yuan Chiang, Alin M Elena, Dávid P Kovács, Janosh Riebesell, Xavier R Advincula, Mark Asta, Matthew Avaylon, William J Baldwin, and others. A foundation model for atomistic materials chemistry. arXiv preprint arXiv:2401.00096, 2023.">6</a>]</span>. To install MACE, open your terminal/Anaconda prompt and type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mace-torch</span></code> (as usual, feel free to ask for help). You’ll also need <code class="docutils literal notranslate"><span class="pre">ase</span></code>, which should be installed automatically when installing <code class="docutils literal notranslate"><span class="pre">mace-torch</span></code>, but if not you can type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ase</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Machine learning in chemistry is a hot topic: <a class="reference external" href="https://www.microsoft.com/en-us/research/articles/keynote-the-revolution-in-scientific-discovery/">Microsoft</a>, <a class="reference external" href="https://ai.meta.com/blog/meta-fair-science-new-open-source-releases/">Meta</a>, the Chinese company <a class="reference external" href="https://www.dp.tech/en/about">DP Tech</a> and the start-ups <a class="reference external" href="https://www.radical-ai.com/">Radical AI</a>, <a class="reference external" href="https://www.cusp.ai/">Cusp AI</a> and <a class="reference external" href="https://www.orbitalmaterials.com/">Orbital Materials</a> are all working on machine learning potentials. Cusp AI is co-founded by Max Welling, a Dutch professor at UvA, and Radical AI is co-founded by Gerbrand Ceder from the paper on Pourbaix diagrams <span id="id5">[<a class="reference internal" href="#id21" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">1</a>]</span> that a lot of the theory we use in this practical is based on.</p>
+</div>
+</section>
+<section id="oxygen-molecule">
+<h2>Oxygen molecule<a class="headerlink" href="#oxygen-molecule" title="Link to this heading">#</a></h2>
+<p>Let’s see how this all works in practice. First, we use ASE to define the structure of an oxygen molecule.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">molecule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.visualize</span><span class="w"> </span><span class="kn">import</span> <span class="n">view</span>
+<span class="n">atoms</span> <span class="o">=</span> <span class="n">molecule</span><span class="p">(</span><span class="s1">&#39;O2&#39;</span><span class="p">)</span>
+<span class="n">view</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">viewer</span><span class="o">=</span><span class="s1">&#39;x3d&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><html>
+    <head>
+        <title>ASE atomic visualization</title>
+        <link rel="stylesheet" type="text/css"             href="https://www.x3dom.org/release/x3dom.css"></link>
+        <script type="text/javascript"             src="https://www.x3dom.org/release/x3dom.js"></script>
+    </head>
+    <body>
+        <X3D width="400px"; height="300px";>
+
+<!--Inserting Generated X3D Scene-->
+<scene>
+  <viewpoint position="0 0 2.491912">
+    <group/>
+  </viewpoint>
+  <transform translation="-0.0 -0.0 -0.0">
+    <group>
+      <group>
+        <transform translation="0 0 0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+        <transform translation="0.0 0.0 0.0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+        <transform translation="0 0 0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+        <transform translation="0.0 0.0 0.0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+      </group>
+      <group>
+        <transform translation="0.0 0.0 0.622978">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+        <transform translation="0.0 0.0 -0.622978">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+      </group>
+    </group>
+  </transform>
+</scene>
+<!--End of Inserted Scene-->
+
+        </X3D>
+    </body>
+</html>
+
+</div></div>
+</div>
+<p>(This is the kind of atomic structure that would be an <span class="math notranslate nohighlight">\(x_i\)</span> for a machine learning model.) Now, let’s load a MACE model and predict the energy. Download the MACE-MATPES-r2SCAN-0 model from <a class="reference external" href="https://github.com/ACEsuit/mace-foundations">github.com/ACEsuit/mace-foundations</a>, and place it in the same folder as your Python script. On the bottom of the download page, you can find what publication you need to cite in your report!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mace.calculators</span><span class="w"> </span><span class="kn">import</span> <span class="n">mace_mp</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">mace_mp</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;MACE-matpes-r2scan-omat-ft.model&quot;</span><span class="p">,</span> <span class="n">default_dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+<span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">calc</span>
+<span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\e3nn\o3\_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), &#39;constants.pt&#39;))
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\mace\calculators\mace.py:143: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using head default out of [&#39;default&#39;]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-11.746797198194443
+</pre></div>
+</div>
+</div>
+</div>
+<p>The energy you get out is the electronic energy, we’ll call it <span class="math notranslate nohighlight">\(E^\mathrm{el}\)</span>.</p>
+<p>The MACE-MATPES-r2SCAN-0 model is trained with r2SCAN-DFT data, which should be more accurate than the “standard” model you get when you use <code class="docutils literal notranslate"><span class="pre">model=&quot;medium&quot;</span></code>, which is trained with PBE-DFT. Try <code class="docutils literal notranslate"><span class="pre">model=&quot;medium&quot;</span></code> and run the code again to see the difference in energy.</p>
+<p>We can also optimize the bond length with a BFGS optimizer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">BFGS</span>
+
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+<span class="n">optimizer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>  <span class="c1"># maximum force in eV/Angstrom</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
+BFGS:    0 16:05:46      -11.746797        1.905323
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 16:05:47      -11.742271        2.348481
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 16:05:48      -11.773124        0.204156
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 16:05:48      -11.773393        0.019630
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 16:05:48      -11.773396        0.000189
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The optimizer prints the different steps in which it changes the bond length to minimize the forces on the atoms until they are below <code class="docutils literal notranslate"><span class="pre">fmax</span></code> (at room temperature, the oxygen molecule will be in a state where the forces are close to zero). As you can see, the energy difference is quite small, but it could make a difference in the end, so geometry optimization is recommended.</p>
+<p>Finally, we can write the atoms to an XYZ file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">write</span>
+
+<span class="n">write</span><span class="p">(</span><span class="s2">&quot;oxygen_molecule.xyz&quot;</span><span class="p">,</span> <span class="n">atoms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look into the <code class="docutils literal notranslate"><span class="pre">xyz</span></code> file and try to understand the structure of the file.</p>
+</section>
+<section id="materials">
+<h2>Materials<a class="headerlink" href="#materials" title="Link to this heading">#</a></h2>
+<p>For metals and metal oxides, we can find molecular structures online. For example, the <a class="reference external" href="https://www.crystallography.net/cod/">Crystallography Open Database</a> contains many experimental structures. Search for a structure relevant to your Pourbaix diagram by providing the different elements (like Fe, O) and the number of distinct elements (min. 2, max. 2 for example). In the results, click on ‘CIF’ to download the CIF structure file. You can read it in ASE:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s2">&quot;structures/Li2O.cif&quot;</span><span class="p">)</span>
+<span class="n">view</span><span class="p">(</span><span class="n">material</span><span class="p">,</span> <span class="n">viewer</span><span class="o">=</span><span class="s1">&#39;x3d&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\ase\io\cif.py:410: UserWarning: crystal system &#39;cubic&#39; is not interpreted for space group Spacegroup(225, setting=1). This may result in wrong setting!
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output text_html"><html>
+    <head>
+        <title>ASE atomic visualization</title>
+        <link rel="stylesheet" type="text/css"             href="https://www.x3dom.org/release/x3dom.css"></link>
+        <script type="text/javascript"             src="https://www.x3dom.org/release/x3dom.js"></script>
+    </head>
+    <body>
+        <X3D width="400px"; height="300px";>
+
+<!--Inserting Generated X3D Scene-->
+<scene>
+  <viewpoint position="0 0 9.22">
+    <group/>
+  </viewpoint>
+  <transform translation="-2.305 -2.305 -2.305">
+    <group>
+      <group>
+        <transform translation="0 0 0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 4.61 0.0 0.0 4.61 4.61 0.0 0.0 4.61 0.0 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+        <transform translation="0.0 0.0 4.61">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 4.61 0.0 0.0 4.61 4.61 0.0 0.0 4.61 0.0 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+        <transform translation="0 0 0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 4.61 0.0 0.0 4.61 0.0 4.61 0.0 0.0 4.61 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+        <transform translation="0.0 4.61 0.0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 4.61 0.0 0.0 4.61 0.0 4.61 0.0 0.0 4.61 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+      </group>
+      <group>
+        <transform translation="0.0 0.0 0.0">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+        <transform translation="0.0 2.305 2.305">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+        <transform translation="2.305 0.0 2.305">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+        <transform translation="2.305 2.305 0.0">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+        <transform translation="1.1525 1.1525 1.1525">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="1.1525 3.4575000000000005 3.4575000000000005">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="3.4575000000000005 1.1525 3.4575000000000005">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="3.4575000000000005 3.4575000000000005 1.1525">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="3.4575000000000005 3.4575000000000005 3.4575000000000005">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="3.4575000000000005 1.1525 1.1525">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="1.1525 3.4575000000000005 1.1525">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="1.1525 1.1525 3.4575000000000005">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+      </group>
+    </group>
+  </transform>
+</scene>
+<!--End of Inserted Scene-->
+
+        </X3D>
+    </body>
+</html>
+
+</div></div>
+</div>
+<p>You can again find <span class="math notranslate nohighlight">\(E^\mathrm{el}\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc</span> <span class="o">=</span> <span class="n">mace_mp</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;MACE-matpes-r2scan-omat-ft.model&quot;</span><span class="p">,</span> <span class="n">default_dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">calc</span>
+<span class="n">material</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\lucas\miniconda3\envs\mace\Lib\site-packages\mace\calculators\mace.py:143: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using head default out of [&#39;default&#39;]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-67.11994532427966
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also optimize the unit cell size and geometry:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitCellFilter</span>
+
+<span class="n">material</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">calc</span>
+<span class="n">ucf</span> <span class="o">=</span> <span class="n">UnitCellFilter</span><span class="p">(</span><span class="n">material</span><span class="p">)</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ucf</span><span class="p">)</span>
+<span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
+BFGS:    0 16:05:49      -67.119945        0.131128
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 16:05:50      -67.120677        0.129183
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 16:05:51      -67.144967        0.000812
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Task</p>
+<p>Download structures for all the materials you can find in the experimental Pourbaix diagram. Calculate the energy with the r2SCAN MACE model. Save the energies for the oxygen molecule and the other structures.</p>
+<p>You can leave out the ions – calculating the energy of an ion in water is difficult. If optimizing the structures is too much effort you can also skip that.</p>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id6">
+<div role="list" class="citation-list">
+<div class="citation" id="id21" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">1</a><span class="fn-bracket">]</span></span>
+<p>Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. <em>Physical Review B—Condensed Matter and Materials Physics</em>, 85(23):235438, 2012. <a class="reference external" href="https://doi.org/10.1103/PhysRevB.85.235438">doi:10.1103/PhysRevB.85.235438</a>.</p>
+</div>
+<div class="citation" id="id22" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
+<p>Fabian L Thiemann, Niamh O’neill, Venkat Kapil, Angelos Michaelides, and Christoph Schran. Introduction to machine learning potentials for atomistic simulations. <em>Journal of Physics: Condensed Matter</em>, 37(7):073002, 2024. <a class="reference external" href="https://doi.org/10.1088/1361-648X/ad9657">doi:10.1088/1361-648X/ad9657</a>.</p>
+</div>
+<div class="citation" id="id23" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">3</a><span class="fn-bracket">]</span></span>
+<p>Alexandre Duval, Simon V Mathis, Chaitanya K Joshi, Victor Schmidt, Santiago Miret, Fragkiskos D Malliaros, Taco Cohen, Pietro Liò, Yoshua Bengio, and Michael Bronstein. A hitchhiker's guide to geometric gnns for 3d atomic systems. <em>arXiv preprint arXiv:2312.07511</em>, 2023.</p>
+</div>
+<div class="citation" id="id26" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">4</a><span class="fn-bracket">]</span></span>
+<p>Yury Lysogorskiy, Cas van der Oord, Anton Bochkarev, Sarath Menon, Matteo Rinaldi, Thomas Hammerschmidt, Matous Mrovec, Aidan Thompson, Gábor Csányi, Christoph Ortner, and others. Performant implementation of the atomic cluster expansion (pace) and application to copper and silicon. <em>npj computational materials</em>, 7(1):97, 2021. <a class="reference external" href="https://doi.org/10.1038/s41524-021-00559-9">doi:10.1038/s41524-021-00559-9</a>.</p>
+</div>
+<div class="citation" id="id24" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">5</a><span class="fn-bracket">]</span></span>
+<p>Ilyes Batatia, David P Kovacs, Gregor Simm, Christoph Ortner, and Gábor Csányi. Mace: higher order equivariant message passing neural networks for fast and accurate force fields. <em>arXiv preprint arXiv:2206.07697</em>, 2022.</p>
+</div>
+<div class="citation" id="id25" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">6</a><span class="fn-bracket">]</span></span>
+<p>Ilyes Batatia, Philipp Benner, Yuan Chiang, Alin M Elena, Dávid P Kovács, Janosh Riebesell, Xavier R Advincula, Mark Asta, Matthew Avaylon, William J Baldwin, and others. A foundation model for atomistic materials chemistry. <em>arXiv preprint arXiv:2401.00096</em>, 2023.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./theory-lab\pourbaix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="from-expts.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pourbaix diagram from literature values</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../oxygen-binding/dft.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Extra: Quantum chemistry</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electronic-structure-methods">Electronic structure methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oxygen-molecule">Oxygen molecule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materials">Materials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lucas de Kam
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Quantum chemistry &#8212; LO1 at CASC</title>
+    <title>Extra: Quantum chemistry &#8212; LO1 at CASC</title>
   
   
   
@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'theory-lab/oxygen-binding/dft';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Electrochemistry lab" href="../../experimental-lab/course-information.html" />
+    <link rel="prev" title="Machine learning potentials" href="../pourbaix/mliap.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -176,10 +176,12 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory lab</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../preparation.html">Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pourbaix/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pourbaix/from-expts.html">Pourbaix diagram from literature values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pourbaix/mliap.html">Machine learning potentials</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Extra: Quantum chemistry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental lab</span></p>
 <ul class="nav bd-sidenav">
@@ -374,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Quantum chemistry</h1>
+    <h1>Extra: Quantum chemistry</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -386,7 +388,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-schrodinger-equation">The Schrödinger equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-functional-theory">Density functional theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energies">Energies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
@@ -399,9 +400,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="quantum-chemistry">
-<h1>Quantum chemistry<a class="headerlink" href="#quantum-chemistry" title="Link to this heading">#</a></h1>
-<p>The following text is inspired by the lecture notes of Christopher Stein (TU Munich) and Katharina Doblhoff-Dier (Leiden Univ.), and the Wikipedia page on <a class="reference external" href="https://en.wikipedia.org/wiki/Density_functional_theory">density functional theory</a>. The introductory article of <span id="id1">Burke and Wagner [<a class="reference internal" href="#id15" title="Kieron Burke and Lucas O. Wagner. Dft in a nutshell. Int. J. Quant. Chem., 113:96-101, 01/2013 2013. URL: http://dx.doi.org/10.1002/qua.24259, doi:10.1002/qua.24259.">1</a>]</span> might also be interesting to the reader.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="extra-quantum-chemistry">
+<h1>Extra: Quantum chemistry<a class="headerlink" href="#extra-quantum-chemistry" title="Link to this heading">#</a></h1>
+<p>The following text is inspired by the lecture notes of Christopher Stein (TU Munich) and Katharina Doblhoff-Dier (Leiden Univ.), and the Wikipedia page on <a class="reference external" href="https://en.wikipedia.org/wiki/Density_functional_theory">density functional theory</a>. The introductory article of <span id="id1">Burke and Wagner [<a class="reference internal" href="#id15" title="Kieron Burke and Lucas O. Wagner. Dft in a nutshell. Int. J. Quant. Chem., 113:96-101, 01/2013 2013. doi:10.1002/qua.24259.">1</a>]</span> might also be interesting to the reader.</p>
 <p>In this practical course we consider electrocatalysis at the scale of atoms. In particular, we are interested in the chemical bond between a reaction intermediate and a catalyst. A chemical bond forms due to the interaction between the electrons of the reaction intermediate and the catalyst. So: to understand chemical bonds, we need to understand electrons.</p>
 <section id="the-schrodinger-equation">
 <h2>The Schrödinger equation<a class="headerlink" href="#the-schrodinger-equation" title="Link to this heading">#</a></h2>
@@ -437,33 +438,40 @@ document.write(`
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(V_\mathrm{ext}\)</span> (ext for external) describes the electrostatic interaction of the electron with the various nuclei in the system.</p></li>
 <li><p>The integral of <span class="math notranslate nohighlight">\(\rho\)</span> describes the electrostatic interaction of the electron with the negatively charged electron cloud, consisting of all electrons in the system.</p></li>
-<li><p>The <em>exchange-correlation functional</em> <span class="math notranslate nohighlight">\(E_\mathrm{xc}\)</span> contains corrections to the approximations made by Kohn and Sham. Finding better exchange-correlation functionals is an ongoing topic in research. Different systems might be described better by different exchange-correlation functionals.</p></li>
+<li><p>The <em>exchange-correlation functional</em> <span class="math notranslate nohighlight">\(E_\mathrm{xc}\)</span> contains corrections to the approximations made by Kohn and Sham. Finding better exchange-correlation functionals is an ongoing topic in research. Different systems might be described better by different exchange-correlation functionals. PBE and r2SCAN are examples of exchange-correlation functionals.</p></li>
 </ul>
 <div class="dropdown admonition note">
 <p class="admonition-title">Note</p>
 <p>In case you are wondering what the symbols in the last term mean, here’s an explanation. A <em>function</em> <span class="math notranslate nohighlight">\(f(x)\)</span> takes a number as input, and outputs a number. For example: <span class="math notranslate nohighlight">\(f(x)=x^2\)</span> turns <span class="math notranslate nohighlight">\(x=2\)</span> into <span class="math notranslate nohighlight">\(f(2)=4\)</span>. A <em>functional</em> <span class="math notranslate nohighlight">\(F[f(x)]\)</span> takes an entire function as input, and outputs a number. Functionals also have their own kind of derivative, denoted with a <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
 </div>
 <p>It follows that the Kohn-Sham equations depend on <span class="math notranslate nohighlight">\(\rho\)</span> through <span class="math notranslate nohighlight">\(V_\mathrm{eff}\)</span>. To write down and solve the Kohn-Sham equations, we therefore need to know <span class="math notranslate nohighlight">\(\rho\)</span>, but to know <span class="math notranslate nohighlight">\(\rho\)</span> we need to know the <span class="math notranslate nohighlight">\(\psi_i\)</span>, which we get by solving the Kohn-Sham equations. How do we solve this circular problem? Luckily, it turns out that when we solve the Kohn-Sham equations for a certain <span class="math notranslate nohighlight">\(\rho\)</span>, we get out <span class="math notranslate nohighlight">\(\psi_i\)</span> that give a ‘better’ <span class="math notranslate nohighlight">\(\rho\)</span>. ‘Better’ means: lower energy, because we are looking for the lowest energy state (ground state). By starting out with a certain guess for <span class="math notranslate nohighlight">\(\rho\)</span>, we can keep solving the Kohn-Sham equations with an improved <span class="math notranslate nohighlight">\(\rho\)</span> every time. When our energy does not change anymore, we know that we are at a minimum: we are <em>converged</em>. Such a ‘circular’ procedure is called a <em>self-consistent procedure</em>.</p>
-<p>Now the question remains: how do we solve the Kohn-Sham equations numerically, and what are the <span class="math notranslate nohighlight">\(\psi_i\)</span>? Depending on whether you have to simulate metal electrodes or porphyrin molecules, you will use different representations of <span class="math notranslate nohighlight">\(\psi_i\)</span>. These representations will be discussed in the respective pages, and you will use software to use the Kohn-Sham equations self-consistently yourself.</p>
-</section>
-<section id="energies">
-<h2>Energies<a class="headerlink" href="#energies" title="Link to this heading">#</a></h2>
-<p>From a DFT calculation we get the ground state energy <span class="math notranslate nohighlight">\(E\)</span> of all electrons, which is the sum of energies of all occupied orbitals. You can think of it as the ‘bonding energy’. However, the movement of the nuclei also adds energy to the system.</p>
-<p>In electrochemical experiments, we usually have a constant temperature <span class="math notranslate nohighlight">\(T\)</span> and pressure <span class="math notranslate nohighlight">\(P\)</span>. The reaction energies are therefore described by Gibbs free energies:</p>
-<div class="math notranslate nohighlight">
-\[G = U - TS + PV\]</div>
-<p>with <span class="math notranslate nohighlight">\(U\)</span> the internal energy, <span class="math notranslate nohighlight">\(S\)</span> the entropy and <span class="math notranslate nohighlight">\(V\)</span> the system volume. The internal energy and the entropy are affected by the motion of the nuclei: rotational, translational, and vibrational. The <span class="math notranslate nohighlight">\(PV\)</span> term is usually only relevant for gases.</p>
-<p>In this practical, we will mostly worry about the electronic energies. The thermodynamic corrections to find the Gibbs energy will be provided.</p>
-<div class="dropdown admonition note">
-<p class="admonition-title">Note</p>
-<p>Although they are much heavier than electrons, nuclei also experience quantum mechanical effects. By the Heisenberg uncertainty principle, <span class="math notranslate nohighlight">\(\Delta x \Delta p \geq \hbar/2\)</span>, we cannot precisely determine the position or momentum (‘speed’) of a nucleus. So even if we say the nucleus is precisely at the lowest energy position, it could have some momentum, and therefore kinetic energy. We could also say it is not moving, but then it might be in a higher energy position.</p>
-<p>This ‘uncertainty energy’ is approximated by the description of a quantum harmonic oscillator, which has energies</p>
-<div class="math notranslate nohighlight">
-\[E_n = (n + \frac12) \hbar \omega.\]</div>
-<p>At higher temperatures, higher modes can be occupied.</p>
-<p>From a DFT calculation we can calculate the forces on each atom and thereby the vibrational frequencies of the systems. Each vibrational mode has its own <span class="math notranslate nohighlight">\(\omega_i\)</span>.</p>
-<p>The lowest possible energy the harmonic oscillator can have is <span class="math notranslate nohighlight">\(\frac12 \hbar \omega\)</span>, due to Heisenberg’s uncertainty principle. Because this lowest energy is there even at zero Kelvin, it is called the zero-point energy (ZPE).</p>
-</div>
+<!-- Now the question remains: how do we solve the Kohn-Sham equations numerically, and what are the $\psi_i$? Depending on whether you have to simulate metal electrodes or porphyrin molecules, you will use different representations of $\psi_i$. These representations will be discussed in the respective pages, and you will use software to use the Kohn-Sham equations self-consistently yourself. -->
+<!-- ## Energies
+
+From a DFT calculation we get the ground state energy $E$ of all electrons, which is the sum of energies of all occupied orbitals. You can think of it as the 'bonding energy'. However, the movement of the nuclei also adds energy to the system.
+
+In electrochemical experiments, we usually have a constant temperature $T$ and pressure $P$. The reaction energies are therefore described by Gibbs free energies:
+
+$$G = U - TS + PV$$
+
+with $U$ the internal energy, $S$ the entropy and $V$ the system volume. The internal energy and the entropy are affected by the motion of the nuclei: rotational, translational, and vibrational. The $PV$ term is usually only relevant for gases.
+
+In this practical, we will mostly worry about the electronic energies. The thermodynamic corrections to find the Gibbs energy will be provided.
+
+```{note}
+:class: dropdown
+Although they are much heavier than electrons, nuclei also experience quantum mechanical effects. By the Heisenberg uncertainty principle, $\Delta x \Delta p \geq \hbar/2$, we cannot precisely determine the position or momentum ('speed') of a nucleus. So even if we say the nucleus is precisely at the lowest energy position, it could have some momentum, and therefore kinetic energy. We could also say it is not moving, but then it might be in a higher energy position.
+
+This 'uncertainty energy' is approximated by the description of a quantum harmonic oscillator, which has energies
+
+$$E_n = (n + \frac12) \hbar \omega.$$
+
+At higher temperatures, higher modes can be occupied.
+
+From a DFT calculation we can calculate the forces on each atom and thereby the vibrational frequencies of the systems. Each vibrational mode has its own $\omega_i$.
+
+The lowest possible energy the harmonic oscillator can have is $\frac12 \hbar \omega$, due to Heisenberg's uncertainty principle. Because this lowest energy is there even at zero Kelvin, it is called the zero-point energy (ZPE).
+``` -->
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
@@ -471,7 +479,7 @@ document.write(`
 <div role="list" class="citation-list">
 <div class="citation" id="id15" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Kieron Burke and Lucas O. Wagner. Dft in a nutshell. <em>Int. J. Quant. Chem.</em>, 113:96–101, 01/2013 2013. URL: <a class="reference external" href="http://dx.doi.org/10.1002/qua.24259">http://dx.doi.org/10.1002/qua.24259</a>, <a class="reference external" href="https://doi.org/10.1002/qua.24259">doi:10.1002/qua.24259</a>.</p>
+<p>Kieron Burke and Lucas O. Wagner. Dft in a nutshell. <em>Int. J. Quant. Chem.</em>, 113:96–101, 01/2013 2013. <a class="reference external" href="https://doi.org/10.1002/qua.24259">doi:10.1002/qua.24259</a>.</p>
 </div>
 </div>
 </div>
@@ -508,6 +516,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../pourbaix/mliap.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Machine learning potentials</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../experimental-lab/course-information.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Electrochemistry lab</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -526,7 +552,6 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-schrodinger-equation">The Schrödinger equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-functional-theory">Density functional theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energies">Energies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
