@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'theory-lab/pourbaix/mliap';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Extra: Quantum chemistry" href="../oxygen-binding/dft.html" />
+    <link rel="next" title="Pourbaix diagram from calculations" href="from-mliap.html" />
     <link rel="prev" title="Pourbaix diagram from literature values" href="from-expts.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -181,6 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="from-expts.html">Pourbaix diagram from literature values</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Machine learning potentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="from-mliap.html">Pourbaix diagram from calculations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../oxygen-binding/dft.html">Extra: Quantum chemistry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental lab</span></p>
@@ -451,6 +452,7 @@ document.write(`
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Machine learning in chemistry is a hot topic: <a class="reference external" href="https://www.microsoft.com/en-us/research/articles/keynote-the-revolution-in-scientific-discovery/">Microsoft</a>, <a class="reference external" href="https://ai.meta.com/blog/meta-fair-science-new-open-source-releases/">Meta</a>, the Chinese company <a class="reference external" href="https://www.dp.tech/en/about">DP Tech</a> and the start-ups <a class="reference external" href="https://www.radical-ai.com/">Radical AI</a>, <a class="reference external" href="https://www.cusp.ai/">Cusp AI</a> and <a class="reference external" href="https://www.orbitalmaterials.com/">Orbital Materials</a> are all working on machine learning potentials. Cusp AI is co-founded by Max Welling, a Dutch professor at UvA, and Radical AI is co-founded by Gerbrand Ceder from the paper on Pourbaix diagrams <span id="id5">[<a class="reference internal" href="#id21" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">1</a>]</span> that a lot of the theory we use in this practical is based on.</p>
+<p>In case you’re still confused: the <a class="reference external" href="https://www.microsoft.com/en-us/research/articles/keynote-the-revolution-in-scientific-discovery/">Microsoft keynote</a> gives a nice introduction to machine learning in chemistry (they talk about potentials, but also generative models).</p>
 </div>
 </section>
 <section id="oxygen-molecule">
@@ -587,7 +589,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The energy you get out is the electronic energy, we’ll call it <span class="math notranslate nohighlight">\(E^\mathrm{el}\)</span>.</p>
+<p>The energy you get out is the electronic energy, we’ll call it <span class="math notranslate nohighlight">\(E^\mathrm{DFT}\)</span>.</p>
 <p>The MACE-MATPES-r2SCAN-0 model is trained with r2SCAN-DFT data, which should be more accurate than the “standard” model you get when you use <code class="docutils literal notranslate"><span class="pre">model=&quot;medium&quot;</span></code>, which is trained with PBE-DFT. Try <code class="docutils literal notranslate"><span class="pre">model=&quot;medium&quot;</span></code> and run the code again to see the difference in energy.</p>
 <p>We can also optimize the bond length with a BFGS optimizer:</p>
 <div class="cell docutils container">
@@ -601,19 +603,19 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
-BFGS:    0 16:12:13      -11.746797        1.905323
+BFGS:    0 19:02:02      -11.746797        1.905323
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 16:12:14      -11.742271        2.348481
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 19:02:03      -11.742271        2.348481
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 16:12:14      -11.773124        0.204156
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 19:02:03      -11.773124        0.204156
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 16:12:15      -11.773393        0.019630
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 19:02:03      -11.773393        0.019630
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 16:12:15      -11.773396        0.000189
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 19:02:03      -11.773396        0.000189
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -818,7 +820,7 @@ BFGS:    0 16:12:13      -11.746797        1.905323
 
 </div></div>
 </div>
-<p>You can again find <span class="math notranslate nohighlight">\(E^\mathrm{el}\)</span>:</p>
+<p>You can again find <span class="math notranslate nohighlight">\(E^\mathrm{DFT}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc</span> <span class="o">=</span> <span class="n">mace_mp</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;MACE-matpes-r2scan-omat-ft.model&quot;</span><span class="p">,</span> <span class="n">default_dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
@@ -857,13 +859,13 @@ BFGS:    0 16:12:13      -11.746797        1.905323
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
-BFGS:    0 16:12:16      -67.119945        0.131128
+BFGS:    0 19:02:04      -67.119945        0.131128
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 16:12:17      -67.120677        0.129183
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 19:02:05      -67.120677        0.129183
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 16:12:17      -67.144967        0.000812
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 19:02:06      -67.144967        0.000812
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -950,11 +952,11 @@ BFGS:    0 16:12:16      -67.119945        0.131128
       </div>
     </a>
     <a class="right-next"
-       href="../oxygen-binding/dft.html"
+       href="from-mliap.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Extra: Quantum chemistry</p>
+        <p class="prev-next-title">Pourbaix diagram from calculations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

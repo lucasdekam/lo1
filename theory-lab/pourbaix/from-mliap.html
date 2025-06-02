@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'theory-lab/pourbaix/from-mliap';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Extra: Quantum chemistry" href="../oxygen-binding/dft.html" />
+    <link rel="prev" title="Machine learning potentials" href="mliap.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -176,11 +176,12 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory lab</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../preparation.html">Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="from-expts.html">Pourbaix diagram from literature values</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mliap.html">Machine learning potentials</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pourbaix diagram from calculations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../oxygen-binding/dft.html">Extra: Quantum chemistry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experimental lab</span></p>
@@ -292,7 +293,7 @@
       
       
       
-      <li><a href="../../_sources/theory-lab/pourbaix/from-mliap.ipynb" target="_blank"
+      <li><a href="../../_sources/theory-lab/pourbaix/from-mliap.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +303,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -386,7 +387,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-potentials">Machine learning potentials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-electronic-energy-to-chemical-potential">From electronic energy to chemical potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-elements">Solid elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oxygen-gas">Oxygen gas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-oxide-compounds">Solid oxide compounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#water">Water</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-gas">Hydrogen gas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solvated-ions">Solvated ions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
         </div>
@@ -400,20 +408,109 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pourbaix-diagram-from-calculations">
 <h1>Pourbaix diagram from calculations<a class="headerlink" href="#pourbaix-diagram-from-calculations" title="Link to this heading">#</a></h1>
-<p>Looking up values in literature is one way to make a Pourbaix diagram. But what if we’re interested in a novel material that has not been tested experimentally yet?</p>
-<p>In materials science, the goal is often to find new materials with desirable properties. For example: an oxygen evolution catalyst that doesn’t corrode at low pH, a battery electrolyte with high ion conductivity, or a battery electrode that doesn’t swell during charging. Testing those materials in a lab is time-consuming. The field of computational materials science develops methods to screen many materials with calculations. Only the best materials are tested in the lab.</p>
-<p>In this part you will learn how to calculate the chemical potential for various materials from scratch, and construct the Pourbaix diagram from the calculated values.</p>
-<section id="machine-learning-potentials">
-<h2>Machine learning potentials<a class="headerlink" href="#machine-learning-potentials" title="Link to this heading">#</a></h2>
-<p>The most important contribution to the internal energy <span class="math notranslate nohighlight">\(U\)</span> of a material is the energy of the electrons interacting with the nuclei. You can think of this energy as the “chemical binding energy”. Electrons are best described by quantum mechanics. The field of electronic structure theory develops methods to calculate the behavior of electrons as accurately as possible. Examples of these methods are Hartree-Fock theory and density functional theory. The calculations are very costly: they can take minutes to hours on a supercomputer, depending on the level of accuracy. The figure below shows that a large part of supercomputing facilities is used for such electronic structure calculations. They also require expertise for choosing certain approximation parameters.</p>
-<figure class="align-default" id="hpc-usage">
-<a class="reference internal image-reference" href="images/csanyi.png"><img alt="images/csanyi.png" src="images/csanyi.png" style="height: 350px;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Usage of the British high-performance computing facility for various tasks. VASP and CP2K are examples of quantum chemistry softwares. Taken from a talk of Gabor Csanyi on <a class="reference external" href="https://youtu.be/JxIFxM1f40U?si=8UT6HULgSi8AtwNe">YouTube</a>.</span><a class="headerlink" href="#hpc-usage" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Often, we don’t even need all the electronic structure information. Given a certain atomistic structure we just want to know the energy, and sometimes the forces on the nuclei. In recent years, machine learning models have been developed to predict energies and forces for atomistic structures.</p>
+<p>The final task is to use the energies we calculated from MACE to make a Pourbaix diagram. We need to connect energies from an atomistic calculation to the real world. This connection is provided by thermodynamics. The method here is mostly based on <span id="id1">Persson <em>et al.</em> [<a class="reference internal" href="#id18" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">1</a>]</span>.</p>
+<p>Check out the Materials Project Pourbaix diagram generator at <a class="reference external" href="https://next-gen.materialsproject.org/pourbaix">https://next-gen.materialsproject.org/pourbaix</a>. It generates Pourbaix diagrams based on a database of PBE-DFT calculations. The challenge is: can we do better than these DFT calculations (which required a supercomputer) with just our laptop and the MACE foundational model?</p>
+<section id="from-electronic-energy-to-chemical-potential">
+<h2>From electronic energy to chemical potential<a class="headerlink" href="#from-electronic-energy-to-chemical-potential" title="Link to this heading">#</a></h2>
+<p>From DFT, or MACE, we get an electronic energy <span class="math notranslate nohighlight">\(E^\mathrm{DFT}\)</span>. We can also compute the energy due to vibration of the nuclei using the forces on the nuclei we get from DFT calculations, but this contribution is usually small. Hence, we approximate the internal energy as</p>
+<div class="math notranslate nohighlight">
+\[U \approx E^\mathrm{DFT}.\]</div>
+<p>We saw before that we can then calculate the Gibbs energy <span class="math notranslate nohighlight">\(G=U-TS+pV\)</span>. The <span class="math notranslate nohighlight">\(pV\)</span> contributions are usually very small, so we approximate these to be zero. The chemical potential <span class="math notranslate nohighlight">\(\mu\)</span> is the Gibbs energy per particle (for molecules) or per structural unit (in a periodic lattice). We can calculate it as</p>
+<div class="math notranslate nohighlight">
+\[\mu \approx E^\mathrm{DFT} - Ts\]</div>
+<p>where <span class="math notranslate nohighlight">\(s\)</span> is the entropy per particle and <span class="math notranslate nohighlight">\(T\)</span> the temperature in Kelvin.</p>
+<p>But we have a problem: the chemical potential of an element in its standard state is zero. But <span class="math notranslate nohighlight">\(E^\mathrm{DFT}\)</span> is not zero! To solve this, we introduce <strong>reference chemical potentials</strong>. The reference state of an element is its stable state at standard conditions. For example, a bcc structure for an iron crystal, and gas for an oxygen molecule.</p>
+<p>When calculating the chemical potential of a material/molecule, we always <strong>subtract the reference chemical potentials</strong> for all the elements in the material/molecule. Sounds confusing, so let’s see some examples.</p>
+</section>
+<section id="solid-elements">
+<h2>Solid elements<a class="headerlink" href="#solid-elements" title="Link to this heading">#</a></h2>
+<p>For all solid metal elements (pure iron, pure cobalt, …) that we encounter in this lab practical, we are interested in their stable state at standard conditions. This state is the same as the reference state. Also, for all solids, we approximate the entropy <span class="math notranslate nohighlight">\(s \approx 0\)</span>.</p>
+<p>The reference chemical potential is</p>
+<div class="math notranslate nohighlight">
+\[\mu_\mathrm{M}^\mathrm{ref}= E^\mathrm{DFT}_\mathrm{M}-Ts_i \approx E^\mathrm{DFT}_\mathrm{M} \]</div>
+<p>The chemical potential at standard conditions is then</p>
+<div class="math notranslate nohighlight">
+\[\mu_\mathrm{M}^0 = E^\mathrm{DFT}_\mathrm{M}-Ts_\mathrm{M}^0 - \mu_\mathrm{M}^\text{ref} \approx E^\mathrm{DFT}_\mathrm{M} - E^\mathrm{DFT}_\mathrm{M} = 0\]</div>
+<p>By our definition, the standard chemical potential of a solid element at standard conditions is indeed zero.</p>
+</section>
+<section id="oxygen-gas">
+<h2>Oxygen gas<a class="headerlink" href="#oxygen-gas" title="Link to this heading">#</a></h2>
+<p>At standard conditions, oxygen is a gas, so its reference chemical potential is expressed using the gaseous state. Since we calculate the energy of <span class="math notranslate nohighlight">\(\mathrm{O_2}\)</span>, we need to divide <span class="math notranslate nohighlight">\(E^\mathrm{DFT}_\mathrm{O_2}\)</span> by <span class="math notranslate nohighlight">\(2\)</span> to get the energy of a single oxygen atom at standard state.</p>
+<p>It’s possible to calculate <span class="math notranslate nohighlight">\(s_\mathrm{O}\)</span> with DFT or MACE, but we just use the experimental value from <span id="id2">Persson <em>et al.</em> [<a class="reference internal" href="#id18" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">1</a>]</span>: <span class="math notranslate nohighlight">\(s_\mathrm{O}^0=+10.6 \times 10^{-4} \mathrm{eV}\)</span> per oxygen atom.</p>
+<p>The reference chemical potential is</p>
+<div class="math notranslate nohighlight">
+\[\mu_\text{O}^\text{ref}\approx\frac12 E_\mathrm{O_2}^\text{DFT} - Ts_\text{O}^\text{0,exp}\]</div>
+<p>As oxygen is an element, <span class="math notranslate nohighlight">\(\mu_\mathrm{O}^0=\frac12 E_\mathrm{O_2}^\text{DFT} - Ts_\text{O}^\text{0,exp}-\mu_\mathrm{O}^\mathrm{ref}=0.\)</span></p>
+<!-- Common DFT methods are pretty good at calculating differences between solids, but not so good at calculating energies of molecules. So to get a more accurate Pourbaix diagram, we will make some corrections. We define the reference state of oxygen as
+
+$$\mu_\text{O}^\text{ref}=E_\text{O}^\text{DFT}+ \Delta E^\text{correction}_\text{O} - Ts_\text{O}^\text{0,exp} + pV$$
+
+Persson et al. use $\Delta E_\text{O}^\text{correction}=1.36$ eV/O, and $Ts_\text{O}^\text{0,exp}=0.317$ eV/O. However, we can also use $\Delta E_\text{O}^\text{correction}$ as a fitting parameter for our results to experimental formation energies. -->
+</section>
+<section id="solid-oxide-compounds">
+<h2>Solid oxide compounds<a class="headerlink" href="#solid-oxide-compounds" title="Link to this heading">#</a></h2>
+<p>Up until now, all standard chemical potentials were just zero, but things get more interesting when we mix elements. For a metal oxide,</p>
+<div class="math notranslate nohighlight">
+\[\mu_\mathrm{M_{x} O_{y}}^0 = E_\mathrm{M_{x} O_{y}}^\mathrm{DFT}- x\mu_\mathrm{M}^\mathrm{ref}-y\mu^\mathrm{ref}_\mathrm{O}\]</div>
+<p>Note that we subtract the reference chemical potentials <span class="math notranslate nohighlight">\(\mu_i^\mathrm{ref}\)</span>, not standard chemical potentials <span class="math notranslate nohighlight">\(\mu_i^0\)</span>. Otherwise nothing would happen, because <span class="math notranslate nohighlight">\(\mu_i^0=0\)</span> for elements.</p>
+<p>We just calculated the formation energy of a metal oxide from quantum mechanics!</p>
+<div class="tip admonition">
+<p class="admonition-title">Task</p>
+<p>Calculate <span class="math notranslate nohighlight">\(\mu^0\)</span> for your metal oxides from the MACE energies. Make a plot with <span class="math notranslate nohighlight">\(\mu^0\)</span> from MACE on the <span class="math notranslate nohighlight">\(x\)</span>-axis, and <span class="math notranslate nohighlight">\(\mu^0\)</span> from literature (which you gathered in the first part) on the <span class="math notranslate nohighlight">\(y\)</span>-axis. Do the data points lie on the line <span class="math notranslate nohighlight">\(x=y\)</span>? What does this mean?</p>
+</div>
+</section>
+<section id="water">
+<h2>Water<a class="headerlink" href="#water" title="Link to this heading">#</a></h2>
+<p>We use the experimental standard formation energy of water,</p>
+<div class="math notranslate nohighlight">
+\[\mu^0_\mathrm{H_2O}=-2.46 \;\mathrm{eV/H_2O}\]</div>
+<p>This can be calculated from <a class="reference external" href="https://en.wikipedia.org/wiki/Water_(data_page)">water data</a>, <a class="reference external" href="https://webbook.nist.gov/cgi/cbook.cgi?ID=C1333740&amp;amp;Mask=1">hydrogen data</a> and <a class="reference external" href="https://webbook.nist.gov/cgi/cbook.cgi?ID=C7782447&amp;amp;Units=SI&amp;amp;Mask=1#Thermo-Gas">oxygen data</a>.</p>
+</section>
+<section id="hydrogen-gas">
+<h2>Hydrogen gas<a class="headerlink" href="#hydrogen-gas" title="Link to this heading">#</a></h2>
+<p>We could also have calculated the chemical potential of water with DFT and reference it to the chemical potentials of the elements:</p>
+<div class="math notranslate nohighlight">
+\[\mu_\mathrm{H_2O}^0=E_\mathrm{H_2O}^\mathrm{DFT}-Ts^0_\mathrm{H_2O}+pV-2\mu_\mathrm{H}^\mathrm{ref}-\mu_\mathrm{O}^\mathrm{ref}.\]</div>
+<p>In this equation, <span class="math notranslate nohighlight">\(\mu_\mathrm{H}^\mathrm{ref}\)</span> is the only unknown, because we defined the chemical potential of water as the experimental value. We can solve for it as</p>
+<div class="math notranslate nohighlight">
+\[
+\mu_\mathrm{H}^\mathrm{ref} = \frac12 \left[ E_\mathrm{H_2O}^\mathrm{DFT}-Ts^0_\mathrm{H_2O}-\mu_\mathrm{O}^\mathrm{ref}
+-\mu^0_\mathrm{H_2O} \right].
+\]</div>
+<p>You’ll need the entropy of water: <span class="math notranslate nohighlight">\(s_\mathrm{H_2O}^0=+7.25 \times 10^{-4} \mathrm{eV}\)</span> per water molecule (see <a class="reference external" href="https://en.wikipedia.org/wiki/Water_(data_page)">Water data</a>).</p>
+<p>Of course, as it is an element, <span class="math notranslate nohighlight">\(\mu_\mathrm{H}^0=0\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Task</p>
+<p>Use the reference potential for hydrogen to calculate <span class="math notranslate nohighlight">\(\mu^0\)</span> also for metal hydroxides. Add them to the theory-vs-experiment plot from the previous task. How accurate is the MACE prediction?</p>
+</div>
+</section>
+<section id="solvated-ions">
+<h2>Solvated ions<a class="headerlink" href="#solvated-ions" title="Link to this heading">#</a></h2>
+<p>For the solvated proton we’ll use the expression for <span class="math notranslate nohighlight">\(\mu^0_\mathrm{H^+}\)</span> you derived previously. For the aqueous ions, we’ll use experimental energies (don’t forget to add the logarithmic concentration term).</p>
+<div class="tip admonition">
+<p class="admonition-title">Task</p>
+<p>Complete the Pourbaix diagram using MACE energies for your assigned materials. How does it compare to the experimental diagram, and to the one from the Materials project?</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Optional tasks</p>
+<ul class="simple">
+<li><p>How does the Pourbaix diagram of r2SCAN-MACE compare to PBE-MACE?</p></li>
+<li><p>How does PBE-MACE compare to other PBE models? You can find a ranking with links to code at <a class="reference external" href="https://matbench-discovery.materialsproject.org/">https://matbench-discovery.materialsproject.org/</a>.</p></li>
+<li><p>How does geometry optimization affect the Pourbaix diagram?</p></li>
+</ul>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id3">
+<div role="list" class="citation-list">
+<div class="citation" id="id18" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. <em>Physical Review B—Condensed Matter and Materials Physics</em>, 85(23):235438, 2012. <a class="reference external" href="https://doi.org/10.1103/PhysRevB.85.235438">doi:10.1103/PhysRevB.85.235438</a>.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -447,6 +544,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="mliap.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Machine learning potentials</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../oxygen-binding/dft.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Extra: Quantum chemistry</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -463,7 +578,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-potentials">Machine learning potentials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-electronic-energy-to-chemical-potential">From electronic energy to chemical potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-elements">Solid elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oxygen-gas">Oxygen gas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solid-oxide-compounds">Solid oxide compounds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#water">Water</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-gas">Hydrogen gas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solvated-ions">Solvated ions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
 
