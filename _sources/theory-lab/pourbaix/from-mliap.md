@@ -97,7 +97,7 @@ Of course, as it is an element, $\mu_\mathrm{H}^0=0$.
 `````{admonition} Task
 :class: tip
 
-Use the reference potential for hydrogen to calculate $\mu^0$ also for metal hydroxides. Add them to the theory-vs-experiment plot from the previous task. How accurate is the MACE prediction?
+Use the reference chemical potential for hydrogen to calculate $\mu^0$ also for metal hydroxides. Add them to the theory-vs-experiment plot from the previous task. How accurate is the MACE prediction?
 `````
 
 ## Solvated ions
