@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -427,7 +427,7 @@ document.write(`
 <p>To <strong>train</strong> the model, a <strong>loss function</strong></p>
 <div class="math notranslate nohighlight">
 \[\mathcal{L} =  \sum_i (\hat{y}_i-y_i)^2\]</div>
-<p>is minimized. In words: the training procedure finds a function <span class="math notranslate nohighlight">\(f\)</span> so that all <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> are as close as possible to the corresponding <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
+<p>is minimized (for a more in-depth explanation, see <a class="reference external" href="https://youtu.be/IHZwWFHWa-w?si=reufftGFtzC9CAV7">3blue1brown on YouTube</a>). In words: the training procedure finds a function <span class="math notranslate nohighlight">\(f\)</span> so that all <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> are as close as possible to the corresponding <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
 <p>The function <span class="math notranslate nohighlight">\(f\)</span> representing the potential can be quite complicated. Over the past decade, a lot of research has gone into designing functions that describe atomistic structures efficiently. Symmetry is an important aspect: if you rotate a molecule in vacuum, its energy does not change. Many modern models are designed so that rotation of the structure does not change the energy <span id="id2">[<a class="reference internal" href="#id23" title="Alexandre Duval, Simon V Mathis, Chaitanya K Joshi, Victor Schmidt, Santiago Miret, Fragkiskos D Malliaros, Taco Cohen, Pietro Liò, Yoshua Bengio, and Michael Bronstein. A hitchhiker's guide to geometric gnns for 3d atomic systems. arXiv preprint arXiv:2312.07511, 2023.">3</a>]</span>.</p>
 <figure class="align-default" id="ace-dft">
 <a class="reference internal image-reference" href="../../_images/ace_dft.png"><img alt="../../_images/ace_dft.png" src="../../_images/ace_dft.png" style="width: 90%;" />
@@ -601,19 +601,19 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
-BFGS:    0 16:05:46      -11.746797        1.905323
+BFGS:    0 16:12:13      -11.746797        1.905323
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 16:05:47      -11.742271        2.348481
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 16:12:14      -11.742271        2.348481
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 16:05:48      -11.773124        0.204156
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 16:12:14      -11.773124        0.204156
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 16:05:48      -11.773393        0.019630
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 16:12:15      -11.773393        0.019630
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 16:05:48      -11.773396        0.000189
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 16:12:15      -11.773396        0.000189
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -857,13 +857,13 @@ BFGS:    0 16:05:46      -11.746797        1.905323
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
-BFGS:    0 16:05:49      -67.119945        0.131128
+BFGS:    0 16:12:16      -67.119945        0.131128
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 16:05:50      -67.120677        0.129183
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 16:12:17      -67.120677        0.129183
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 16:05:51      -67.144967        0.000812
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 16:12:17      -67.144967        0.000812
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
