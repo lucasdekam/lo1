@@ -10,6 +10,8 @@ parts:
   - file: theory-lab/preparation
   - file: theory-lab/pourbaix/introduction
   - file: theory-lab/pourbaix/from-expts
+  - file: theory-lab/pourbaix/mliap
+  - file: theory-lab/oxygen-binding/dft
 - caption: Experimental lab
   chapters:
   - file: experimental-lab/course-information
