@@ -193,6 +193,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/safety.html">Safety discussion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/figures.html">Figure guidelines</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -394,7 +398,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#water">Water</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-gas">Hydrogen gas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solvated-ions">Solvated ions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
         </div>
@@ -408,7 +411,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pourbaix-diagram-from-calculations">
 <h1>Pourbaix diagram from calculations<a class="headerlink" href="#pourbaix-diagram-from-calculations" title="Link to this heading">#</a></h1>
-<p>The final task is to use the energies we calculated from MACE to make a Pourbaix diagram. We need to connect energies from an atomistic calculation to the real world. This connection is provided by thermodynamics. The method here is mostly based on <span id="id1">Persson <em>et al.</em> [<a class="reference internal" href="#id18" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">1</a>]</span>.</p>
+<p>The final task is to use the energies we calculated from MACE to make a Pourbaix diagram. We need to connect energies from an atomistic calculation to the real world. This connection is provided by thermodynamics. The method here is mostly based on <span id="id1">Persson <em>et al.</em> [<a class="reference internal" href="../../references.html#id16" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">2</a>]</span>.</p>
 <p>Check out the Materials Project Pourbaix diagram generator at <a class="reference external" href="https://next-gen.materialsproject.org/pourbaix">https://next-gen.materialsproject.org/pourbaix</a>. It generates Pourbaix diagrams based on a database of PBE-DFT calculations. The challenge is: can we do better than these DFT calculations (which required a supercomputer) with just our laptop and the MACE foundational model?</p>
 <section id="from-electronic-energy-to-chemical-potential">
 <h2>From electronic energy to chemical potential<a class="headerlink" href="#from-electronic-energy-to-chemical-potential" title="Link to this heading">#</a></h2>
@@ -436,7 +439,7 @@ document.write(`
 <section id="oxygen-gas">
 <h2>Oxygen gas<a class="headerlink" href="#oxygen-gas" title="Link to this heading">#</a></h2>
 <p>At standard conditions, oxygen is a gas, so its reference chemical potential is expressed using the gaseous state. Since we calculate the energy of <span class="math notranslate nohighlight">\(\mathrm{O_2}\)</span>, we need to divide <span class="math notranslate nohighlight">\(E^\mathrm{DFT}_\mathrm{O_2}\)</span> by <span class="math notranslate nohighlight">\(2\)</span> to get the energy of a single oxygen atom at standard state.</p>
-<p>It’s possible to calculate <span class="math notranslate nohighlight">\(s_\mathrm{O}\)</span> with DFT or MACE, but we just use the experimental value from <span id="id2">Persson <em>et al.</em> [<a class="reference internal" href="#id18" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">1</a>]</span>: <span class="math notranslate nohighlight">\(s_\mathrm{O}^0=+10.6 \times 10^{-4} \mathrm{eV}\)</span> per oxygen atom.</p>
+<p>It’s possible to calculate <span class="math notranslate nohighlight">\(s_\mathrm{O}\)</span> with DFT or MACE, but we just use the experimental value from <span id="id2">Persson <em>et al.</em> [<a class="reference internal" href="../../references.html#id16" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">2</a>]</span>: <span class="math notranslate nohighlight">\(s_\mathrm{O}^0=+10.6 \times 10^{-4} \mathrm{eV}\)</span> per oxygen atom.</p>
 <p>The reference chemical potential is</p>
 <div class="math notranslate nohighlight">
 \[\mu_\text{O}^\text{ref}\approx\frac12 E_\mathrm{O_2}^\text{DFT} - Ts_\text{O}^\text{0,exp}\]</div>
@@ -461,7 +464,7 @@ Persson et al. use $\Delta E_\text{O}^\text{correction}=1.36$ eV/O, and $Ts_\tex
 </section>
 <section id="water">
 <h2>Water<a class="headerlink" href="#water" title="Link to this heading">#</a></h2>
-<p>We use the experimental standard formation energy of water,</p>
+<p>Since we’re working with aqueous systems, it’s important to get water-related quantities right. Following <span id="id3">[<a class="reference internal" href="../../references.html#id16" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">2</a>]</span>, we use the experimental standard formation energy of water,</p>
 <div class="math notranslate nohighlight">
 \[\mu^0_\mathrm{H_2O}=-2.46 \;\mathrm{eV/H_2O}\]</div>
 <p>This can be calculated from <a class="reference external" href="https://en.wikipedia.org/wiki/Water_(data_page)">water data</a>, <a class="reference external" href="https://webbook.nist.gov/cgi/cbook.cgi?ID=C1333740&amp;amp;Mask=1">hydrogen data</a> and <a class="reference external" href="https://webbook.nist.gov/cgi/cbook.cgi?ID=C7782447&amp;amp;Units=SI&amp;amp;Mask=1#Thermo-Gas">oxygen data</a>.</p>
@@ -470,7 +473,7 @@ Persson et al. use $\Delta E_\text{O}^\text{correction}=1.36$ eV/O, and $Ts_\tex
 <h2>Hydrogen gas<a class="headerlink" href="#hydrogen-gas" title="Link to this heading">#</a></h2>
 <p>We could also have calculated the chemical potential of water with DFT and reference it to the chemical potentials of the elements:</p>
 <div class="math notranslate nohighlight">
-\[\mu_\mathrm{H_2O}^0=E_\mathrm{H_2O}^\mathrm{DFT}-Ts^0_\mathrm{H_2O}+pV-2\mu_\mathrm{H}^\mathrm{ref}-\mu_\mathrm{O}^\mathrm{ref}.\]</div>
+\[\mu_\mathrm{H_2O}^0=E_\mathrm{H_2O}^\mathrm{DFT}-Ts^0_\mathrm{H_2O}-2\mu_\mathrm{H}^\mathrm{ref}-\mu_\mathrm{O}^\mathrm{ref}.\]</div>
 <p>In this equation, <span class="math notranslate nohighlight">\(\mu_\mathrm{H}^\mathrm{ref}\)</span> is the only unknown, because we defined the chemical potential of water as the experimental value. We can solve for it as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -481,7 +484,10 @@ Persson et al. use $\Delta E_\text{O}^\text{correction}=1.36$ eV/O, and $Ts_\tex
 <p>Of course, as it is an element, <span class="math notranslate nohighlight">\(\mu_\mathrm{H}^0=0\)</span>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Task</p>
-<p>Use the reference chemical potential for hydrogen to calculate <span class="math notranslate nohighlight">\(\mu^0\)</span> also for metal hydroxides. Add them to the theory-vs-experiment plot from the previous task. How accurate is the MACE prediction?</p>
+<ul class="simple">
+<li><p>Calculate <span class="math notranslate nohighlight">\(E^\mathrm{DFT}_\mathrm{H_2O}\)</span> with MACE, just like you did for the oxygen molecule.</p></li>
+<li><p>Use the reference chemical potential for hydrogen to calculate <span class="math notranslate nohighlight">\(\mu^0\)</span> also for metal hydroxides. Add them to the theory-vs-experiment plot from the previous task. How accurate is the MACE prediction?</p></li>
+</ul>
 </div>
 </section>
 <section id="solvated-ions">
@@ -489,7 +495,11 @@ Persson et al. use $\Delta E_\text{O}^\text{correction}=1.36$ eV/O, and $Ts_\tex
 <p>For the solvated proton we’ll use the expression for <span class="math notranslate nohighlight">\(\mu^0_\mathrm{H^+}\)</span> you derived previously. For the aqueous ions, we’ll use experimental energies (don’t forget to add the logarithmic concentration term).</p>
 <div class="tip admonition">
 <p class="admonition-title">Task</p>
-<p>Complete the Pourbaix diagram using MACE energies for your assigned materials. How does it compare to the experimental diagram, and to the one from the Materials project?</p>
+<p>Complete the Pourbaix diagram using MACE energies for your assigned materials.</p>
+<ul class="simple">
+<li><p>How does it compare to the diagram from literature values, and to the one from the <a class="reference external" href="https://next-gen.materialsproject.org/pourbaix">Materials project</a>?</p></li>
+<li><p>How does the cyclic voltammogram from your experiments relate to the Pourbaix diagram?</p></li>
+</ul>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Optional tasks</p>
@@ -498,18 +508,6 @@ Persson et al. use $\Delta E_\text{O}^\text{correction}=1.36$ eV/O, and $Ts_\tex
 <li><p>How does PBE-MACE compare to other PBE models? You can find a ranking with links to code at <a class="reference external" href="https://matbench-discovery.materialsproject.org/">https://matbench-discovery.materialsproject.org/</a>.</p></li>
 <li><p>How does geometry optimization affect the Pourbaix diagram?</p></li>
 </ul>
-</div>
-</section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id3">
-<div role="list" class="citation-list">
-<div class="citation" id="id18" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
-<p>Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. <em>Physical Review B—Condensed Matter and Materials Physics</em>, 85(23):235438, 2012. <a class="reference external" href="https://doi.org/10.1103/PhysRevB.85.235438">doi:10.1103/PhysRevB.85.235438</a>.</p>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -585,7 +583,6 @@ Persson et al. use $\Delta E_\text{O}^\text{correction}=1.36$ eV/O, and $Ts_\tex
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#water">Water</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrogen-gas">Hydrogen gas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solvated-ions">Solvated ions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
 

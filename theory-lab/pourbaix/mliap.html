@@ -193,6 +193,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/safety.html">Safety discussion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/figures.html">Figure guidelines</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -391,7 +395,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine learning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oxygen-molecule">Oxygen molecule</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materials">Materials</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
         </div>
@@ -423,18 +426,18 @@ document.write(`
 </section>
 <section id="machine-learning">
 <h2>Machine learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h2>
-<p>Often, we don’t even need all the electronic structure information. Given a certain atomistic structure we just want to know the energy, and sometimes the forces on the nuclei. In recent years, machine learning models have been developed to predict energies and forces for atomistic structures <span id="id1">[<a class="reference internal" href="#id22" title="Fabian L Thiemann, Niamh O’neill, Venkat Kapil, Angelos Michaelides, and Christoph Schran. Introduction to machine learning potentials for atomistic simulations. Journal of Physics: Condensed Matter, 37(7):073002, 2024. doi:10.1088/1361-648X/ad9657.">2</a>]</span>. A model that predicts the energy depending on the distance between particles is often called a ‘potential’ (like the Lennard-Jones potential). A machine learning model that predicts energies and forces on atoms is called a <strong>machine learning interatomic potential</strong> (MLIP).</p>
+<p>Often, we don’t even need all the electronic structure information. Given a certain atomistic structure we just want to know the energy, and sometimes the forces on the nuclei. In recent years, machine learning models have been developed to predict energies and forces for atomistic structures <span id="id1">[<a class="reference internal" href="../../references.html#id17" title="Fabian L Thiemann, Niamh O’neill, Venkat Kapil, Angelos Michaelides, and Christoph Schran. Introduction to machine learning potentials for atomistic simulations. Journal of Physics: Condensed Matter, 37(7):073002, 2024. doi:10.1088/1361-648X/ad9657.">3</a>]</span>. A model that predicts the energy depending on the distance between particles is often called a ‘potential’ (like the Lennard-Jones potential). A machine learning model that predicts energies and forces on atoms is called a <strong>machine learning interatomic potential</strong> (MLIP).</p>
 <p>In general, a machine learning model represents a function <span class="math notranslate nohighlight">\(f\)</span>. The function <span class="math notranslate nohighlight">\(f\)</span> is learned from a ‘training set’ containing data points <span class="math notranslate nohighlight">\(x_i\)</span> with a label <span class="math notranslate nohighlight">\(y_i\)</span>. In atomistic machine learning, <span class="math notranslate nohighlight">\(x_i\)</span> represents the structure of a material (like the coordinates of all the atoms and their chemical elements), and <span class="math notranslate nohighlight">\(y_i\)</span> is the energy. Given a point <span class="math notranslate nohighlight">\(x_i\)</span>, the machine learning model predicts a label <span class="math notranslate nohighlight">\(\hat{y}_i=f(x_i)\)</span>.</p>
 <p>To <strong>train</strong> the model, a <strong>loss function</strong></p>
 <div class="math notranslate nohighlight">
 \[\mathcal{L} =  \sum_i (\hat{y}_i-y_i)^2\]</div>
 <p>is minimized (for a more in-depth explanation, see <a class="reference external" href="https://youtu.be/IHZwWFHWa-w?si=reufftGFtzC9CAV7">3blue1brown on YouTube</a>). In words: the training procedure finds a function <span class="math notranslate nohighlight">\(f\)</span> so that all <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> are as close as possible to the corresponding <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
-<p>The function <span class="math notranslate nohighlight">\(f\)</span> representing the potential can be quite complicated. Over the past decade, a lot of research has gone into designing functions that describe atomistic structures efficiently. Symmetry is an important aspect: if you rotate a molecule in vacuum, its energy does not change. Many modern models are designed so that rotation of the structure does not change the energy <span id="id2">[<a class="reference internal" href="#id23" title="Alexandre Duval, Simon V Mathis, Chaitanya K Joshi, Victor Schmidt, Santiago Miret, Fragkiskos D Malliaros, Taco Cohen, Pietro Liò, Yoshua Bengio, and Michael Bronstein. A hitchhiker's guide to geometric gnns for 3d atomic systems. arXiv preprint arXiv:2312.07511, 2023.">3</a>]</span>.</p>
+<p>The function <span class="math notranslate nohighlight">\(f\)</span> representing the potential can be quite complicated. Over the past decade, a lot of research has gone into designing functions that describe atomistic structures efficiently. Symmetry is an important aspect: if you rotate a molecule in vacuum, its energy does not change. Many modern models are designed so that rotation of the structure does not change the energy <span id="id2">[<a class="reference internal" href="../../references.html#id18" title="Alexandre Duval, Simon V Mathis, Chaitanya K Joshi, Victor Schmidt, Santiago Miret, Fragkiskos D Malliaros, Taco Cohen, Pietro Liò, Yoshua Bengio, and Michael Bronstein. A hitchhiker's guide to geometric gnns for 3d atomic systems. arXiv preprint arXiv:2312.07511, 2023.">4</a>]</span>.</p>
 <figure class="align-default" id="ace-dft">
 <a class="reference internal image-reference" href="../../_images/ace_dft.png"><img alt="../../_images/ace_dft.png" src="../../_images/ace_dft.png" style="width: 90%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Comparison of various machine learning potentials with the training data from DFT, from <span id="id3">[<a class="reference internal" href="#id26" title="Yury Lysogorskiy, Cas van der Oord, Anton Bochkarev, Sarath Menon, Matteo Rinaldi, Thomas Hammerschmidt, Matous Mrovec, Aidan Thompson, Gábor Csányi, Christoph Ortner, and others. Performant implementation of the atomic cluster expansion (pace) and application to copper and silicon. npj computational materials, 7(1):97, 2021. doi:10.1038/s41524-021-00559-9.">4</a>]</span>. The plots above show potential energy vs. separation between atoms in a crystal lattice.</span><a class="headerlink" href="#ace-dft" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Comparison of various machine learning potentials with the training data from DFT, from <span id="id3">[<a class="reference internal" href="../../references.html#id21" title="Yury Lysogorskiy, Cas van der Oord, Anton Bochkarev, Sarath Menon, Matteo Rinaldi, Thomas Hammerschmidt, Matous Mrovec, Aidan Thompson, Gábor Csányi, Christoph Ortner, and others. Performant implementation of the atomic cluster expansion (pace) and application to copper and silicon. npj computational materials, 7(1):97, 2021. doi:10.1038/s41524-021-00559-9.">5</a>]</span>. The plots above show potential energy vs. separation between atoms in a crystal lattice.</span><a class="headerlink" href="#ace-dft" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="tip admonition">
@@ -448,10 +451,10 @@ document.write(`
 </ul>
 <p>So: <strong>it is important to understand the training set!</strong></p>
 <p>In the beginning, machine learning models were trained on specialized datasets. If you were interested in copper, you would train the model on a bunch of copper metal structures. But over the last two years, models have been trained on huge datasets containing many different materials and molecules. Although their predictions are not as accurate as quantum chemistry calculations, they provide a pretty good guess and are very fast. These big models are called <strong>foundational models</strong>.</p>
-<p>In the rest of this lab we will use machine learning interatomic potentials to calculate the energy of metal and metal oxide structures. Specifically, we’ll use foundational models with the MACE architecture <span id="id4">[<a class="reference internal" href="#id24" title="Ilyes Batatia, David P Kovacs, Gregor Simm, Christoph Ortner, and Gábor Csányi. Mace: higher order equivariant message passing neural networks for fast and accurate force fields. arXiv preprint arXiv:2206.07697, 2022.">5</a>, <a class="reference internal" href="#id25" title="Ilyes Batatia, Philipp Benner, Yuan Chiang, Alin M Elena, Dávid P Kovács, Janosh Riebesell, Xavier R Advincula, Mark Asta, Matthew Avaylon, William J Baldwin, and others. A foundation model for atomistic materials chemistry. arXiv preprint arXiv:2401.00096, 2023.">6</a>]</span>. To install MACE, open your terminal/Anaconda prompt and type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mace-torch</span></code> (as usual, feel free to ask for help). You’ll also need <code class="docutils literal notranslate"><span class="pre">ase</span></code>, which should be installed automatically when installing <code class="docutils literal notranslate"><span class="pre">mace-torch</span></code>, but if not you can type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ase</span></code>.</p>
+<p>In the rest of this lab we will use machine learning interatomic potentials to calculate the energy of metal and metal oxide structures. Specifically, we’ll use foundational models with the MACE architecture <span id="id4">[<a class="reference internal" href="../../references.html#id19" title="Ilyes Batatia, David P Kovacs, Gregor Simm, Christoph Ortner, and Gábor Csányi. Mace: higher order equivariant message passing neural networks for fast and accurate force fields. arXiv preprint arXiv:2206.07697, 2022.">6</a>, <a class="reference internal" href="../../references.html#id20" title="Ilyes Batatia, Philipp Benner, Yuan Chiang, Alin M Elena, Dávid P Kovács, Janosh Riebesell, Xavier R Advincula, Mark Asta, Matthew Avaylon, William J Baldwin, and others. A foundation model for atomistic materials chemistry. arXiv preprint arXiv:2401.00096, 2023.">7</a>]</span>. To install MACE, open your terminal/Anaconda prompt and type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mace-torch</span></code> (as usual, feel free to ask for help). You’ll also need <code class="docutils literal notranslate"><span class="pre">ase</span></code>, which should be installed automatically when installing <code class="docutils literal notranslate"><span class="pre">mace-torch</span></code>, but if not you can type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ase</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Machine learning in chemistry is a hot topic: <a class="reference external" href="https://www.microsoft.com/en-us/research/articles/keynote-the-revolution-in-scientific-discovery/">Microsoft</a>, <a class="reference external" href="https://ai.meta.com/blog/meta-fair-science-new-open-source-releases/">Meta</a>, the Chinese company <a class="reference external" href="https://www.dp.tech/en/about">DP Tech</a> and the start-ups <a class="reference external" href="https://www.radical-ai.com/">Radical AI</a>, <a class="reference external" href="https://www.cusp.ai/">Cusp AI</a> and <a class="reference external" href="https://www.orbitalmaterials.com/">Orbital Materials</a> are all working on machine learning potentials. Cusp AI is co-founded by Max Welling, a Dutch professor at UvA, and Radical AI is co-founded by Gerbrand Ceder from the paper on Pourbaix diagrams <span id="id5">[<a class="reference internal" href="#id21" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">1</a>]</span> that a lot of the theory we use in this practical is based on.</p>
+<p>Machine learning in chemistry is a hot topic: <a class="reference external" href="https://www.microsoft.com/en-us/research/articles/keynote-the-revolution-in-scientific-discovery/">Microsoft</a>, <a class="reference external" href="https://ai.meta.com/blog/meta-fair-science-new-open-source-releases/">Meta</a>, the Chinese company <a class="reference external" href="https://www.dp.tech/en/about">DP Tech</a> and the start-ups <a class="reference external" href="https://www.radical-ai.com/">Radical AI</a>, <a class="reference external" href="https://www.cusp.ai/">Cusp AI</a> and <a class="reference external" href="https://www.orbitalmaterials.com/">Orbital Materials</a> are all working on machine learning potentials. Cusp AI is co-founded by Max Welling, a Dutch professor at UvA, and Radical AI is co-founded by Gerbrand Ceder from the paper on Pourbaix diagrams <span id="id5">[<a class="reference internal" href="../../references.html#id16" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">2</a>]</span> that a lot of the theory we use in this practical is based on.</p>
 <p>In case you’re still confused: the <a class="reference external" href="https://www.microsoft.com/en-us/research/articles/keynote-the-revolution-in-scientific-discovery/">Microsoft keynote</a> gives a nice introduction to machine learning in chemistry (they talk about potentials, but also generative models).</p>
 </div>
 </section>
@@ -603,19 +606,19 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
-BFGS:    0 19:02:02      -11.746797        1.905323
+BFGS:    0 11:57:35      -11.746797        1.905323
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 19:02:03      -11.742271        2.348481
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 11:57:36      -11.742271        2.348481
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 19:02:03      -11.773124        0.204156
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 11:57:36      -11.773124        0.204156
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 19:02:03      -11.773393        0.019630
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 11:57:36      -11.773393        0.019630
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 19:02:03      -11.773396        0.000189
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 11:57:36      -11.773396        0.000189
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -859,13 +862,13 @@ BFGS:    0 19:02:02      -11.746797        1.905323
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
-BFGS:    0 19:02:04      -67.119945        0.131128
+BFGS:    0 11:57:38      -67.119945        0.131128
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 19:02:05      -67.120677        0.129183
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 11:57:38      -67.120677        0.129183
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 19:02:06      -67.144967        0.000812
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 11:57:39      -67.144967        0.000812
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -877,37 +880,6 @@ BFGS:    0 19:02:04      -67.119945        0.131128
 <p class="admonition-title">Task</p>
 <p>Download structures for all the materials you can find in the experimental Pourbaix diagram. Calculate the energy with the r2SCAN MACE model. Save the energies for the oxygen molecule and the other structures.</p>
 <p>You can leave out the ions – calculating the energy of an ion in water is difficult. If optimizing the structures is too much effort you can also skip that.</p>
-</div>
-</section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id6">
-<div role="list" class="citation-list">
-<div class="citation" id="id21" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">1</a><span class="fn-bracket">]</span></span>
-<p>Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. <em>Physical Review B—Condensed Matter and Materials Physics</em>, 85(23):235438, 2012. <a class="reference external" href="https://doi.org/10.1103/PhysRevB.85.235438">doi:10.1103/PhysRevB.85.235438</a>.</p>
-</div>
-<div class="citation" id="id22" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
-<p>Fabian L Thiemann, Niamh O’neill, Venkat Kapil, Angelos Michaelides, and Christoph Schran. Introduction to machine learning potentials for atomistic simulations. <em>Journal of Physics: Condensed Matter</em>, 37(7):073002, 2024. <a class="reference external" href="https://doi.org/10.1088/1361-648X/ad9657">doi:10.1088/1361-648X/ad9657</a>.</p>
-</div>
-<div class="citation" id="id23" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">3</a><span class="fn-bracket">]</span></span>
-<p>Alexandre Duval, Simon V Mathis, Chaitanya K Joshi, Victor Schmidt, Santiago Miret, Fragkiskos D Malliaros, Taco Cohen, Pietro Liò, Yoshua Bengio, and Michael Bronstein. A hitchhiker's guide to geometric gnns for 3d atomic systems. <em>arXiv preprint arXiv:2312.07511</em>, 2023.</p>
-</div>
-<div class="citation" id="id26" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">4</a><span class="fn-bracket">]</span></span>
-<p>Yury Lysogorskiy, Cas van der Oord, Anton Bochkarev, Sarath Menon, Matteo Rinaldi, Thomas Hammerschmidt, Matous Mrovec, Aidan Thompson, Gábor Csányi, Christoph Ortner, and others. Performant implementation of the atomic cluster expansion (pace) and application to copper and silicon. <em>npj computational materials</em>, 7(1):97, 2021. <a class="reference external" href="https://doi.org/10.1038/s41524-021-00559-9">doi:10.1038/s41524-021-00559-9</a>.</p>
-</div>
-<div class="citation" id="id24" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">5</a><span class="fn-bracket">]</span></span>
-<p>Ilyes Batatia, David P Kovacs, Gregor Simm, Christoph Ortner, and Gábor Csányi. Mace: higher order equivariant message passing neural networks for fast and accurate force fields. <em>arXiv preprint arXiv:2206.07697</em>, 2022.</p>
-</div>
-<div class="citation" id="id25" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">6</a><span class="fn-bracket">]</span></span>
-<p>Ilyes Batatia, Philipp Benner, Yuan Chiang, Alin M Elena, Dávid P Kovács, Janosh Riebesell, Xavier R Advincula, Mark Asta, Matthew Avaylon, William J Baldwin, and others. A foundation model for atomistic materials chemistry. <em>arXiv preprint arXiv:2401.00096</em>, 2023.</p>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -980,7 +952,6 @@ BFGS:    0 19:02:04      -67.119945        0.131128
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine learning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oxygen-molecule">Oxygen molecule</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materials">Materials</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
 

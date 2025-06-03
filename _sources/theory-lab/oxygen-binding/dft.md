@@ -88,10 +88,3 @@ From a DFT calculation we can calculate the forces on each atom and thereby the 
 
 The lowest possible energy the harmonic oscillator can have is $\frac12 \hbar \omega$, due to Heisenberg's uncertainty principle. Because this lowest energy is there even at zero Kelvin, it is called the zero-point energy (ZPE).
 ``` -->
-
-## References
-
-```{bibliography}
-:style: unsrt
-:filter: docname in docnames
-```

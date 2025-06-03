@@ -193,6 +193,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/safety.html">Safety discussion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../experimental-lab/figures.html">Figure guidelines</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -391,7 +395,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formation-energy">Formation energy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-energies">Reaction energies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-reaction-energies">Calculating reaction energies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
         </div>
@@ -429,10 +432,10 @@ G = U - TS + pV
 \[
 \mu_i^0 = \Delta_\mathrm{f}G_i^0.
 \]</div>
-<p>The formation energy of an element in its most stable state at standard conditions (gas for oxygen and hydrogen, solid for metals, etc.) is zero. (The elements are taken as a reference point!) For other species, values can be found online, like in the supplementary material of <span id="id1">Wang <em>et al.</em> [<a class="reference internal" href="#id20" title="Zhenbin Wang, Xingyu Guo, Joseph Montoya, and Jens K Nørskov. Predicting aqueous stability of solid with computed pourbaix diagram using scan functional. npj Computational Materials, 6(1):160, 2020. doi:10.1038/s41524-020-00430-3.">1</a>]</span>.</p>
+<p>The formation energy of an element in its most stable state at standard conditions (gas for oxygen and hydrogen, solid for metals, etc.) is zero. (The elements are taken as a reference point!) For other species, values can be found online, like in the supplementary material of <span id="id1">Wang <em>et al.</em> [<a class="reference internal" href="../../references.html#id15" title="Zhenbin Wang, Xingyu Guo, Joseph Montoya, and Jens K Nørskov. Predicting aqueous stability of solid with computed pourbaix diagram using scan functional. npj Computational Materials, 6(1):160, 2020. doi:10.1038/s41524-020-00430-3.">1</a>]</span>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Task</p>
-<p>Collect values of <span class="math notranslate nohighlight">\(\mu\)</span> for your material of interest (and remember that you need to cite the source in your report). The experimental value of water can be found in <span id="id2">Persson <em>et al.</em> [<a class="reference internal" href="mliap.html#id21" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">1</a>]</span> (section II-C). Make sure all energies are in the same unit (preferably electronvolts, eV). It’s handy to use a similar format as shown below.</p>
+<p>Collect values of <span class="math notranslate nohighlight">\(\mu\)</span> for your material of interest (and remember that you need to cite the source in your report). The experimental value of water can be found in <span id="id2">Persson <em>et al.</em> [<a class="reference internal" href="../../references.html#id16" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">2</a>]</span> (section II-C). Make sure all energies are in the same unit (preferably electronvolts, eV). It’s handy to use a similar format as shown below.</p>
 <p>For now, you can ignore hydroxide or oxide ions, like <span class="math notranslate nohighlight">\(\mathrm{Fe(OH)^+}\)</span>.</p>
 </div>
 <div class="cell docutils container">
@@ -612,33 +615,16 @@ G = U - TS + pV
 <a class="reference internal image-reference" href="../../_images/iron-pourbaix-plot.png"><img alt="../../_images/iron-pourbaix-plot.png" src="../../_images/iron-pourbaix-plot.png" style="height: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Pourbaix diagram of iron plotted using experimental values from <span id="id3">Wang <em>et al.</em> [<a class="reference internal" href="#id20" title="Zhenbin Wang, Xingyu Guo, Joseph Montoya, and Jens K Nørskov. Predicting aqueous stability of solid with computed pourbaix diagram using scan functional. npj Computational Materials, 6(1):160, 2020. doi:10.1038/s41524-020-00430-3.">1</a>]</span> and <span id="id4">Persson <em>et al.</em> [<a class="reference internal" href="mliap.html#id21" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">1</a>]</span>.</span><a class="headerlink" href="#iron-pourbaix-plot" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Pourbaix diagram of iron plotted using experimental values from <span id="id3">Wang <em>et al.</em> [<a class="reference internal" href="../../references.html#id15" title="Zhenbin Wang, Xingyu Guo, Joseph Montoya, and Jens K Nørskov. Predicting aqueous stability of solid with computed pourbaix diagram using scan functional. npj Computational Materials, 6(1):160, 2020. doi:10.1038/s41524-020-00430-3.">1</a>]</span> and <span id="id4">Persson <em>et al.</em> [<a class="reference internal" href="../../references.html#id16" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">2</a>]</span>.</span><a class="headerlink" href="#iron-pourbaix-plot" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="tip admonition">
 <p class="admonition-title">Task</p>
-<p>Compare your Pourbaix diagram to one from literature, like in <span id="id5">Wang <em>et al.</em> [<a class="reference internal" href="#id20" title="Zhenbin Wang, Xingyu Guo, Joseph Montoya, and Jens K Nørskov. Predicting aqueous stability of solid with computed pourbaix diagram using scan functional. npj Computational Materials, 6(1):160, 2020. doi:10.1038/s41524-020-00430-3.">1</a>]</span>.</p>
+<p>Compare your Pourbaix diagram to one from literature, like in <span id="id5">Wang <em>et al.</em> [<a class="reference internal" href="../../references.html#id15" title="Zhenbin Wang, Xingyu Guo, Joseph Montoya, and Jens K Nørskov. Predicting aqueous stability of solid with computed pourbaix diagram using scan functional. npj Computational Materials, 6(1):160, 2020. doi:10.1038/s41524-020-00430-3.">1</a>]</span>.</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Optional task</p>
 <p>Add lines for the water stability window to the Pourbaix diagram. The lines satisfy <span class="math notranslate nohighlight">\(\Delta \mu = 0\)</span> for the hydrogen and oxygen evolution reactions.</p>
-</div>
-</section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id6">
-<div role="list" class="citation-list">
-<div class="citation" id="id20" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id5">3</a>)</span>
-<p>Zhenbin Wang, Xingyu Guo, Joseph Montoya, and Jens K Nørskov. Predicting aqueous stability of solid with computed pourbaix diagram using scan functional. <em>npj Computational Materials</em>, 6(1):160, 2020. <a class="reference external" href="https://doi.org/10.1038/s41524-020-00430-3">doi:10.1038/s41524-020-00430-3</a>.</p>
-</div>
-<div class="citation" id="id21" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>)</span>
-<p>Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. <em>Physical Review B—Condensed Matter and Materials Physics</em>, 85(23):235438, 2012. <a class="reference external" href="https://doi.org/10.1103/PhysRevB.85.235438">doi:10.1103/PhysRevB.85.235438</a>.</p>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -711,7 +697,6 @@ G = U - TS + pV
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formation-energy">Formation energy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaction-energies">Reaction energies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-reaction-energies">Calculating reaction energies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
 
