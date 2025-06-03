@@ -11,6 +11,8 @@ execute:
   exclude_patterns:
     - '*from-expts.ipynb'
 
+only_build_toc_files: true
+
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:

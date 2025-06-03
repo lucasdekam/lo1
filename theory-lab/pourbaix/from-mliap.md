@@ -71,7 +71,7 @@ Calculate $\mu^0$ for your metal oxides from the MACE energies. Make a plot with
 
 ## Water
 
-We use the experimental standard formation energy of water,
+Since we're working with aqueous systems, it's important to get water-related quantities right. Following {cite:p}`persson2012prediction`, we use the experimental standard formation energy of water,
 
 $$\mu^0_\mathrm{H_2O}=-2.46 \;\mathrm{eV/H_2O}$$
 
@@ -81,7 +81,7 @@ This can be calculated from [water data](https://en.wikipedia.org/wiki/Water_(da
 
 We could also have calculated the chemical potential of water with DFT and reference it to the chemical potentials of the elements:
 
-$$\mu_\mathrm{H_2O}^0=E_\mathrm{H_2O}^\mathrm{DFT}-Ts^0_\mathrm{H_2O}+pV-2\mu_\mathrm{H}^\mathrm{ref}-\mu_\mathrm{O}^\mathrm{ref}.$$
+$$\mu_\mathrm{H_2O}^0=E_\mathrm{H_2O}^\mathrm{DFT}-Ts^0_\mathrm{H_2O}-2\mu_\mathrm{H}^\mathrm{ref}-\mu_\mathrm{O}^\mathrm{ref}.$$
 
 In this equation, $\mu_\mathrm{H}^\mathrm{ref}$ is the only unknown, because we defined the chemical potential of water as the experimental value. We can solve for it as
 
@@ -97,7 +97,8 @@ Of course, as it is an element, $\mu_\mathrm{H}^0=0$.
 `````{admonition} Task
 :class: tip
 
-Use the reference chemical potential for hydrogen to calculate $\mu^0$ also for metal hydroxides. Add them to the theory-vs-experiment plot from the previous task. How accurate is the MACE prediction?
+* Calculate $E^\mathrm{DFT}_\mathrm{H_2O}$ with MACE, just like you did for the oxygen molecule.
+* Use the reference chemical potential for hydrogen to calculate $\mu^0$ also for metal hydroxides. Add them to the theory-vs-experiment plot from the previous task. How accurate is the MACE prediction?
 `````
 
 ## Solvated ions
@@ -107,7 +108,9 @@ For the solvated proton we'll use the expression for $\mu^0_\mathrm{H^+}$ you de
 `````{admonition} Task
 :class: tip
 
-Complete the Pourbaix diagram using MACE energies for your assigned materials. How does it compare to the experimental diagram, and to the one from the Materials project?
+Complete the Pourbaix diagram using MACE energies for your assigned materials.
+* How does it compare to the diagram from literature values, and to the one from the [Materials project](https://next-gen.materialsproject.org/pourbaix)?
+* How does the cyclic voltammogram from your experiments relate to the Pourbaix diagram?
 `````
 
 `````{admonition} Optional tasks
@@ -119,11 +122,3 @@ Complete the Pourbaix diagram using MACE energies for your assigned materials. H
 
 * How does geometry optimization affect the Pourbaix diagram?
 `````
-
-
-## References
-
-```{bibliography}
-:style: unsrt
-:filter: docname in docnames
-```

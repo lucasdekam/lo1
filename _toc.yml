@@ -20,3 +20,6 @@ parts:
   - file: experimental-lab/theory
   - file: experimental-lab/safety
   - file: experimental-lab/figures
+- caption: References
+  chapters:
+  - file: references
