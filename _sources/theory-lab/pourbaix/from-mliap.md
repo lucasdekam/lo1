@@ -103,7 +103,7 @@ Of course, as it is an element, $\mu_\mathrm{H}^0=0$.
 
 ## Solvated ions
 
-For the solvated proton we'll use the expression for $\mu^0_\mathrm{H^+}$ you derived previously. For the aqueous ions, we'll use experimental energies (don't forget to add the logarithmic concentration term).
+For the solvated proton we'll use the expression for $\mu_\mathrm{H^+}$ you derived previously. For the aqueous ions, we'll use experimental energies (don't forget to add the logarithmic concentration term).
 
 `````{admonition} Task
 :class: tip
