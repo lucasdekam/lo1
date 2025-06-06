@@ -5,14 +5,14 @@ Welcome to LO1 at CASC! On this website you will find information about the proj
 
 ## Schedule
 
-| Group | 9-Jun       | 10-Jun | 11-Jun | 12-Jun | 13-Jun | 16-Jun | 17-Jun | 18-Jun | 19-Jun | 20-Jun |
-|-------|-------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| 1     | Pinksteren  | Theor  | Theor  | Theor  | EC     | EC     | EC     | EC     | EC     | Extra  |
-| 2     | Pinksteren  | Theor  | Theor  | Theor  | EC     | EC     | Theor  | EC     | EC     | Extra  |
-| 3     | Pinksteren  | EC     | EC     | EC     | Theor  | EC     | Theor  | EC     | EC     | Extra  |
-| 4     | Pinksteren  | EC     | EC     | EC     | EC     | EC     | EC     | Theor  | Theor  | Theor  |
-| 5     | Pinksteren  | EC     | EC     | EC     | EC     | EC     | Extra  | Theor  | Theor  | Theor  |
-| 6     | Pinksteren  | EC     | EC     | EC     | EC     | EC     | Extra  | Theor  | Theor  | Theor  |
+| Group | 10-Jun | 11-Jun | 12-Jun | 13-Jun | 16-Jun | 17-Jun | 18-Jun | 19-Jun | 20-Jun |
+|-------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| 1     | Theor  | Theor  | Theor  | EC     | EC     | EC     | EC     | EC     | Extra  |
+| 2     | Theor  | Theor  | Theor  | EC     | EC     | EC     | EC     | EC     | Extra  |
+| 3     | EC     | EC     | EC     | Theor  | Theor  | Theor  | EC     | EC     | Extra  |
+| 4     | EC     | EC     | EC     | Theor  | Theor  | Theor  | EC     | EC     | Extra  |
+| 5     | EC     | EC     | EC     | EC     | EC     | Extra  | Theor  | Theor  | Theor  |
+| 6     | EC     | EC     | EC     | EC     | EC     | Extra  | Theor  | Theor  | Theor  |
 
 ## Research questions
 
