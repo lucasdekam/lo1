@@ -27,29 +27,23 @@ $$\mathrm{2 H_2O\rightarrow O_2 + 4 H^+ + 4 e^-}$$
 
 Alkaline
 
-$$\mathrm{4 OH^-\rightarrow O_2 + 2 H_2O+ 4 e^-}$$
+Hint, it involves OH-
 
-
-**4) Oxygen reduction reaction (ORR) @ <<1.23 V vs. RHE**
-What are the reactions for acidic and alkaline conditions?
 
 ## References 
-Some references that use similar materials (Fe, Co, molecular catalysts) as used in this LO1 class to compare. There is no need to read every paper, they only serve as reference materials.
+Some references that use similar materials (metal oxides) as used in this LO1 class to compare. There is no need to read every paper, they only serve as reference materials. For your report, please provide original references that were not given to you by us.
 
 **Tutorial paper about cyclic voltammetry and electrochemistry**
-
 [A Practical Beginner’s Guide to Cyclic Voltammetry](https://pubs.acs.org/doi/full/10.1021/acs.jchemed.7b00361)
 
 **Reference about pH effect**
-[Effects of electrolyte pH on oxygen reduction properties using a cobalt porphyrin-coated carbon composite](https://www.sciencedirect.com/science/article/pii/S0013468624005358?via%3Dihub)
+[Mechanistic understanding of pH effects on the oxygen evolution reaction](https://doi.org/10.1016/j.electacta.2021.139810)
 
-**References about molecular Fe/Co catalysts on different substrates**
+**Basic idea of catalyst preparations**
+[Oxidatively Electrodeposited Thin-Film Transition Metal (Oxy)hydroxides as Oxygen Evolution Catalysts](https://doi.org/10.1021/jacs.6b05196)
 
-1. [Electrocatalytic reduction of O2 and H2O2 by adsorbed Cobalt tetramethoxyphenyl porphyrin and its application for fuel cell cathodes](https://doi.org/10.1016/j.jpowsour.2006.04.132) 
-2. [Electrocatalytic reduction of dioxygen by cobalt porphyrin-modified glassy carbon electrode with single-walled carbon nanotubes and nafion in aqueous solutions](https://doi.org/10.1016/j.electacta.2007.10.029)
-3. [Catalytic activity of cobalt and iron phthalocyanines or porphyrins supported on different carbon nanotubes towards oxygen reduction reaction](https://doi.org/10.1016/j.carbon.2011.07.004)
-4. [Metalloporphyrin-modified perovskite-type oxide for the electroreduction of oxygen](https://doi.org/10.1016/j.jpowsour.2015.06.004 )
-5. [Electrochemical two-electron O2 reduction reaction toward H2O2 production: using cobalt porphyrin decorated carbon nanotubes as a nanohybrid catalyst](http://dx.doi.org/10.1039/D1TA07989A)
-6. [Asymmetric cobalt porphyrins for oxygen reduction reactions: Boosted catalytic activity by the use of triphenylamine](https://doi.org/10.1016/j.mcat.2022.112805)
-7. [Effects of support material and electrolyte on a triphenylamine substituted cobalt porphyrin catalytic oxygen reduction reaction](https://doi.org/10.1016/j.colsurfa.2023.131214)
-8. [Heterogeneous molecular Co–N–C catalysts for efficient electrochemical H2O2 synthesis](http://dx.doi.org/10.1039/D2EE02734H)
+**References about oxygen evolution reaction**
+1. [Oxygen Evolution Reaction Electrocatalysis on Transition Metal Oxides and (Oxy)hydroxides: Activity Trends and Design Principles](https://doi.org/10.1021/acs.chemmater.5b03148) 
+2. [Nickel–iron oxyhydroxide oxygen-evolution electrocatalysts: the role of intentional and incidental iron incorporation](https://doi.org/10.1021/ja502379c)
+3. [Research progress on high entropy alloys and high entropy derivatives as OER catalysts](https://doi.org/10.1016/j.jece.2022.109080)
+4. [Manganese oxide with different composition and morphology as electrocatalyst for oxygen evolution reaction](https://link.springer.com/article/10.1007/s11814-017-0247-2)

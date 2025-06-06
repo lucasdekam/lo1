@@ -2,6 +2,31 @@
 **Tutorial paper about cyclic voltammetry and electrochemistry**
 [A Practical Beginner’s Guide to Cyclic Voltammetry](https://pubs.acs.org/doi/full/10.1021/acs.jchemed.7b00361)
 
+## Available materials
+
+Cell materials:
+- Substrate (FTO)
+- Counter electrode 1 for deposition (carbon paper or small piece of graphite)
+- Counter electrode 2 for activity (larger graphite rod)
+- Plastic vial  (20 mL)
+- Clamps
+- Three-neck flask
+- Cork ring and stage for cell
+- Reference electrode (keep in water always)
+
+Metal salts:
+- Iron(X) nitrate (Fe(NO3)x x nH2O ) (Sigma Aldrich, xx%) or sulphate 
+- Manganese(II) nitrate (Mn(NO3)x x nH2O) (Sigma Aldrich, xx% )
+- Cobalt(II) nitrate (Co(NO3) x nH2O) (Sigma Aldrich, xx%)
+- Nickel(II) nitrate (Ni(NO3)x x nH2O) (Sigma Aldrich, xx%)
+
+Electrolyte salts:
+- KOH (note glass leaches above pH 12)
+- NaOH
+- Sulphates
+- Phosphate salts
+- Perchlorate salts
+
 ## Cleaning procedure
 Before any glassware can be used for clean electrochemistry, it needs to be cleaned by us thoroughly. We use potassium permanganate to oxidize any organic compounds and dilute [piranha solution](https://www.youtube.com/watch?v=cLpSapjKcxM) (sulfuric acid + hydrogen peroxide) to dissolve any inorganic impurities. The name _piranha_ refers to the similarities with a real piranha when organic material comes into contact with the solution. These chemicals are therefore really dangerous and you should be really careful not to spill and damage your clothes.  
 1.	Store glassware in a 1 g/L KMnO4 + 0.1 M H2SO4 solution for 2-3 h.
@@ -25,27 +50,16 @@ Every consumable like glass vials, gloves, pipette tips and centrifuge tubes are
 3.  Only use cleaned glassware and disposable syringes (no needles) to make electrolyte solutions
 4.  Make electrolyte directly in the cell
 
-## Catalyst preparation
-Prepare two different solutions:
-1.  Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Sonicate the suspension for 30 min
-2.  Prepare 1 mL solution of 1.25 mM metal complex in acetone
-3.  Wrap the vial in aluminum foil to protect it from the light
-4.  Store in the fridge over night
+# Catalyst electrodeposition
+[Oxidatively Electrodeposited Thin-Film Transition Metal (Oxy)hydroxides as Oxygen Evolution Catalysts](https://pubs.acs.org/doi/full/10.1021/jacs.6b05196?casa_token=niLWHYRAcKcAAAAA%3AzxuQ9W4Qjd373VP1Sj_WqA8__U26kYpVXu31SzBKKK1uFISbzeWKyuyAhj8aluS1PCNki4higRzwfCc)
 
-The complex will be diluted in the catalyst ink, for different loadings, you can vary the concentration from 1.25 mM to 3.5 mM.
+Now that you have read Morales-Guio et al. (2016), it is time to perform our own electrodeposition experiments and analyze the materials. 
+To do this, you will first need to derive and develop a step-by-step protocol for both the electrodeposition as well as the electrochemical analysis.
+ An experimental protocol is a detailed plan that describes the steps you will take to form this catalyst and analyze this. An experimental protocol should leave little room for interpretation. 
+Take into account that your setup and chemistry will be slightly different than in the literature, as this is dependent on available materials. 
 
-Make catalyst ink in seperate vial:
-1.  Take 40 µL complex solution
-2.  Add 20 µL Nafion suspension and homogenize by using the sonicator for 15 min
-3.  Add 120 µL Carbon black suspension (sonicate for 10 min. or more prior to application)
-
-Dropcasting:
-1.  Polish a graphite rod with rough and smooth sandpaper, polish in a 8 pattern for 30 - 60 s per sandpaper. Rinse with water and wipe with paper afterwards.
-2.  Take 5 µL of catalyst ink with pipette and drop bottom of graphite rod
-3.  Let acetone evaporate in air for 30 - 60 s
-4.  Dropcast a second time
-5.  Let it dry for 5 - 15 more min
-6.  To clean the substrate after the experiment, for graphite rinse with acetone and repolish with the rough and smoother sandpaper. For gold, sonicate in acetone 15 min. 
+## Task description
+Prepare a 50 mM solution of the metal nitrates (or Fe sulphate) in the desired ratio. If necessary, adjust the pH with citric acid until it is (slightly) below 8. Deposit the metal(s) on FTO glass (hint: use tape to raster off the active area) under a N2 atmosphere and with a carbon counter electrode (CE), by applying a current density of -1 mA/cm2 for 10 s. Rinse the deposit with 0.1 M KOH or NaOH and demi water.
 
 
 ## Setting up a three-electrode setup
@@ -92,3 +106,11 @@ An alternative to cyclic voltammetry.
 
 ## Chronoamperometry
 Applying a constant potential and measuring the current over a long time to estimate the activity and stability. This is usually used once the potential is found where the catalyst produces the highest activity rate. 
+
+# Electrochemical analysis
+Now that the catalyst has been formed, it is time to analyze its oxygen evolution reaction (OER) performance in an alkaline environment.
+
+## Task description
+Prepare a stock solution of the electrolyte of choice (pH<12!). Use this to characterize the surface in a clean cell (N2 atmosphere., CE: carbon rod, reference electrode (REF): hydroflex).
+Cyclic voltammetry (CV): 0.4 – 1.5 V vs. RHE. 50 cycles, 50 mV/s. 
+Then, in the same solution, test the catalytic activity with a CV (1.2 – 1.7 V vs. RHE. 10 cycles, 10 mV/s), and linear sweep voltammetry (LSV, 1.2 – 1.7 V vs. RHE. 2 mV/s).
