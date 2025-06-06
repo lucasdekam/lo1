@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -187,6 +187,8 @@
 <li class="toctree-l1"><a class="reference internal" href="course-information.html">Electrochemistry lab</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Experimental procedures</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="theory.html">Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="safety.html">Safety discussion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="figures.html">Figure guidelines</a></li>
@@ -389,14 +391,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Experimental procedures</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-materials">Available materials</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-procedure">Cleaning procedure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-electrolyte-solutions">Preparing electrolyte solutions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalyst-preparation">Catalyst preparation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#catalyst-electrodeposition">Catalyst electrodeposition</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-description">Task description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-three-electrode-setup">Setting up a three-electrode setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-voltammetry-cv">Cyclic voltammetry (CV)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-sweep-voltammetry-lsv">Linear sweep voltammetry (LSV)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chronoamperometry">Chronoamperometry</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#electrochemical-analysis">Electrochemical analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Task description</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -411,6 +425,35 @@ document.write(`
 <h1>Experimental procedures<a class="headerlink" href="#experimental-procedures" title="Link to this heading">#</a></h1>
 <p><strong>Tutorial paper about cyclic voltammetry and electrochemistry</strong>
 <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jchemed.7b00361">A Practical Beginner’s Guide to Cyclic Voltammetry</a></p>
+<section id="available-materials">
+<h2>Available materials<a class="headerlink" href="#available-materials" title="Link to this heading">#</a></h2>
+<p>Cell materials:</p>
+<ul class="simple">
+<li><p>Substrate (FTO)</p></li>
+<li><p>Counter electrode 1 for deposition (carbon paper or small piece of graphite)</p></li>
+<li><p>Counter electrode 2 for activity (larger graphite rod)</p></li>
+<li><p>Plastic vial  (20 mL)</p></li>
+<li><p>Clamps</p></li>
+<li><p>Three-neck flask</p></li>
+<li><p>Cork ring and stage for cell</p></li>
+<li><p>Reference electrode (keep in water always)</p></li>
+</ul>
+<p>Metal salts:</p>
+<ul class="simple">
+<li><p>Iron(X) nitrate (Fe(NO3)x x nH2O ) (Sigma Aldrich, xx%) or sulphate</p></li>
+<li><p>Manganese(II) nitrate (Mn(NO3)x x nH2O) (Sigma Aldrich, xx% )</p></li>
+<li><p>Cobalt(II) nitrate (Co(NO3) x nH2O) (Sigma Aldrich, xx%)</p></li>
+<li><p>Nickel(II) nitrate (Ni(NO3)x x nH2O) (Sigma Aldrich, xx%)</p></li>
+</ul>
+<p>Electrolyte salts:</p>
+<ul class="simple">
+<li><p>KOH (note glass leaches above pH 12)</p></li>
+<li><p>NaOH</p></li>
+<li><p>Sulphates</p></li>
+<li><p>Phosphate salts</p></li>
+<li><p>Perchlorate salts</p></li>
+</ul>
+</section>
 <section id="cleaning-procedure">
 <h2>Cleaning procedure<a class="headerlink" href="#cleaning-procedure" title="Link to this heading">#</a></h2>
 <p>Before any glassware can be used for clean electrochemistry, it needs to be cleaned by us thoroughly. We use potassium permanganate to oxidize any organic compounds and dilute <a class="reference external" href="https://www.youtube.com/watch?v=cLpSapjKcxM">piranha solution</a> (sulfuric acid + hydrogen peroxide) to dissolve any inorganic impurities. The name <em>piranha</em> refers to the similarities with a real piranha when organic material comes into contact with the solution. These chemicals are therefore really dangerous and you should be really careful not to spill and damage your clothes.</p>
@@ -436,31 +479,17 @@ document.write(`
 <li><p>Make electrolyte directly in the cell</p></li>
 </ol>
 </section>
-<section id="catalyst-preparation">
-<h2>Catalyst preparation<a class="headerlink" href="#catalyst-preparation" title="Link to this heading">#</a></h2>
-<p>Prepare two different solutions:</p>
-<ol class="arabic simple">
-<li><p>Prepare 5 mL suspension of Carbon black in acetone (0.65 mg/mL). Sonicate the suspension for 30 min</p></li>
-<li><p>Prepare 1 mL solution of 1.25 mM metal complex in acetone</p></li>
-<li><p>Wrap the vial in aluminum foil to protect it from the light</p></li>
-<li><p>Store in the fridge over night</p></li>
-</ol>
-<p>The complex will be diluted in the catalyst ink, for different loadings, you can vary the concentration from 1.25 mM to 3.5 mM.</p>
-<p>Make catalyst ink in seperate vial:</p>
-<ol class="arabic simple">
-<li><p>Take 40 µL complex solution</p></li>
-<li><p>Add 20 µL Nafion suspension and homogenize by using the sonicator for 15 min</p></li>
-<li><p>Add 120 µL Carbon black suspension (sonicate for 10 min. or more prior to application)</p></li>
-</ol>
-<p>Dropcasting:</p>
-<ol class="arabic simple">
-<li><p>Polish a graphite rod with rough and smooth sandpaper, polish in a 8 pattern for 30 - 60 s per sandpaper. Rinse with water and wipe with paper afterwards.</p></li>
-<li><p>Take 5 µL of catalyst ink with pipette and drop bottom of graphite rod</p></li>
-<li><p>Let acetone evaporate in air for 30 - 60 s</p></li>
-<li><p>Dropcast a second time</p></li>
-<li><p>Let it dry for 5 - 15 more min</p></li>
-<li><p>To clean the substrate after the experiment, for graphite rinse with acetone and repolish with the rough and smoother sandpaper. For gold, sonicate in acetone 15 min.</p></li>
-</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="catalyst-electrodeposition">
+<h1>Catalyst electrodeposition<a class="headerlink" href="#catalyst-electrodeposition" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/jacs.6b05196?casa_token=niLWHYRAcKcAAAAA%3AzxuQ9W4Qjd373VP1Sj_WqA8__U26kYpVXu31SzBKKK1uFISbzeWKyuyAhj8aluS1PCNki4higRzwfCc">Oxidatively Electrodeposited Thin-Film Transition Metal (Oxy)hydroxides as Oxygen Evolution Catalysts</a></p>
+<p>Now that you have read Morales-Guio et al. (2016), it is time to perform our own electrodeposition experiments and analyze the materials.
+To do this, you will first need to derive and develop a step-by-step protocol for both the electrodeposition as well as the electrochemical analysis.
+An experimental protocol is a detailed plan that describes the steps you will take to form this catalyst and analyze this. An experimental protocol should leave little room for interpretation.
+Take into account that your setup and chemistry will be slightly different than in the literature, as this is dependent on available materials.</p>
+<section id="task-description">
+<h2>Task description<a class="headerlink" href="#task-description" title="Link to this heading">#</a></h2>
+<p>Prepare a 50 mM solution of the metal nitrates (or Fe sulphate) in the desired ratio. If necessary, adjust the pH with citric acid until it is (slightly) below 8. Deposit the metal(s) on FTO glass (hint: use tape to raster off the active area) under a N2 atmosphere and with a carbon counter electrode (CE), by applying a current density of -1 mA/cm2 for 10 s. Rinse the deposit with 0.1 M KOH or NaOH and demi water.</p>
 </section>
 <section id="setting-up-a-three-electrode-setup">
 <h2>Setting up a three-electrode setup<a class="headerlink" href="#setting-up-a-three-electrode-setup" title="Link to this heading">#</a></h2>
@@ -512,6 +541,16 @@ document.write(`
 <section id="chronoamperometry">
 <h2>Chronoamperometry<a class="headerlink" href="#chronoamperometry" title="Link to this heading">#</a></h2>
 <p>Applying a constant potential and measuring the current over a long time to estimate the activity and stability. This is usually used once the potential is found where the catalyst produces the highest activity rate.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="electrochemical-analysis">
+<h1>Electrochemical analysis<a class="headerlink" href="#electrochemical-analysis" title="Link to this heading">#</a></h1>
+<p>Now that the catalyst has been formed, it is time to analyze its oxygen evolution reaction (OER) performance in an alkaline environment.</p>
+<section id="id1">
+<h2>Task description<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Prepare a stock solution of the electrolyte of choice (pH&lt;12!). Use this to characterize the surface in a clean cell (N2 atmosphere., CE: carbon rod, reference electrode (REF): hydroflex).
+Cyclic voltammetry (CV): 0.4 – 1.5 V vs. RHE. 50 cycles, 50 mV/s.
+Then, in the same solution, test the catalytic activity with a CV (1.2 – 1.7 V vs. RHE. 10 cycles, 10 mV/s), and linear sweep voltammetry (LSV, 1.2 – 1.7 V vs. RHE. 2 mV/s).</p>
 </section>
 </section>
 
@@ -579,14 +618,26 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Experimental procedures</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-materials">Available materials</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-procedure">Cleaning procedure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-electrolyte-solutions">Preparing electrolyte solutions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catalyst-preparation">Catalyst preparation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#catalyst-electrodeposition">Catalyst electrodeposition</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-description">Task description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-three-electrode-setup">Setting up a three-electrode setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclic-voltammetry-cv">Cyclic voltammetry (CV)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-sweep-voltammetry-lsv">Linear sweep voltammetry (LSV)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chronoamperometry">Chronoamperometry</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#electrochemical-analysis">Electrochemical analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Task description</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

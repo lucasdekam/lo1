@@ -14,6 +14,9 @@ Welcome to LO1 at CASC! On this website you will find information about the proj
 | 5     | EC     | EC     | EC     | EC     | EC     | Extra  | Theor  | Theor  | Theor  |
 | 6     | EC     | EC     | EC     | EC     | EC     | Extra  | Theor  | Theor  | Theor  |
 
+**Theory working space:** CM4.46
+
+
 ## Research questions
 
 | Teams      | Materials to investigate         |
