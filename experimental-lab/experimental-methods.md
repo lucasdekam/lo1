@@ -1,4 +1,4 @@
-# Experimental procedures
+# Experimental methods
 **Tutorial paper about cyclic voltammetry and electrochemistry**
 [A Practical Beginner’s Guide to Cyclic Voltammetry](https://pubs.acs.org/doi/full/10.1021/acs.jchemed.7b00361)
 
@@ -87,30 +87,28 @@ A schematic display of the three-electrode setup with a working (WE), counter (C
 9.	Connect working electrode
 10.	Run measurement
 
+# Electrochemical methods
+
+Note, you can test all these parameters with a gold or carbon electrode which will not degrade.
+
 ## Cyclic voltammetry (CV)
-_Before any measurement measure ohmic drop (iR-drop) using impedance spectroscopy and measure the open circuit potential._
+_Before any measurement measure ohmic drop (iR-drop) using impedance spectroscopy and measure the open circuit potential. (Check if possible with TA)_ 
 1.  Make sure electrodes are connected properly
+2.  Check Open circuit potential (OCP/OCV), note in notebook
 2.  Select starting potential should be around 0.8 V. 
-3.  Select highest vertex potential: for graphite go to 1.0 V maximum. 
-4.  Select lowest vertex potential (should be > 0 V)
+3.  Select highest vertex potential: look at values from literature, do not go above 2 V.
+4.  Select lowest vertex potential (should be > 0.4 V)
 5.  Select scan rate (mV/s) in the range of 5 - 250 mV/s
-6.  I range (100 micro A), E step to 1 mV
-7.  When iR-drop and OCP have been determined, start CA and CV
+6.  I range (1 - 10 mA), E step to 1 mV
+
 
 ## Linear sweep voltammetry (LSV)
-An alternative to cyclic voltammetry.
+An alternative to cyclic voltammetry. Scans from one potential to another in 1 sweep. Typically done at a very low scan rate < 10 mV/s.
 
 1.  Start at a stable potential from which you want to scan
-2.  Use chronoamperometry (CA) at a stable potential for 1 min
+2.  Use chronoamperometry (CA) at a stable potential for max. 1 min
 2.  Follow same steps as CV except for lowest vertex potential
 
 ## Chronoamperometry
 Applying a constant potential and measuring the current over a long time to estimate the activity and stability. This is usually used once the potential is found where the catalyst produces the highest activity rate. 
 
-# Electrochemical analysis
-Now that the catalyst has been formed, it is time to analyze its oxygen evolution reaction (OER) performance in an alkaline environment.
-
-## Task description
-Prepare a stock solution of the electrolyte of choice (pH<12!). Use this to characterize the surface in a clean cell (N2 atmosphere., CE: carbon rod, reference electrode (REF): hydroflex).
-Cyclic voltammetry (CV): 0.4 – 1.5 V vs. RHE. 50 cycles, 50 mV/s. 
-Then, in the same solution, test the catalytic activity with a CV (1.2 – 1.7 V vs. RHE. 10 cycles, 10 mV/s), and linear sweep voltammetry (LSV, 1.2 – 1.7 V vs. RHE. 2 mV/s).
