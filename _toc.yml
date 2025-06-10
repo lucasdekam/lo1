@@ -16,7 +16,8 @@ parts:
 - caption: Experimental lab
   chapters:
   - file: experimental-lab/course-information
-  - file: experimental-lab/experimental
+  - file: experimental-lab/experimental-methods
+  - file: experimental-lab/OER-testing
   - file: experimental-lab/theory
   - file: experimental-lab/safety
   - file: experimental-lab/figures
