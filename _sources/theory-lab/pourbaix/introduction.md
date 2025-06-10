@@ -45,3 +45,5 @@ In electrochemistry, the most common reference point for the electrode potential
 
 * What point in the Pourbaix diagram corresponds to the SHE?
 `````
+
+In experiments, we often use a different reference electrode: the reversible hydrogen electrode (RHE). It's almost the same as SHE, except that the $\mathrm{H^+}$-concentration is allowed to change, depending on your experiment. The zero on the RHE scale corresponds to the blue dotted line in the Pourbaix diagram {ref}`iron-pourbaix`.

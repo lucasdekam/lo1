@@ -439,7 +439,7 @@ G = U - TS + pV
 <div class="tip admonition">
 <p class="admonition-title">Task</p>
 <p>Collect values of <span class="math notranslate nohighlight">\(\mu\)</span> for your material of interest (and remember that you need to cite the source in your report). The experimental value of water can be found in <span id="id2">Persson <em>et al.</em> [<a class="reference internal" href="../../references.html#id16" title="Kristin A Persson, Bryn Waldwick, Predrag Lazic, and Gerbrand Ceder. Prediction of solid-aqueous equilibria: scheme to combine first-principles calculations of solids with experimental aqueous states. Physical Review B—Condensed Matter and Materials Physics, 85(23):235438, 2012. doi:10.1103/PhysRevB.85.235438.">2</a>]</span> (section II-C). Make sure all energies are in the same unit (preferably electronvolts, eV). It’s handy to use a similar format as shown below.</p>
-<p>For now, you can ignore hydroxide or oxide ions, like <span class="math notranslate nohighlight">\(\mathrm{Fe(OH)^+}\)</span>.</p>
+<p>For now, you can ignore hydroxide ions or oxide ions, like <span class="math notranslate nohighlight">\(\mathrm{Fe(OH)^+}\)</span>.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -488,6 +488,10 @@ G = U - TS + pV
     E = -\mu_e/e
 \]</div>
 <p>with <span class="math notranslate nohighlight">\(e\)</span> the elementary charge.</p>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p>Actually, <span class="math notranslate nohighlight">\(E\)</span> is related to the work function <span class="math notranslate nohighlight">\(\Phi\)</span> of the electrode, <span class="math notranslate nohighlight">\(E=\Phi/e\)</span>, and <span class="math notranslate nohighlight">\(\Phi = -\mu_e + e\chi\)</span>. Here, <span class="math notranslate nohighlight">\(\chi\)</span> is the so-called surface potential, an additional contribution related to the surface structure of the electrode. We neglect <span class="math notranslate nohighlight">\(\chi\)</span> because it does not depend on the potential we apply, so it’s just a constant offset everywhere that cancels out in the end. A nice overview picture of potentials can be found on <a class="reference external" href="https://en.wikipedia.org/wiki/Galvani_potential">this Wikipedia page</a>.</p>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Task</p>
 <p>Find a formula for the chemical potential of the solvated proton, <span class="math notranslate nohighlight">\(\mathrm{H^+(aq)}\)</span>.</p>
