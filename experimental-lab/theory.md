@@ -33,16 +33,17 @@ Hint, it involves OH-
 
 
 **Tutorial paper about cyclic voltammetry and electrochemistry**
-[A Practical Beginner’s Guide to Cyclic Voltammetry](https://pubs.acs.org/doi/full/10.1021/acs.jchemed.7b00361)
+[A Practical Beginner’s Guide to Cyclic Voltammetry](https://pubs.acs.org/doi/full/10.1021/acs.jchemed.7b00361) {cite:p}`Elgrishi2018Apractical`
 
 **Reference about pH effect**
-[Mechanistic understanding of pH effects on the oxygen evolution reaction](https://doi.org/10.1016/j.electacta.2021.139810)
+[Mechanistic understanding of pH effects on the oxygen evolution reaction](https://doi.org/10.1016/j.electacta.2021.139810) {cite:p}`FORNACIARI2022139810`
 
 **Basic idea of catalyst preparations**
-[Oxidatively Electrodeposited Thin-Film Transition Metal (Oxy)hydroxides as Oxygen Evolution Catalysts](https://doi.org/10.1021/jacs.6b05196)
+[Oxidatively Electrodeposited Thin-Film Transition Metal (Oxy)hydroxides as Oxygen Evolution Catalysts](https://doi.org/10.1021/jacs.6b05196) {cite:p}`Morales2016Oxidatively`
 
 **References about oxygen evolution reaction**
-1. [Oxygen Evolution Reaction Electrocatalysis on Transition Metal Oxides and (Oxy)hydroxides: Activity Trends and Design Principles](https://doi.org/10.1021/acs.chemmater.5b03148) 
-2. [Nickel–iron oxyhydroxide oxygen-evolution electrocatalysts: the role of intentional and incidental iron incorporation](https://doi.org/10.1021/ja502379c)
-3. [Research progress on high entropy alloys and high entropy derivatives as OER catalysts](https://doi.org/10.1016/j.jece.2022.109080)
-4. [Manganese oxide with different composition and morphology as electrocatalyst for oxygen evolution reaction](https://link.springer.com/article/10.1007/s11814-017-0247-2)
+1. [Oxygen Evolution Reaction Electrocatalysis on Transition Metal Oxides and (Oxy)hydroxides: Activity Trends and Design Principles](https://doi.org/10.1021/acs.chemmater.5b03148) {cite:p}`Burke2015`
+2. [Nickel–iron oxyhydroxide oxygen-evolution electrocatalysts: the role of intentional and incidental iron incorporation](https://doi.org/10.1021/ja502379c) {cite:p}`Trotochaud2014`
+3. [Research progress on high entropy alloys and high entropy derivatives as OER catalysts](https://doi.org/10.1016/j.jece.2022.109080) {cite:p}`WANG2023109080`
+4. [Manganese oxide with different composition and morphology as electrocatalyst for oxygen evolution reaction](https://link.springer.com/article/10.1007/s11814-017-0247-2) 
+{cite:p}`Sim_Lee_Yu_Lim_2017b`
