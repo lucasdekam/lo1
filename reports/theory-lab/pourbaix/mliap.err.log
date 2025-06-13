@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\asyncio\base_events.py", line 664, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from mace.calculators import mace_mp
+
+calc = mace_mp(model="MACE-matpes-r2scan-omat-ft.model", default_dtype="float64")
+atoms.calc = calc
+atoms.get_potential_energy()
+------------------
+
+----- stderr -----
+C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\e3nn\o3\_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+----- stdout -----
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mFile [39m[32m~\AppData\Local\miniconda3\envs\mace\Lib\site-packages\mace\calculators\foundations_models.py:160[39m, in [36mmace_mp[39m[34m(model, device, default_dtype, dispersion, damping, dispersion_xc, dispersion_cutoff, return_raw_model, **kwargs)[39m
+[32m    159[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m Path(model).exists():
+[32m--> [39m[32m160[39m     [38;5;28;01mraise[39;00m [38;5;167;01mFileNotFoundError[39;00m([33mf[39m[33m"[39m[38;5;132;01m{[39;00mmodel[38;5;132;01m}[39;00m[33m not found locally[39m[33m"[39m)
+[32m    161[39m model_path = model
+
+[31mFileNotFoundError[39m: MACE-matpes-r2scan-omat-ft.model not found locally
+
+The above exception was the direct cause of the following exception:
+
+[31mRuntimeError[39m                              Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 3[39m
+[32m      1[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mmace[39;00m[34;01m.[39;00m[34;01mcalculators[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m mace_mp
+[32m----> [39m[32m3[39m calc = [43mmace_mp[49m[43m([49m[43mmodel[49m[43m=[49m[33;43m"[39;49m[33;43mMACE-matpes-r2scan-omat-ft.model[39;49m[33;43m"[39;49m[43m,[49m[43m [49m[43mdefault_dtype[49m[43m=[49m[33;43m"[39;49m[33;43mfloat64[39;49m[33;43m"[39;49m[43m)[49m
+[32m      4[39m atoms.calc = calc
+[32m      5[39m atoms.get_potential_energy()
+
+[36mFile [39m[32m~\AppData\Local\miniconda3\envs\mace\Lib\site-packages\mace\calculators\foundations_models.py:163[39m, in [36mmace_mp[39m[34m(model, device, default_dtype, dispersion, damping, dispersion_xc, dispersion_cutoff, return_raw_model, **kwargs)[39m
+[32m    161[39m         model_path = model
+[32m    162[39m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m exc:
+[32m--> [39m[32m163[39m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33m"[39m[33mModel download failed and no local model found[39m[33m"[39m) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mexc[39;00m
+[32m    165[39m device = device [38;5;129;01mor[39;00m ([33m"[39m[33mcuda[39m[33m"[39m [38;5;28;01mif[39;00m torch.cuda.is_available() [38;5;28;01melse[39;00m [33m"[39m[33mcpu[39m[33m"[39m)
+[32m    166[39m [38;5;28;01mif[39;00m default_dtype == [33m"[39m[33mfloat64[39m[33m"[39m:
+
+[31mRuntimeError[39m: Model download failed and no local model found
+
