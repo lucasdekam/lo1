@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -580,6 +580,19 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\mace\calculators\mace.py:143: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using head default out of [&#39;default&#39;]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-11.746797198194443
+</pre></div>
+</div>
 </div>
 </div>
 <p>The energy you get out is the electronic energy, we’ll call it <span class="math notranslate nohighlight">\(E^\mathrm{DFT}\)</span>.</p>
@@ -591,6 +604,27 @@ document.write(`
 
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
 <span class="n">optimizer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>  <span class="c1"># maximum force in eV/Angstrom</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
+BFGS:    0 13:52:42      -11.746797        1.905323
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 13:52:43      -11.742271        2.348481
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 13:52:44      -11.773124        0.204156
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    3 13:52:44      -11.773393        0.019630
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    4 13:52:44      -11.773396        0.000189
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -620,6 +654,177 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\ase\io\cif.py:410: UserWarning: crystal system &#39;cubic&#39; is not interpreted for space group Spacegroup(225, setting=1). This may result in wrong setting!
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output text_html"><html>
+    <head>
+        <title>ASE atomic visualization</title>
+        <link rel="stylesheet" type="text/css"             href="https://www.x3dom.org/release/x3dom.css"></link>
+        <script type="text/javascript"             src="https://www.x3dom.org/release/x3dom.js"></script>
+    </head>
+    <body>
+        <X3D width="400px"; height="300px";>
+
+<!--Inserting Generated X3D Scene-->
+<scene>
+  <viewpoint position="0 0 9.22">
+    <group/>
+  </viewpoint>
+  <transform translation="-2.305 -2.305 -2.305">
+    <group>
+      <group>
+        <transform translation="0 0 0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 4.61 0.0 0.0 4.61 4.61 0.0 0.0 4.61 0.0 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+        <transform translation="0.0 0.0 4.61">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 4.61 0.0 0.0 4.61 4.61 0.0 0.0 4.61 0.0 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+        <transform translation="0 0 0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 4.61 0.0 0.0 4.61 0.0 4.61 0.0 0.0 4.61 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+        <transform translation="0.0 4.61 0.0">
+          <shape>
+            <appearance>
+              <material diffuseColor="0 0 0"/>
+            </appearance>
+            <lineset vertexCount="5">
+              <coordinate point="0 0 0 4.61 0.0 0.0 4.61 0.0 4.61 0.0 0.0 4.61 0 0 0"/>
+            </lineset>
+          </shape>
+        </transform>
+      </group>
+      <group>
+        <transform translation="0.0 0.0 0.0">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+        <transform translation="0.0 2.305 2.305">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+        <transform translation="2.305 0.0 2.305">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+        <transform translation="2.305 2.305 0.0">
+          <shape>
+            <appearance>
+              <material diffuseColor="1.0 0.051 0.051"/>
+            </appearance>
+            <sphere radius="0.66"/>
+          </shape>
+        </transform>
+        <transform translation="1.1525 1.1525 1.1525">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="1.1525 3.4575000000000005 3.4575000000000005">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="3.4575000000000005 1.1525 3.4575000000000005">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="3.4575000000000005 3.4575000000000005 1.1525">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="3.4575000000000005 3.4575000000000005 3.4575000000000005">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="3.4575000000000005 1.1525 1.1525">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="1.1525 3.4575000000000005 1.1525">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+        <transform translation="1.1525 1.1525 3.4575000000000005">
+          <shape>
+            <appearance>
+              <material diffuseColor="0.8 0.502 1.0"/>
+            </appearance>
+            <sphere radius="1.28"/>
+          </shape>
+        </transform>
+      </group>
+    </group>
+  </transform>
+</scene>
+<!--End of Inserted Scene-->
+
+        </X3D>
+    </body>
+</html>
+
+</div></div>
 </div>
 <p>You can again find <span class="math notranslate nohighlight">\(E^\mathrm{DFT}\)</span>:</p>
 <div class="cell docutils container">
@@ -627,6 +832,21 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calc</span> <span class="o">=</span> <span class="n">mace_mp</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;MACE-matpes-r2scan-omat-ft.model&quot;</span><span class="p">,</span> <span class="n">default_dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
 <span class="n">material</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">calc</span>
 <span class="n">material</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\kamlbtde\AppData\Local\miniconda3\envs\mace\Lib\site-packages\mace\calculators\mace.py:143: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using head default out of [&#39;default&#39;]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-67.11994532427966
 </pre></div>
 </div>
 </div>
@@ -640,6 +860,21 @@ document.write(`
 <span class="n">ucf</span> <span class="o">=</span> <span class="n">UnitCellFilter</span><span class="p">(</span><span class="n">material</span><span class="p">)</span>
 <span class="n">opt</span> <span class="o">=</span> <span class="n">BFGS</span><span class="p">(</span><span class="n">ucf</span><span class="p">)</span>
 <span class="n">opt</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">fmax</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Step     Time          Energy          fmax
+BFGS:    0 13:52:46      -67.119945        0.131128
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    1 13:52:48      -67.120677        0.129183
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BFGS:    2 13:52:49      -67.144967        0.000812
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
