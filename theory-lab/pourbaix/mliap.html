@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -463,7 +463,7 @@ document.write(`
 </section>
 <section id="oxygen-molecule">
 <h2>Oxygen molecule<a class="headerlink" href="#oxygen-molecule" title="Link to this heading">#</a></h2>
-<p>Let’s see how this all works in practice. First, we use ASE to define the structure of an oxygen molecule.</p>
+<p>Let’s see how this all works in practice. First, we use ASE to define the structure of an oxygen molecule. <strong>Note: <code class="docutils literal notranslate"><span class="pre">viewer='x3d'</span></code> is for IPython notebooks, which were used to generate this web page. If you run a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, you should just use <code class="docutils literal notranslate"><span class="pre">view(material)</span></code>.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">molecule</span>
@@ -578,34 +578,6 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">File ~\AppData\Local\miniconda3\envs\mace\Lib\site-packages\mace\calculators\foundations_models.py:160,</span> in <span class="ni">mace_mp</span><span class="nt">(model, device, default_dtype, dispersion, damping, dispersion_xc, dispersion_cutoff, return_raw_model, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">160</span>     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2"> not found locally&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="n">model_path</span> <span class="o">=</span> <span class="n">model</span>
-
-<span class="ne">FileNotFoundError</span>: MACE-matpes-r2scan-omat-ft.model not found locally
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">mace.calculators</span><span class="w"> </span><span class="kn">import</span> <span class="n">mace_mp</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">mace_mp</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;MACE-matpes-r2scan-omat-ft.model&quot;</span><span class="p">,</span> <span class="n">default_dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">calc</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
-
-<span class="nn">File ~\AppData\Local\miniconda3\envs\mace\Lib\site-packages\mace\calculators\foundations_models.py:163,</span> in <span class="ni">mace_mp</span><span class="nt">(model, device, default_dtype, dispersion, damping, dispersion_xc, dispersion_cutoff, return_raw_model, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">161</span>         <span class="n">model_path</span> <span class="o">=</span> <span class="n">model</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">163</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Model download failed and no local model found&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span> <span class="n">device</span> <span class="o">=</span> <span class="n">device</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span> <span class="k">if</span> <span class="n">default_dtype</span> <span class="o">==</span> <span class="s2">&quot;float64&quot;</span><span class="p">:</span>
-
-<span class="ne">RuntimeError</span>: Model download failed and no local model found
 </pre></div>
 </div>
 </div>
