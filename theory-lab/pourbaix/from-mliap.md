@@ -67,6 +67,8 @@ We just calculated the formation energy of a metal oxide from quantum mechanics!
 :class: tip
 
 Calculate $\mu^0$ for your metal oxides from the MACE energies. Make a plot with $\mu^0$ from MACE on the $x$-axis, and $\mu^0$ from literature (which you gathered in the first part) on the $y$-axis. Do the data points lie on the line $x=y$? What does this mean?
+
+Tip: to be consistent with literature and the equations we used to calculate $\Delta \mu$, calculate the energy per **formula unit**. A structure might contain 12 nickel atoms and 16 oxygen atoms, but we want the energy for $\mathrm{Ni_2 O_3}$.
 `````
 
 ## Water

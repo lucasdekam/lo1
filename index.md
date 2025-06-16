@@ -27,3 +27,11 @@ Welcome to LO1 at CASC! On this website you will find information about the proj
 | **Team 4** |    Fe and Co                     |
 | **Team 5** |    Ni and Fe                     |
 | **Team 6** |    Ni, test electrolyte purity   |
+
+## Report instructions
+
+* Combine the theory and experiment parts into one measurement report
+* For instructions on the report, see Brightspace
+* The most important goal of the report is that someone else can understand and reproduce your measurements and calculations
+* For examples on how to combine theory and experiment into one report, see {cite:t}`diaz2015guidelines`. Your introduction can be much shorter than the one in a scientific paper
+* Going through several iterations of feedback and rewriting will give you the best result. You can get feedback from your colleagues, or ask the TAs for early feedback
